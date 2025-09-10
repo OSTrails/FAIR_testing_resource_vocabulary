@@ -33,9 +33,7 @@ Test results have basic metadata to understand which test did they run, an expla
   "@context": "https://w3id.org/ftr/context",
   "@id": "urn:foops:c8e0f7a4-fa0c-432f-b1bc-d63206422e4a",
   "@type": "https://w3id.org/ftr#TestResult",
-  "identifier": {
-    "@id": "urn:foops:c8e0f7a4-fa0c-432f-b1bc-d63206422e4a"
-  },
+  "identifier": "urn:foops:c8e0f7a4-fa0c-432f-b1bc-d63206422e4a",
   "title": "Output from running test: OM1 (https://w3id.org/foops/test/OM1)",
   "description": "All the minimum metadata were found!",
   "license": {
@@ -88,7 +86,7 @@ Test results have basic metadata to understand which test did they run, an expla
   a &lt;https://w3id.org/ftr#TestResult&gt; ;
   dcterms:description "All the minimum metadata were found!" ;
   ftr:assessmentTarget &lt;https://w3id.org/example&gt; ;
-  dcterms:identifier &lt;urn:foops:c8e0f7a4-fa0c-432f-b1bc-d63206422e4a&gt; ;
+  dcterms:identifier "urn:foops:c8e0f7a4-fa0c-432f-b1bc-d63206422e4a" ;
   dcterms:license &lt;http://creativecommons.org/licenses/by/4.0/&gt; ;
   dcterms:title "Output from running test: OM1 (https://w3id.org/foops/test/OM1)" ;
   prov:generatedAtTime "Wed Aug 13 18:25:34 CEST 2025"^^xsd:date ;
@@ -179,9 +177,7 @@ Many assessment tools run a set of tests (e.g., organized under a benchmark). In
   "@id": "urn:foops:66b6e48a-b8db-4ac9-b935-1a94b8d93ea7",
   "@type": "https://w3id.org/ftr#TestResultSet",
   "description": "Set of test results that includes two tests for FAIR assessment of ontologies.",
-  "identifier": {
-    "@id": "urn:foops:66b6e48a-b8db-4ac9-b935-1a94b8d93ea7"
-  },
+  "identifier": "urn:foops:66b6e48a-b8db-4ac9-b935-1a94b8d93ea7",
   "assessmentTarget": {
     "@id": "https://w3id.org/example"
   },
@@ -198,9 +194,7 @@ Many assessment tools run a set of tests (e.g., organized under a benchmark). In
       "@id": "urn:foops:5d81b8b7-4083-4d4a-8269-e06270b4e9f7",
       "@type": "https://w3id.org/ftr#TestResult",
       "description": "Ontology URI follows a follows a persistent URI scheme (URI: https://w3id.org/example )",
-      "identifier": {
-        "@id": "urn:foops:5d81b8b7-4083-4d4a-8269-e06270b4e9f7"
-      },
+      "identifier": "urn:foops:5d81b8b7-4083-4d4a-8269-e06270b4e9f7",
       "title": "Output from running test: PURL1 (https://w3id.org/foops/test/PURL1)",
       "value": "ok",
       "completion": {
@@ -219,9 +213,7 @@ Many assessment tools run a set of tests (e.g., organized under a benchmark). In
       "@id": "urn:foops:ff848be7-fc65-438c-b701-b96ca78d3aa2",
       "@type": "https://w3id.org/ftr#TestResult",
       "description": "Ontology URL is resolvable in application/rdf+xml",
-      "identifier": {
-        "@id": "urn:foops:ff848be7-fc65-438c-b701-b96ca78d3aa2"
-      },
+      "identifier": "urn:foops:ff848be7-fc65-438c-b701-b96ca78d3aa2",
       "title": "Output from running test: URI1 (https://w3id.org/foops/test/URI1)",
       "value": "ok",
       "completion": {
@@ -257,7 +249,7 @@ Many assessment tools run a set of tests (e.g., organized under a benchmark). In
 &lt;urn:foops:5d81b8b7-4083-4d4a-8269-e06270b4e9f7&gt;
   a ftr:TestResult ;
   dc:description "Ontology URI follows a follows a persistent URI scheme (URI: https://w3id.org/example )" ;
-  dc:identifier &lt;urn:foops:5d81b8b7-4083-4d4a-8269-e06270b4e9f7&gt; ;
+  dc:identifier "urn:foops:5d81b8b7-4083-4d4a-8269-e06270b4e9f7" ;
   dc:title "Output from running test: PURL1 (https://w3id.org/foops/test/PURL1)" ;
   prov:value "pass" ;
   ftr:completion 100 ;
@@ -267,7 +259,7 @@ Many assessment tools run a set of tests (e.g., organized under a benchmark). In
 &lt;urn:foops:ff848be7-fc65-438c-b701-b96ca78d3aa2&gt;
   a ftr:TestResult ;
   dc:description "Ontology URL is resolvable in application/rdf+xml" ;
-  dc:identifier &lt;urn:foops:ff848be7-fc65-438c-b701-b96ca78d3aa2&gt; ;
+  dc:identifier "urn:foops:ff848be7-fc65-438c-b701-b96ca78d3aa2" ;
   dc:title "Output from running test: URI1 (https://w3id.org/foops/test/URI1)" ;
   prov:value "pass" ;
   ftr:completion 100 ;
@@ -372,9 +364,7 @@ A metric contains basic metadata to undertand what a test must implement. This i
     "@language": "en",
     "@value": "This metric ensures that the vocabulary is accessible in recognized RDF serialization formats. [rest of the definition omitted for simplicity]"
   },
-  "identifier": {
-    "@id": "https://w3id.org/foops/metric/CN1"
-  },
+  "identifier": "https://w3id.org/foops/metric/CN1",
   "license": {
     "@id": "http://creativecommons.org/licenses/by/4.0/"
   },
@@ -443,7 +433,7 @@ A metric contains basic metadata to undertand what a test must implement. This i
 @prefix vivo: &lt;http://vivoweb.org/ontology/core#&gt; . 
 
 &lt;https://w3id.org/foops/metric/CN1&gt; a ftr:Metric ;
-	dcterms:identifier &lt;https://w3id.org/foops/metric/CN1&gt; ;
+	dcterms:identifier "https://w3id.org/foops/metric/CN1" ;
 	dcterms:title "Content negotiation for RDF"@en ;
 	dcterms:description """ 
 This metric ensures that the vocabulary is accessible in recognized RDF serialization formats.
@@ -551,7 +541,7 @@ Benchmarks describe community-specific groupings of metrics that provides a narr
 @prefix vivo: &lt;http://vivoweb.org/ontology/core#&gt; .
 
 &lt;https://w3id.org/foops/benchmark/ALL&gt; a ftr:Benchmark ;
-	dcterms:identifier &lt;https://w3id.org/foops/benchmark/ALL&gt; ;
+	dcterms:identifier "https://w3id.org/foops/benchmark/ALL" ;
 	dcterms:title "General Benchmark for FAIR Principles"@en ;
     rdfs:label "Benchmark ALL"^^xsd:string ;
     vivo:abbreviation "Benchmark ALL"^^xsd:string ;
@@ -575,11 +565,11 @@ Benchmarks describe community-specific groupings of metrics that provides a narr
 	vcard:fn "Maria Poveda"^^xsd:string ;
 	vcard:hasEmail &lt;mailto:example2@upm.es&gt; .
 &lt;https://w3id.org/foops/metric/CN1&gt; a dqv:Metric ;
-	dcterms:identifier &lt;https://w3id.org/foops/metric/CN1&gt; ;
+	dcterms:identifier "https://w3id.org/foops/metric/CN1" ;
 	rdfs:label "Metric CN1"^^xsd:string ;
     vivo:abbreviation "Metric CN1"^^xsd:string .
 &lt;https://w3id.org/foops/metric/DOC1&gt; a dqv:Metric ;
-	dcterms:identifier &lt;https://w3id.org/foops/metric/DOC1&gt; ;
+	dcterms:identifier "https://w3id.org/foops/metric/DOC1" ;
 	rdfs:label "Metric DOC1"^^xsd:string ;
     vivo:abbreviation "Metric DOC1"^^xsd:string .
 ```
