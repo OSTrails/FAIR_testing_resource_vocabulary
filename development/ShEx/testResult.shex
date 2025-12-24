@@ -41,7 +41,7 @@ PREFIX dpv: <https://w3id.org/dpv#>
 }
 
 :testExecutionActivityShape IRI {
-   a [ ftr:testExecutionActivity ] ;
+   a [ ftr:TestExecutionActivity ] ;
    prov:used @:entityShape ? ;
    prov:wasAssociatedWith @:testShape * ;
    prov:endedAtTime xsd:dateTime

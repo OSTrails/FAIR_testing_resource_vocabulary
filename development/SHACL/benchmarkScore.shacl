@@ -18,7 +18,7 @@
 :BenchmarkScoreShape
     a sh:NodeShape ;
     sh:nodeKind sh:IRI ;
-    sh:class ftr:BenchmarkScore ;
+    sh:targetClass ftr:BenchmarkScore ;
 
     sh:property [
         sh:path prov:value ;
@@ -28,7 +28,10 @@
 
     sh:property [
         sh:path ftr:log ;
-        sh:datatype xsd:string ;
+        sh:or (
+            [ sh:datatype xsd:string ]
+            [ sh:datatype rdf:langString ]
+        ) ;
         sh:minCount 1 ;
         sh:maxCount 1 ;
     ] ;
@@ -53,6 +56,7 @@
 :ScoringAlgorithmShape
     a sh:NodeShape ;
     sh:nodeKind sh:IRI ;
+    sh:targetClass ftr:ScoringAlgorithm ;
 
     sh:property [
         sh:path rdf:type ;
@@ -68,12 +72,12 @@
 :TestResultSetShape
     a sh:NodeShape ;
     sh:nodeKind sh:IRI ;
-    sh:class ftr:TestResultSet .
+    sh:targetClass ftr:TestResultSet .
 
 :ScoringAlgorithmActivityShape
     a sh:NodeShape ;
     sh:nodeKind sh:IRI ;
-    sh:class ftr:ScoringAlgorithmActivity ;
+    sh:targetClass ftr:ScoringAlgorithmActivity ;
 
     sh:property [
         sh:path prov:used ;

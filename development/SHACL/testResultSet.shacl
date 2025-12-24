@@ -18,17 +18,23 @@
 :TestResultSetShape
     a sh:NodeShape ;
     sh:nodeKind sh:IRI ;
-    sh:class ftr:TestResultSet ;
+    sh:targetClass ftr:TestResultSet ;
 
     sh:property [
         sh:path dcterms:identifier ;
-        sh:datatype xsd:string ;
+        sh:or (
+            [ sh:datatype xsd:string ]
+            [ sh:datatype rdf:langString ]
+        ) ;
         sh:minCount 1 ;
     ] ;
 
     sh:property [
         sh:path dcterms:title ;
-        sh:datatype xsd:string ;
+        sh:or (
+            [ sh:datatype xsd:string ]
+            [ sh:datatype rdf:langString ]
+        ) ;
         sh:minCount 1 ;
     ] ;
 
@@ -64,43 +70,50 @@
         sh:path rdf:type ;
         sh:hasValue ftr:Test ;
         sh:minCount 1 ;
-    ] ;
-
-    sh:property [
-        sh:path rdf:type ;
-        sh:hasValue dcat:DataService ;
     ] .
 
 :EntityShape
     a sh:NodeShape ;
     sh:nodeKind sh:IRI ;
-    sh:class prov:Entity ;
+    sh:targetClass prov:Entity ;
 
     sh:property [
         sh:path dcterms:identifier ;
-        sh:datatype xsd:string ;
+        sh:or (
+            [ sh:datatype xsd:string ]
+            [ sh:datatype rdf:langString ]
+        ) ;
     ] .
 
 :TestResultShape
     a sh:NodeShape ;
     sh:nodeKind sh:IRI ;
-    sh:class ftr:TestResult ;
+    sh:targetClass ftr:TestResult ;
 
     sh:property [
         sh:path dcterms:identifier ;
-        sh:datatype xsd:string ;
+        sh:or (
+            [ sh:datatype xsd:string ]
+            [ sh:datatype rdf:langString ]
+        ) ;
         sh:minCount 1 ;
     ] ;
 
     sh:property [
         sh:path dcterms:title ;
-        sh:datatype xsd:string ;
+        sh:or (
+            [ sh:datatype xsd:string ]
+            [ sh:datatype rdf:langString ]
+        ) ;
         sh:minCount 1 ;
     ] ;
 
     sh:property [
         sh:path dcterms:description ;
-        sh:datatype xsd:string ;
+        sh:or (
+            [ sh:datatype xsd:string ]
+            [ sh:datatype rdf:langString ]
+        ) ;
         sh:minCount 1 ;
     ] ;
 
@@ -112,14 +125,20 @@
 
     sh:property [
         sh:path prov:value ;
-        sh:datatype xsd:string ;
+        sh:or (
+            [ sh:datatype xsd:string ]
+            [ sh:datatype rdf:langString ]
+        ) ;
         sh:minCount 1 ;
         sh:maxCount 1 ;
     ] ;
 
     sh:property [
         sh:path ftr:log ;
-        sh:datatype xsd:string ;
+        sh:or (
+            [ sh:datatype xsd:string ]
+            [ sh:datatype rdf:langString ]
+        ) ;
         sh:minCount 1 ;
         sh:maxCount 1 ;
     ] ;
@@ -160,7 +179,7 @@
 :TestExecutionActivityShape
     a sh:NodeShape ;
     sh:nodeKind sh:IRI ;
-    sh:class ftr:testExecutionActivity ;
+    sh:targetClass ftr:TestExecutionActivity ;
 
     sh:property [
         sh:path prov:used ;
@@ -182,16 +201,22 @@
 :GuidanceShape
     a sh:NodeShape ;
     sh:nodeKind sh:IRI ;
-    sh:class ftr:GuidanceContext ;
+    sh:targetClass ftr:GuidanceContext ;
 
     sh:property [
         sh:path dcterms:title ;
-        sh:datatype xsd:string ;
+        sh:or (
+            [ sh:datatype xsd:string ]
+            [ sh:datatype rdf:langString ]
+        ) ;
         sh:minCount 1 ;
     ] ;
 
     sh:property [
         sh:path dcterms:description ;
-        sh:datatype xsd:string ;
+        sh:or (
+            [ sh:datatype xsd:string ]
+            [ sh:datatype rdf:langString ]
+        ) ;
         sh:minCount 1 ;
     ] .

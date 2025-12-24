@@ -1,6 +1,5 @@
 @prefix sh: <http://www.w3.org/ns/shacl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix ftr: <https://w3id.org/ftr#> .
 @prefix dcat: <http://www.w3.org/ns/dcat#> .
 @prefix sio: <http://semanticscience.org/resource/> .
@@ -9,27 +8,30 @@
 @prefix dqv: <http://www.w3.org/ns/dqv#> .
 @prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
-@prefix : <http://www.example.org/me#> .
 @prefix dpv: <https://w3id.org/dpv#> .
+@prefix : <http://www.example.org/me#> .
 
 :OrganizationShape
     a sh:NodeShape ;
+    sh:targetClass vcard:Organization ;
     sh:nodeKind sh:IRI ;
-    sh:class vcard:Organization ;
 
     sh:property [
         sh:path vcard:organization-name ;
-        sh:datatype xsd:string ;
+        sh:nodeKind xsd:string ;
     ] .
 
 :IndividualShape
     a sh:NodeShape ;
+    sh:targetClass vcard:Individual ;
     sh:nodeKind sh:IRI ;
-    sh:class vcard:Individual ;
 
     sh:property [
         sh:path vcard:fn ;
-        sh:datatype xsd:string ;
+        sh:or (
+            [ sh:datatype xsd:string ]
+            [ sh:datatype rdf:langString ]
+        ) ;
     ] ;
 
     sh:property [
@@ -39,45 +41,48 @@
 
 :BenchmarkShape
     a sh:NodeShape ;
-    sh:nodeKind sh:IRI ;
-    sh:class ftr:Benchmark .
+    sh:targetClass ftr:Benchmark ;
+    sh:nodeKind sh:IRI .
 
 :DimensionShape
     a sh:NodeShape ;
-    sh:nodeKind sh:IRI ;
-    sh:class dqv:Dimension .
+    sh:targetClass dqv:Dimension ;
+    sh:nodeKind sh:IRI .
 
 :TestShape
     a sh:NodeShape ;
-    sh:nodeKind sh:IRI ;
-    sh:class ftr:Test .
+    sh:targetClass ftr:Test ;
+    sh:nodeKind sh:IRI .
 
 :MetricShape
     a sh:NodeShape ;
+    sh:targetClass ftr:Metric ;
     sh:nodeKind sh:IRI ;
-    sh:class dqv:Metric ;
 
     sh:property [
         sh:path dcterms:identifier ;
-        sh:datatype xsd:string ;
+        sh:or (
+            [ sh:datatype xsd:string ]
+            [ sh:datatype rdf:langString ]
+        ) ;
         sh:minCount 1 ;
     ] ;
 
     sh:property [
         sh:path dcterms:title ;
-        sh:datatype xsd:string ;
+        sh:nodeKind xsd:string ;
         sh:minCount 1 ;
     ] ;
 
     sh:property [
         sh:path dcterms:description ;
-        sh:datatype xsd:string ;
+        sh:nodeKind xsd:string ;
         sh:minCount 1 ;
     ] ;
 
     sh:property [
         sh:path dcat:keyword ;
-        sh:datatype xsd:string ;
+        sh:nodeKind xsd:string ;
     ] ;
 
     sh:property [
@@ -87,7 +92,7 @@
 
     sh:property [
         sh:path vivo:abbreviation ;
-        sh:datatype xsd:string ;
+        sh:nodeKind xsd:string ;
     ] ;
 
     sh:property [
@@ -97,7 +102,7 @@
 
     sh:property [
         sh:path dcat:version ;
-        sh:datatype xsd:string ;
+        sh:nodeKind xsd:string ;
         sh:minCount 1 ;
         sh:maxCount 1 ;
     ] ;
@@ -109,7 +114,7 @@
 
     sh:property [
         sh:path ftr:status ;
-        sh:datatype xsd:string ;
+        sh:nodeKind xsd:string ;
     ] ;
 
     sh:property [
@@ -121,24 +126,42 @@
         sh:path dcat:contactPoint ;
         sh:minCount 1 ;
         sh:or (
-            [ sh:node :OrganizationShape ]
-            [ sh:node :IndividualShape ]
+        [
+            sh:nodeKind sh:IRI ;
+            sh:node :OrganizationShape
+        ]
+        [
+            sh:nodeKind sh:IRI ;
+            sh:node :IndividualShape
+        ]
         ) ;
     ] ;
 
     sh:property [
         sh:path dcterms:creator ;
         sh:or (
-            [ sh:node :OrganizationShape ]
-            [ sh:node :IndividualShape ]
+        [
+            sh:nodeKind sh:IRI ;
+            sh:node :OrganizationShape
+        ]
+        [
+            sh:nodeKind sh:IRI ;
+            sh:node :IndividualShape
+        ]
         ) ;
     ] ;
 
     sh:property [
         sh:path dcat:publisher ;
         sh:or (
-            [ sh:node :OrganizationShape ]
-            [ sh:node :IndividualShape ]
+        [
+            sh:nodeKind sh:IRI ;
+            sh:node :OrganizationShape
+        ]
+        [
+            sh:nodeKind sh:IRI ;
+            sh:node :IndividualShape
+        ]
         ) ;
     ] ;
 

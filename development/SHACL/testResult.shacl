@@ -6,109 +6,103 @@
 @prefix dcat: <http://www.w3.org/ns/dcat#> .
 @prefix sio: <http://semanticscience.org/resource/> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix adms: <http://www.w3.org/ns/adms#> .
 @prefix vivo: <http://vivoweb.org/ontology/core#> .
 @prefix doap: <http://usefulinc.com/ns/doap#> .
 @prefix dqv: <http://www.w3.org/ns/dqv#> .
 @prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
+@prefix dpv: <https://w3id.org/dpv#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix : <http://www.example.org/me#> .
-
 
 :TestShape
     a sh:NodeShape ;
     sh:nodeKind sh:IRI ;
-
-    sh:property [
-        sh:path rdf:type ;
-        sh:hasValue ftr:Test ;
-        sh:minCount 1 ;
-    ] ;
-
-    sh:property [
-        sh:path rdf:type ;
-        sh:hasValue dcat:DataService ;
-    ] .
+    sh:targetClass ftr:Test .
 
 :EntityShape
     a sh:NodeShape ;
     sh:nodeKind sh:IRI ;
-    sh:class prov:Entity ;
-
+    sh:targetClass prov:Entity ;
     sh:property [
         sh:path dcterms:identifier ;
-        sh:datatype xsd:string ;
+        sh:or (
+            [ sh:datatype xsd:string ]
+            [ sh:datatype rdf:langString ]
+        ) ;
     ] .
 
 :TestResultShape
     a sh:NodeShape ;
     sh:nodeKind sh:IRI ;
-    sh:class ftr:TestResult ;
-
+    sh:targetClass ftr:TestResult ;
     sh:property [
         sh:path dcterms:identifier ;
-        sh:datatype xsd:string ;
+        sh:or (
+            [ sh:datatype xsd:string ]
+            [ sh:datatype rdf:langString ]
+        ) ;
         sh:minCount 1 ;
     ] ;
-
     sh:property [
         sh:path dcterms:title ;
-        sh:datatype xsd:string ;
+        sh:or (
+            [ sh:datatype xsd:string ]
+            [ sh:datatype rdf:langString ]
+        ) ;
         sh:minCount 1 ;
     ] ;
-
     sh:property [
         sh:path dcterms:description ;
-        sh:datatype xsd:string ;
+        sh:or (
+            [ sh:datatype xsd:string ]
+            [ sh:datatype rdf:langString ]
+        ) ;
         sh:minCount 1 ;
     ] ;
-
     sh:property [
         sh:path dcterms:license ;
         sh:nodeKind sh:IRI ;
         sh:minCount 1 ;
     ] ;
-
     sh:property [
         sh:path prov:value ;
-        sh:datatype xsd:string ;
+        sh:or (
+            [ sh:datatype xsd:string ]
+            [ sh:datatype rdf:langString ]
+        ) ;
         sh:minCount 1 ;
-        sh:maxCount 1 ;
     ] ;
-
     sh:property [
         sh:path ftr:log ;
-        sh:datatype xsd:string ;
+        sh:or (
+            [ sh:datatype xsd:string ]
+            [ sh:datatype rdf:langString ]
+        ) ;
         sh:minCount 1 ;
-        sh:maxCount 1 ;
     ] ;
-
     sh:property [
         sh:path ftr:completion ;
         sh:datatype xsd:integer ;
     ] ;
-
     sh:property [
         sh:path ftr:affectedElements ;
         sh:nodeKind sh:IRI ;
     ] ;
-
     sh:property [
         sh:path ftr:outputFromTest ;
         sh:node :TestShape ;
         sh:minCount 1 ;
     ] ;
-
     sh:property [
         sh:path ftr:assessmentTarget ;
         sh:node :EntityShape ;
         sh:minCount 1 ;
     ] ;
-
     sh:property [
         sh:path prov:wasGeneratedBy ;
         sh:node :TestExecutionActivityShape ;
     ] ;
-
     sh:property [
         sh:path ftr:suggestion ;
         sh:node :GuidanceShape ;
@@ -118,18 +112,16 @@
 :TestExecutionActivityShape
     a sh:NodeShape ;
     sh:nodeKind sh:IRI ;
-    sh:class ftr:testExecutionActivity ;
-
+    sh:targetClass ftr:TestExecutionActivity ;
     sh:property [
         sh:path prov:used ;
         sh:node :EntityShape ;
+        sh:maxCount 1 ;
     ] ;
-
     sh:property [
         sh:path prov:wasAssociatedWith ;
         sh:node :TestShape ;
     ] ;
-
     sh:property [
         sh:path prov:endedAtTime ;
         sh:datatype xsd:dateTime ;
@@ -139,20 +131,23 @@
 :GuidanceShape
     a sh:NodeShape ;
     sh:nodeKind sh:IRI ;
-    sh:class ftr:GuidanceContext ;
-
+    sh:targetClass ftr:GuidanceContext ;
     sh:property [
         sh:path dcterms:title ;
-        sh:datatype xsd:string ;
+        sh:or (
+            [ sh:datatype xsd:string ]
+            [ sh:datatype rdf:langString ]
+        ) ;
         sh:minCount 1 ;
     ] ;
-
     sh:property [
         sh:path dcterms:description ;
-        sh:datatype xsd:string ;
+        sh:or (
+            [ sh:datatype xsd:string ]
+            [ sh:datatype rdf:langString ]
+        ) ;
         sh:minCount 1 ;
     ] ;
-
     sh:property [
         sh:path sio:SIO_000339 ;
         sh:nodeKind sh:IRI ;
