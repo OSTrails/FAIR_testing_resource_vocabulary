@@ -290,6 +290,17 @@ prov:wasStartedBy rdf:type owl:ObjectProperty ;
                  rdfs:comment "Property used to link a test result with the corresponding suggestion that may be used to guide users in addressing it."@en ;
                  rdfs:label "suggestion"@en .
 
+###  https://w3id.org/ftr#supportedBy
+:supportedBy rdf:type owl:DatatypeProperty ;
+             rdfs:domain [ rdf:type owl:Class ;
+                           owl:unionOf ( :Metric
+                                         :Test
+                                       )
+                         ] ;
+             rdfs:range prov:Entity ;
+             rdfs:comment "Describes which tools support this particular metric or test" ;
+             rdfs:label "supported by" .
+
 
 #################################################################
 #    Data properties
@@ -395,18 +406,6 @@ prov:value rdf:type owl:DatatypeProperty ;
         rdfs:range xsd:string ;
         rdfs:comment "Status of the resource: For example, i.e., whether it's active or deprecated. The value of a test result is captured with prov:value."@en ;
         rdfs:label "status"@en .
-
-
-###  https://w3id.org/ftr#supportedBy
-:supportedBy rdf:type owl:DatatypeProperty ;
-             rdfs:domain [ rdf:type owl:Class ;
-                           owl:unionOf ( :Metric
-                                         :Test
-                                       )
-                         ] ;
-             rdfs:range xsd:anyURI ;
-             rdfs:comment "Describes which tools support this particular metric or test" ;
-             rdfs:label "supported by" .
 
 
 #################################################################
