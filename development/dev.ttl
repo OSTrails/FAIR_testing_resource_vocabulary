@@ -204,6 +204,12 @@ prov:wasStartedBy rdf:type owl:ObjectProperty ;
                                        rdfs:isDefinedBy <https://w3id.org/dpv#> ;
                                        rdfs:label "is applicable for"@en .
 
+### https://w3id.org/okn/o/sd#hasSoftwareImage
+<https://w3id.org/okn/o/sd#hasSoftwareImage> rdf:type owl:ObjectProperty ;
+                                       rdfs:comment "Property designed to  to link a test (service) with its corresponding software image" ;
+                                       rdfs:isDefinedBy <https://w3id.org/okn/o/sd> ;
+                                       rdfs:label "has software image"@en .
+
 
 ###  https://w3id.org/ftr#assessmentTarget
 :assessmentTarget rdf:type owl:ObjectProperty ;

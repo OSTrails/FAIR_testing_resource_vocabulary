@@ -2,7 +2,7 @@
 
 <span class="markdown">A vocabulary to define FAIR test results. The figure below shows an overview of the main classes and properties defined in FTR: </span>
 
-<img src="https://ostrails.github.io/FAIR_testing_resource_vocabulary/development/img/FAIRTestResult_diagram_v12.drawio.png" class="description-image">
+<img src="https://ostrails.github.io/FAIR_testing_resource_vocabulary/development/img/FAIRTestResult_diagram_v13.drawio.png" class="description-image">
 
 <span class="markdown">
 We distinguish the following main concepts:
@@ -344,7 +344,7 @@ ex:foops a schema:SoftwareApplication;
 
 <span class = "markdown">
 
-### Example: Defining a metric and associating it with a test
+### Example: Defining a metric and associating it with a test and a benchmark
 
 A metric contains basic metadata to undertand what a test must implement. This is an exemplar representation of a Metric designed to assess the availablity of an ontology on the web. In this case, the metric metadata points to its test implementation ([https://w3id.org/foops/metric/CN1](https://w3id.org/foops/metric/CN1)):
 
@@ -386,7 +386,15 @@ A metric contains basic metadata to undertand what a test must implement. This i
     "@value": "Ontology has content negotiation for RDF"
   },
   "hasImplementation": {
-    "@id": "https://w3id.org/foops/test/CN1"
+    "@id": "https://w3id.org/foops/test/CN1",
+    "description": "This test verifies whether HTML and an RDF representation is available for the target vocabulary by doing content negotiation on the ontology URI [... rest of the definition omitted for simplicity...]",
+    "title":  "Ontology minimum metadata is declared" ,
+    "endpointDescription": "https://w3id.org/foops/api" ,
+    "endpointURL": "https://w3id.org/foops/api/assess/test/CN1", 
+    "hasSoftwareImage": {
+      "availableInRegistry": "https://hub.docker.com",
+      "identifier": "user/imageName:tag" 
+    }
   },
   "abbreviation": {
     "@type": "http://www.w3.org/2001/XMLSchema#string",
@@ -440,6 +448,7 @@ A metric contains basic metadata to undertand what a test must implement. This i
 @prefix dcat: &lt;http://www.w3.org/ns/dcat#&gt; .
 @prefix xsd: &lt;http://www.w3.org/2001/XMLSchema#&gt; .
 @prefix dqv: &lt;http://www.w3.org/ns/dqv#&gt; .
+@prefix sd: &lt;https://w3id.org/okn/o/sd#&gt; .
 @prefix vivo: &lt;http://vivoweb.org/ontology/core#&gt; . 
 
 &lt;https://w3id.org/foops/metric/CN1&gt; a ftr:Metric ;
@@ -463,6 +472,19 @@ This metric ensures that the vocabulary is accessible in recognized RDF serializ
 	dcat:landingPage &lt;https://w3id.org/foops/metric/CN1&gt; ; 
 	ftr:hasBenchmark &lt;https://w3id.org/foops/benchmark/ALL&gt; ; 
 	ftr:status "Active"@en .
+
+&lt;https://w3id.org/foops/test/CN1&gt;
+    a <https://w3id.org/ftr#Test> ;
+    dcterms:description """This test verifies whether HTML and an RDF representation is available for the target vocabulary by doing content negotiation on the ontology URI [... rest of the definition omitted for simplicity...]""" ;
+    dcterms:identifier "https://w3id.org/foops/test/CN1" ;
+    dcterms:title "Ontology minimum metadata is declared" ;
+    dcat:endpointDescription &lt;https://w3id.org/foops/api&gt; ;
+    dcat:endpointURL &lt;https://w3id.org/foops/api/assess/test/CN1&gt; 
+    sd:hasSoftwareImage [
+      a sd:SoftwareImage;
+      sd:availableInRegistry "https://hub.docker.com";
+      dcterms:identifier "user/imageName:tag" .
+    ]. 
 
 &lt;https://w3id.org/foops/benchmark/ALL&gt; a ftr:Benchmark;
     dcterms:title "General Benchmark ALL for FAIR Principles"@en ;
