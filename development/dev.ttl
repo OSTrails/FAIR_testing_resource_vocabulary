@@ -278,9 +278,9 @@ prov:wasStartedBy rdf:type owl:ObjectProperty ;
 
 ###  https://w3id.org/ftr#scoringFunction
 :scoringFunction rdf:type owl:ObjectProperty ;
-                 rdfs:domain :Benchmark ;
+                 rdfs:domain :ScoringAlgorithm ;
                  rdfs:range <https://semanticscience.org/resource/SIO_000090> ;
-                 rdfs:comment "Property used to link a benchmark with the specification document that indicates how to score it. The benchmark itself may be implemented with a scoring algorithm"@en ;
+                 rdfs:comment "Property used to link a scoring algorithm with the specification document that indicates how the scoring works. A benchmark may be implemented with one or more scoring algorithms"@en ;
                  rdfs:label "scoring function"@en .
 
 ###  https://w3id.org/ftr#suggestion
