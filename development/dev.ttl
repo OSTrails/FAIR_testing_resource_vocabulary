@@ -200,7 +200,7 @@ prov:wasStartedBy rdf:type owl:ObjectProperty ;
 
 ###  https://w3id.org/dpv#isApplicableFor
 <https://w3id.org/dpv#isApplicableFor> rdf:type owl:ObjectProperty ;
-                                       rdfs:comment "Property designed to indicate the type of digital object the metric or test is applicable for. See [https://github.com/OSTrails/digital-object-commons/blob/main/object_types_draft.csv](https://github.com/OSTrails/digital-object-commons/blob/main/object_types_draft.csv) for a set of supported digital object types" ;
+                                       rdfs:comment "Property designed to indicate the type of digital object the test, metric, benchmark, or scoring algorithm is applicable for. See [https://github.com/OSTrails/digital-object-commons/blob/main/object_types_draft.csv](https://github.com/OSTrails/digital-object-commons/blob/main/object_types_draft.csv) for a set of supported digital object types" ;
                                        rdfs:isDefinedBy <https://w3id.org/dpv#> ;
                                        rdfs:label "is applicable for"@en .
 
