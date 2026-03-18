@@ -192,6 +192,11 @@ prov:wasStartedBy rdf:type owl:ObjectProperty ;
                                                   rdfs:isDefinedBy <http://semanticscience.org/ontology/sio.owl> ;
                                                   rdfs:label "has implementation" .
 
+###  https://semanticscience.org/resource/SIO_000339
+<https://semanticscience.org/resource/SIO_000339> rdf:type owl:ObjectProperty ;
+                                                  rdfs:isDefinedBy <http://semanticscience.org/ontology/sio.owl> ;
+                                                  rdfs:label "is specified by" .
+
 
 ###  https://w3id.org/dpv#isApplicableFor
 <https://w3id.org/dpv#isApplicableFor> rdf:type owl:ObjectProperty ;
@@ -271,6 +276,13 @@ prov:wasStartedBy rdf:type owl:ObjectProperty ;
                  rdfs:range <https://semanticscience.org/resource/SIO_000090> ;
                  rdfs:comment "Property used to link a benchmark with the specification document that indicates how to score it. The benchmark itself may be implemented with a scoring algorithm"@en ;
                  rdfs:label "scoring function"@en .
+
+###  https://w3id.org/ftr#suggestion
+:suggestion rdf:type owl:ObjectProperty ;
+                 rdfs:domain :TestResult ;
+                 rdfs:range :GuidanceContext ;
+                 rdfs:comment "Property used to link a test result with the corresponding suggestion that may be used to guide users in addressing it."@en ;
+                 rdfs:label "suggestion"@en .
 
 
 #################################################################
@@ -443,11 +455,15 @@ prov:Entity rdf:type owl:Class ;
             rdfs:label "Entity"@en .
 
 
-###  https://semanticscience.org/resource/SIO_000090
+###  https://w3id.org/fgv#GuidanceElement
+<https://w3id.org/fgv#GuidanceElement> rdf:type owl:Class ;
+                                       rdfs:isDefinedBy <https://w3id.org/fgv#> ;
+                                       rdfs:label "Guidance Element"@en .
+
+###  https://w3id.org/fgv#
 <https://semanticscience.org/resource/SIO_000090> rdf:type owl:Class ;
                                                   rdfs:isDefinedBy <http://semanticscience.org/ontology/sio.owl> ;
                                                   rdfs:label "Specification"@en .
-
 
 ###  https://w3id.org/ftr#Benchmark
 :Benchmark rdf:type owl:Class ;
@@ -504,6 +520,11 @@ Algorithms may specify the exact set of tests which are to be run by the assessm
                                prov:Entity ;
                rdfs:comment "A set of FAIR test results, together with their respective metadata. Common metadata may describe the set. For example, if all results where run by a request to the same API."@en ;
                rdfs:label "Test result set"@en .
+
+###  https://w3id.org/ftr#GuidanceContext
+:GuidanceContext rdf:type owl:Class ;
+               rdfs:comment "Class that represents a concrete suggestion from a test. A guidance context has a title, description and points to a general guidance element (e.g., a good practice)"@en ;
+               rdfs:label "Guidance context"@en .
 
 
 
