@@ -7,33 +7,39 @@
 @prefix dcat: <http://www.w3.org/ns/dcat#> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @base <https://w3id.org/ftr#> .
 
 <https://w3id.org/ftr#> rdf:type owl:Ontology ;
-                         owl:versionIRI <https://w3id.org/ftr/1.2.0> ;
+                         owl:versionIRI <https://w3id.org/ftr/1.3.0> ;
                          <http://purl.org/dc/elements/1.1/description> "A vocabulary to define FAIR test results, metrics, benchmarks and scoring algorithms in a transparent manner."@en ;
+                         <http://schema.org/license> <http://creativecommons.org/licenses/by/4.0/> ;
                          <http://purl.org/dc/elements/1.1/title> "FAIR Testing Resource Vocabulary"@en ;
-                         <http://purl.org/dc/terms/abstract> "A vocabulary to describe FAIR testing results in a trasnparent manner."@en ;
-                         <http://purl.org/dc/terms/created> "August 12th, 2025"@en ;
-                         <http://purl.org/dc/terms/creator> "Allyson Lister"@en ,
-                                                            "Clement Jonquet"@en ,
-                                                            "Daniel Garijo"@en ,
-                                                            "Elli Papadopoulou"@en ,
-                                                            "Leonidas Pispiringas"@en ,
-                                                            "Lukas Arnhold"@en ,
-                                                            "Mark Wilkinson"@en ,
-                                                            "Neil Chue Hong"@en ,
-                                                            "Pablo Alarcón"@en ,
-                                                            "Rober Huber"@en ,
-                                                            "Wim Hugo"@en ;
+                         <http://purl.org/dc/terms/abstract> "A vocabulary to describe FAIR testing results, metrics, benchmarks and algorithms in a transparent manner."@en ;
+                         <http://purl.org/dc/terms/created> "April 8th, 2024"@en ;
+                         <http://purl.org/dc/terms/modified> "March 18th, 2026"@en ;
+                         <http://purl.org/dc/elements/1.1/creator> <https://orcid.org/0000-0001-5974-589X>, 
+                                <https://orcid.org/0000-0001-6960-357X>, 
+                                <https://orcid.org/0000-0003-0454-7145>, 
+                                <https://orcid.org/0000-0003-4112-6825>, 
+                                <https://orcid.org/0000-0002-4929-7875>, 
+                                <https://orcid.org/0009-0007-3410-5491>, 
+                                <https://orcid.org/0000-0002-7702-4495>, 
+                                <https://orcid.org/0000-0002-0893-8509>, 
+                                <https://orcid.org/0000-0002-7111-094X>; #using dce to avoid conflicts with property redeclaration
+                         <http://purl.org/dc/terms/contributor> 
+                                <https://blue-cloud.org/eseb/robert-huber>, 
+                                <https://orcid.org/0000-0002-8876-7606>, 
+                                <https://orcid.org/0000-0002-2404-1582>,
+                                <https://dans.knaw.nl/en/team/wim-hugo-m-sc/>;
                          <http://purl.org/dc/terms/source> "https://docs.google.com/document/d/1HusredfHgymRg2ub4L0GnVSRV8IWZvFJyMkE6POejpc/edit?usp=sharing"^^xsd:anyURI ,
                                                            "https://raw.githubusercontent.com/OSTrails/FAIR_assessment_output_specification/main/cqs/cqs.csv"^^xsd:anyURI ;
                          <http://purl.org/vocab/vann/preferredNamespacePrefix> "ftr"@en ;
                          <http://purl.org/vocab/vann/preferredNamespaceUri> "https://w3id.org/ftr#" ;
-                         owl:priorVersion <https://w3id.org/ftr/1.1.0> ;
-                         owl:versionInfo "1.2.0"@en ;
+                         owl:priorVersion <https://w3id.org/ftr/1.2.0> ;
+                         owl:versionInfo "1.3.0"@en ;
                          <https://schema.org/codeRepository> "https://github.com/OSTrails/FAIR_testing_resource_vocabulary"^^xsd:anyURI ;
-                         <https://schema.org/image> "https://ostrails.github.io/FAIR_testing_resource_vocabulary/development/img/FAIRTestResult_diagram_v12.drawio.png" .
+                         <https://schema.org/image> "https://ostrails.github.io/FAIR_testing_resource_vocabulary/development/img/FAIRTestResult_diagram_v13.drawio.png" .
 
 #################################################################
 #    Annotation properties
@@ -53,14 +59,6 @@
 
 ###  http://purl.org/dc/terms/created
 <http://purl.org/dc/terms/created> rdf:type owl:AnnotationProperty .
-
-
-###  http://purl.org/dc/terms/creator
-<http://purl.org/dc/terms/creator> rdf:type owl:AnnotationProperty .
-
-
-###  http://purl.org/dc/terms/license
-<http://purl.org/dc/terms/license> rdf:type owl:AnnotationProperty .
 
 
 ###  http://purl.org/dc/terms/source
@@ -88,11 +86,15 @@
 #################################################################
 
 ###  http://purl.org/dc/terms/creator
-<http://purl.org/dc/terms/creator> rdf:type owl:ObjectProperty .
+<http://purl.org/dc/terms/creator> rdf:type owl:ObjectProperty; 
+                                   rdfs:isDefinedBy <http://purl.org/dc/terms/> ;
+                                   rdfs:label "creator"@en .
 
 
 ###  http://purl.org/dc/terms/license
-<http://purl.org/dc/terms/license> rdf:type owl:ObjectProperty .
+<http://purl.org/dc/terms/license> rdf:type owl:ObjectProperty ;
+                                   rdfs:isDefinedBy <http://purl.org/dc/terms/> ;
+                                   rdfs:label "license"@en .
 
 
 ###  http://usefulinc.com/ns/doap#repository
@@ -504,29 +506,113 @@ Algorithms may specify the exact set of tests which are to be run by the assessm
                rdfs:label "Test result set"@en .
 
 
+
 #################################################################
 #    Individuals
 #################################################################
 
-###  http://creativecommons.org/licenses/by/4.0/
-<http://creativecommons.org/licenses/by/4.0/> rdf:type owl:NamedIndividual .
+#### Organizations
 
+<https://www.upm.es#this> rdf:type owl:NamedIndividual ,
+                                   <http://xmlns.com/foaf/0.1/Organization> ;
+                          <http://xmlns.com/foaf/0.1/homepage> "https://www.upm.es" ;
+                          <http://xmlns.com/foaf/0.1/name> "Universidad Politécnica de Madrid" .
 
-###  https://w3id.org/ftr#
-<https://w3id.org/ftr#> rdf:type owl:NamedIndividual ;
-                        <http://purl.org/dc/terms/license> <http://creativecommons.org/licenses/by/4.0/> .
+<https://informatics.tuwien.ac.at/#this> rdf:type owl:NamedIndividual ,
+                                       <http://xmlns.com/foaf/0.1/Organization> ;
+                              <http://xmlns.com/foaf/0.1/homepage> "https://informatics.tuwien.ac.at/" ;
+                              <http://xmlns.com/foaf/0.1/name> " TU Wien Informatics" .
 
+<https://eng.ox.ac.uk#this> rdf:type owl:NamedIndividual ,
+                                     <http://xmlns.com/foaf/0.1/Organization> ;
+                            <http://xmlns.com/foaf/0.1/homepage> "https://eng.ox.ac.uk" ;
+                            <http://xmlns.com/foaf/0.1/name> "University of Oxford" .
 
-#################################################################
-#    Annotations
-#################################################################
+<https://www.athenarc.gr/#this> rdf:type owl:NamedIndividual ,
+                                     <http://xmlns.com/foaf/0.1/Organization> ;
+                            <http://xmlns.com/foaf/0.1/homepage> "https://www.athenarc.gr" ;
+                            <http://xmlns.com/foaf/0.1/name> "Athena Research Centre" .
 
-<http://purl.org/dc/terms/creator> rdfs:isDefinedBy <http://purl.org/dc/terms/> ;
-                                   rdfs:label "creator"@en .
+<https://www.openaire.eu/#this> rdf:type owl:NamedIndividual ,
+                                     <http://xmlns.com/foaf/0.1/Organization> ;
+                            <http://xmlns.com/foaf/0.1/homepage> "https://www.openaire.eu/" ;
+                            <http://xmlns.com/foaf/0.1/name> "OpenAIRE" .
 
+<http://pangaea.de/#this> rdf:type owl:NamedIndividual ,
+                                     <http://xmlns.com/foaf/0.1/Organization> ;
+                            <http://xmlns.com/foaf/0.1/homepage> "https://pangaea.de/" ;
+                            <http://xmlns.com/foaf/0.1/name> "PANGAEA" .
 
-<http://purl.org/dc/terms/license> rdfs:isDefinedBy <http://purl.org/dc/terms/> ;
-                                   rdfs:label "license"@en .
+<https://www.ed.ac.uk/#this> rdf:type owl:NamedIndividual ,
+                                     <http://xmlns.com/foaf/0.1/Organization> ;
+                            <http://xmlns.com/foaf/0.1/homepage> "https://www.ed.ac.uk" ;
+                            <http://xmlns.com/foaf/0.1/name> "The University of Edinburgh" .
 
+<https://new.inria.cl/fr/centre-inria-sophia-antipolis-mediterranee/#this> rdf:type owl:NamedIndividual ,
+                                     <http://xmlns.com/foaf/0.1/Organization> ;
+                            <http://xmlns.com/foaf/0.1/homepage> "https://new.inria.cl/fr/centre-inria-sophia-antipolis-mediterranee" ;
+                            <http://xmlns.com/foaf/0.1/name> "Centre Inria Sophia Antipolis" .
+
+<https://dans.knaw.nl/#this> rdf:type owl:NamedIndividual ,
+                                     <http://xmlns.com/foaf/0.1/Organization> ;
+                            <http://xmlns.com/foaf/0.1/homepage> "https://dans.knaw.nl/" ;
+                            <http://xmlns.com/foaf/0.1/name> "Centre of expertise & repository for research data (DANS)" .
+                            
+#### People
+
+<https://orcid.org/0000-0001-5974-589X> rdf:type owl:NamedIndividual , foaf:Person;
+                                        <http://www.w3.org/ns/org#memberOf> <https://www.upm.es#this> ;
+                                        <http://xmlns.com/foaf/0.1/name> "Pablo Alarcón"@en .
+
+<https://orcid.org/0000-0001-6960-357X> rdf:type owl:NamedIndividual , foaf:Person;
+                                        <http://www.w3.org/ns/org#memberOf> <https://www.upm.es#this> ;
+                                        <http://xmlns.com/foaf/0.1/name> "Mark Wilkinson"@en .
+
+<https://orcid.org/0000-0003-0454-7145> rdf:type owl:NamedIndividual , foaf:Person;
+                                        <http://www.w3.org/ns/org#memberOf> <https://www.upm.es#this> ;
+                                        <http://xmlns.com/foaf/0.1/name> "Daniel Garijo"@en .
+
+<https://orcid.org/0000-0003-4112-6825> rdf:type owl:NamedIndividual , foaf:Person;
+                                        <http://www.w3.org/ns/org#memberOf> <https://www.upm.es#this> ;
+                                        <http://xmlns.com/foaf/0.1/name> "Esteban Gonzalez Guardia"@en .
+
+<https://orcid.org/0000-0002-4929-7875> rdf:type owl:NamedIndividual , foaf:Person;
+                                        <http://www.w3.org/ns/org#memberOf> <https://informatics.tuwien.ac.at/#this> ;
+                                        <http://xmlns.com/foaf/0.1/name> "Tomasz Miksa"@en .
+
+<https://orcid.org/0009-0007-3410-5491> rdf:type owl:NamedIndividual , foaf:Person;
+                                        <http://www.w3.org/ns/org#memberOf> <https://informatics.tuwien.ac.at/#this> ;
+                                        <http://xmlns.com/foaf/0.1/name> "Lukas Arnhold"@en .
+
+<https://orcid.org/0000-0002-7702-4495> rdf:type owl:NamedIndividual , foaf:Person;
+                                        <http://www.w3.org/ns/org#memberOf> <https://eng.ox.ac.uk/#this> ;
+                                        <http://xmlns.com/foaf/0.1/name> "Allyson Lyster"@en .
+
+<https://orcid.org/0000-0002-0893-8509> rdf:type owl:NamedIndividual , foaf:Person;
+                                        <http://www.w3.org/ns/org#memberOf> <https://www.athenarc.gr/#this> ;
+                                        <http://xmlns.com/foaf/0.1/name> "Elli Papadopoulou"@en .
+
+<https://orcid.org/0000-0002-7111-094X> rdf:type owl:NamedIndividual , foaf:Person;
+                                        <http://www.w3.org/ns/org#memberOf> <https://www.openaire.eu/#this> ;
+                                        <http://xmlns.com/foaf/0.1/name> "Leonidas Pispiringas"@en .
+
+### Contributors
+
+<https://blue-cloud.org/eseb/robert-huber> rdf:type owl:NamedIndividual , foaf:Person;
+                                        <http://www.w3.org/ns/org#memberOf> <http://pangaea.de/#this> ;
+                                        <http://xmlns.com/foaf/0.1/name> "Robert Huber"@en .
+
+<https://orcid.org/0000-0002-8876-7606> rdf:type owl:NamedIndividual , foaf:Person;
+                                        <http://www.w3.org/ns/org#memberOf> <https://www.ed.ac.uk/#this> ;
+                                        <http://xmlns.com/foaf/0.1/name> "Neil Chue Hong"@en .
+
+<https://orcid.org/0000-0002-2404-1582> rdf:type owl:NamedIndividual , foaf:Person;
+                                        <http://www.w3.org/ns/org#memberOf> <https://new.inria.cl/fr/centre-inria-sophia-antipolis-mediterranee/#this> ;
+                                        <http://xmlns.com/foaf/0.1/name> "Clement Jonquet"@en .
+
+<https://dans.knaw.nl/en/team/wim-hugo-m-sc/> rdf:type owl:NamedIndividual , foaf:Person;
+                                        <http://www.w3.org/ns/org#memberOf> <https://dans.knaw.nl/#this> ;
+                                        <http://xmlns.com/foaf/0.1/name> "Wim Hugo"@en .
 
 ###  Generated by the OWL API (version 4.5.25.2023-02-15T19:15:49Z) https://github.com/owlcs/owlapi
+
