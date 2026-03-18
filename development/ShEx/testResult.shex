@@ -16,12 +16,12 @@ PREFIX dpv: <https://w3id.org/dpv#>
 
 :testShape IRI {
    a [ ftr:Test ] ;
-   sio:SIO_000233 @:metricShape ; 
+   a [ dcat:DataService ] ? 
 }
 
 :entityShape IRI {
-   dcterms:identifier xsd:string ? ;
-   a [ prov:Entity ]
+   a [ prov:Entity ] ;
+   dcterms:identifier xsd:string *
 }
 
 :testResultShape IRI {
@@ -30,20 +30,27 @@ PREFIX dpv: <https://w3id.org/dpv#>
    dcterms:title LITERAL ;
    dcterms:description LITERAL ;
    dcterms:license IRI ;
-   prov:value LITERAL or xsd:float or xsd:integer ; # Not yet well defined
+   prov:value LITERAL ;
    ftr:log LITERAL ;
    ftr:completion xsd:integer * ;
    ftr:affectedElements IRI * ;
    ftr:outputFromTest @:testShape ;
-   ftr:assessmentTarget @:entityShape
+   ftr:assessmentTarget @:entityShape ;
+   prov:wasGeneratedBy @:testExecutionActivityShape * ;
+   ftr:suggestion @:guidanceShape +
 }
 
-:testExecutionActivity IRI {
-   a [ ftr:testExecutionActivity ] ;
-   prov:used @:entityShape ;
-   prov:wasAssociatedWith @:testShape
+:testExecutionActivityShape IRI {
+   a [ ftr:TestExecutionActivity ] ;
+   prov:used @:entityShape ? ;
+   prov:wasAssociatedWith @:testShape * ;
+   prov:endedAtTime xsd:dateTime
 }
 
-:metricShape IRI {
-   a [ dqv:Metric ]
+
+:guidanceShape IRI {
+   a [ ftr:GuidanceContext ]
+   dcterms:title LITERAL ;
+   dcterms:description LITERAL ;
+   sio:SIO_000339 IRI *
 }

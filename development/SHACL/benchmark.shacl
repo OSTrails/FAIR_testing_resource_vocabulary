@@ -1,111 +1,191 @@
+@prefix sh: <http://www.w3.org/ns/shacl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix ftr: <https://w3id.org/ftr#> .
 @prefix dcat: <http://www.w3.org/ns/dcat#> .
 @prefix sio: <http://semanticscience.org/resource/> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
-@prefix adms: <http://www.w3.org/ns/adms#> .
 @prefix vivo: <http://vivoweb.org/ontology/core#> .
-@prefix doap: <http://usefulinc.com/ns/doap#> .
 @prefix dqv: <http://www.w3.org/ns/dqv#> .
 @prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
-@prefix sh: <http://www.w3.org/ns/shacl#> .
 @prefix : <http://www.example.org/me#> .
 
-
-:organizationShape a sh:NodeShape ;
-  sh:targetClass vcard:Organization ;
-  sh:property [
-    sh:path vcard:organization-name ;
-    sh:datatype rdfs:Literal ;
-    sh:maxCount 1 ;
-  ] .
-
-:individualShape a sh:NodeShape ;
-  sh:targetClass vcard:Individual ;
-  sh:property [
-    sh:path vcard:fn ;
-    sh:datatype rdfs:Literal ;
-    sh:maxCount 1 ;
-  ] ;
-  sh:property [
-    sh:path vcard:hasEmail ;
+:OrganizationShape
+    a sh:NodeShape ;
     sh:nodeKind sh:IRI ;
-    sh:maxCount 1 ;
-  ] .
+    sh:targetClass vcard:Organization ;
 
-:metricShape a sh:NodeShape ;
-  sh:targetClass dqv:Metric .
+    sh:property [
+        sh:path vcard:organization-name ;
+        sh:or (
+            [ sh:datatype xsd:string ]
+            [ sh:datatype rdf:langString ]
+        ) ;
+        sh:minCount 1 ;
+    ] .
 
-:benchmarkShape a sh:NodeShape ;
-  sh:targetClass ftr:Benchmark ;
+:IndividualShape
+    a sh:NodeShape ;
+    sh:nodeKind sh:IRI ;
+    sh:targetClass vcard:Individual ;
 
-  sh:property [
-    sh:path dcterms:identifier ;
-    sh:datatype xsd:string ;
-    sh:minCount 1 ;
-    sh:maxCount 1 ;
-  ] ;
-  sh:property [
-    sh:path dcterms:title ;
-    sh:datatype rdfs:Literal ;
-    sh:minCount 1 ;
-    sh:maxCount 1 ;
-  ] ;
-  sh:property [
-    sh:path dcterms:description ;
-    sh:datatype rdfs:Literal ;
-    sh:minCount 1 ;
-    sh:maxCount 1 ;
-  ] ;
-  sh:property [
-    sh:path dcat:keyword ;
-    sh:datatype rdfs:Literal ;
-  ] ;
-  sh:property [
-    sh:path vivo:abbreviation ;
-    sh:datatype rdfs:Literal ;
-  ] ;
-  sh:property [
-    sh:path dcat:landingPage ;
+    sh:property [
+        sh:path vcard:fn ;
+        sh:or (
+            [ sh:datatype xsd:string ]
+            [ sh:datatype rdf:langString ]
+        ) ;
+        sh:minCount 1 ;
+    ] ;
+
+    sh:property [
+        sh:path vcard:hasEmail ;
+        sh:nodeKind sh:IRI ;
+        sh:minCount 1 ;
+    ] .
+
+:MetricShape
+    a sh:NodeShape ;
     sh:nodeKind sh:IRI ;
-  ] ;
-  sh:property [
-    sh:path dcat:version ;
-    sh:datatype rdfs:Literal ;
-    sh:minCount 1 ;
-    sh:maxCount 1 ;
-  ] ;
-  sh:property [
-    sh:path ftr:applicationArea ;
+    sh:targetClass ftr:Metric .
+
+:ScoringAlgorithmShape
+    a sh:NodeShape ;
     sh:nodeKind sh:IRI ;
-  ] ;
-  sh:property [
-    sh:path ftr:status ;
-    sh:datatype rdfs:Literal ;
-  ] ;
-  sh:property [
-    sh:path ftr:hasAssociatedMetric ;
-    sh:node :metricShape ;
-    sh:minCount 1 ;
-  ] ;
-  sh:property [
-    sh:path dcat:contactPoint ;
-    sh:or (
-      [ sh:node :organizationShape ]
-      [ sh:node :individualShape ]
-    ) ;
-  ] ;
-  sh:property [
-    sh:path dcterms:creator ;
-    sh:or (
-      [ sh:node :organizationShape ]
-      [ sh:node :individualShape ]
-    ) ;
-  ] ;
-  sh:property [
-    sh:path ftr:scoringAlgorithm ;
+
+    sh:property [
+        sh:path rdf:type ;
+        sh:hasValue ftr:ScoringAlgorithm ;
+        sh:minCount 1 ;
+    ] .
+
+:BenchmarkShape
+    a sh:NodeShape ;
     sh:nodeKind sh:IRI ;
-  ] .
+    sh:targetClass ftr:Benchmark ;
+
+    sh:property [
+        sh:path dcterms:identifier ;
+        sh:or (
+            [ sh:datatype xsd:string ]
+            [ sh:datatype rdf:langString ]
+        ) ;
+        sh:minCount 1 ;
+    ] ;
+
+    sh:property [
+        sh:path dcterms:title ;
+        sh:or (
+            [ sh:datatype xsd:string ]
+            [ sh:datatype rdf:langString ]
+        ) ;
+        sh:minCount 1 ;
+    ] ;
+
+    sh:property [
+        sh:path dcterms:description ;
+        sh:or (
+            [ sh:datatype xsd:string ]
+            [ sh:datatype rdf:langString ]
+        ) ;
+        sh:minCount 1 ;
+    ] ;
+
+    sh:property [
+        sh:path dcat:keyword ;
+        sh:or (
+            [ sh:datatype xsd:string ]
+            [ sh:datatype rdf:langString ]
+        ) ;
+    ] ;
+
+    sh:property [
+        sh:path vivo:abbreviation ;
+        sh:or (
+            [ sh:datatype xsd:string ]
+            [ sh:datatype rdf:langString ]
+        ) ;
+    ] ;
+
+    sh:property [
+        sh:path dcat:landingPage ;
+        sh:nodeKind sh:IRI ;
+    ] ;
+
+    sh:property [
+        sh:path dcat:version ;
+        sh:or (
+            [ sh:datatype xsd:string ]
+            [ sh:datatype rdf:langString ]
+        ) ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+    ] ;
+
+    sh:property [
+        sh:path ftr:applicationArea ;
+        sh:nodeKind sh:IRI ;
+    ] ;
+
+    sh:property [
+        sh:path ftr:status ;
+        sh:or (
+            [ sh:datatype xsd:string ]
+            [ sh:datatype rdf:langString ]
+        ) ;
+    ] ;
+
+    sh:property [
+        sh:path ftr:hasAssociatedMetric ;
+        sh:node :MetricShape ;
+        sh:minCount 1 ;
+    ] ;
+
+    sh:property [
+        sh:path dcat:contactPoint ;
+        sh:minCount 1 ;
+        sh:or (
+        [
+            sh:nodeKind sh:IRI ;
+            sh:node :OrganizationShape
+        ]
+        [
+            sh:nodeKind sh:IRI ;
+            sh:node :IndividualShape
+        ]
+        ) ;
+    ] ;
+
+    sh:property [
+        sh:path dcterms:creator ;
+        sh:or (
+        [
+            sh:nodeKind sh:IRI ;
+            sh:node :OrganizationShape
+        ]
+        [
+            sh:nodeKind sh:IRI ;
+            sh:node :IndividualShape
+        ]
+        ) ;
+    ] ;
+
+    sh:property [
+        sh:path dcat:publisher ;
+        sh:or (
+        [
+            sh:nodeKind sh:IRI ;
+            sh:node :OrganizationShape
+        ]
+        [
+            sh:nodeKind sh:IRI ;
+            sh:node :IndividualShape
+        ]
+        ) ;
+    ] ;
+
+    sh:property [
+        sh:path sio:SIO_000234 ;
+        sh:node :ScoringAlgorithmShape ;
+    ] .

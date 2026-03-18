@@ -15,39 +15,46 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 PREFIX dpv: <https://w3id.org/dpv#>
 
 :organizationShape IRI {
-   vcard:organization-name LITERAL * ;
-   a [vcard:Organization] ;
+    vcard:organization-name LITERAL * ;
+    a [vcard:Organization]
 }
 
 :individualShape IRI {
-   vcard:fn LITERAL * ;
-   vcard:hasEmail IRI * ;
-   a [vcard:Individual] ;
-}
-
-:metricShape IRI {
-	a [dqv:Metric] ;
-}
-
-:benchmarkShape IRI {
-	a [ftr:Benchmark] ;
-	dcterms:identifier xsd:string ;
-	dcterms:title LITERAL ;
-	dcterms:description LITERAL ;
-	dcat:keyword LITERAL * ;
-	vivo:abbreviation LITERAL * ;
-	dcat:landingPage IRI * ;
-	dcat:version LITERAL ;
-	ftr:applicationArea  IRI * ;
-	ftr:status LITERAL * ;
-	ftr:hasAssociatedMetric  @:metricShape + ;
-    dcat:contactPoint @:organizationShape or @:individualShape + ;
-    dcterms:creator @:organizationShape or @:individualShape * ;
-	dcat:publisher @:organizationShape or @:individualShape * ;
-	sio:SIO_000234 @:scoringAlgorithmShape * ;
+    vcard:fn LITERAL * ;
+    vcard:hasEmail IRI * ;
+    a [vcard:Individual]
 }
 
 :scoringAlgorithmShape IRI {
     a [ ftr:ScoringAlgorithm ] ;
     a [ dcat:DataService ] ? ;
+    dcterms:identifier xsd:string ;
+    dcterms:title LITERAL ;
+    dcterms:description LITERAL ;
+    dcat:keyword LITERAL * ;
+    vivo:abbreviation LITERAL * ;
+    dcat:endpointDescription IRI * ;
+    dcat:endpointURL IRI * ;
+    doap:repository IRI * ;
+    dcterms:type IRI * ;
+    dcterms:license IRI ;
+    ftr:applicationArea  IRI * ;
+    dcat:version LITERAL ;
+    adms:versionNotes LITERAL  * ;
+    ftr:status LITERAL ? ;
+    dcat:contactPoint @:organizationShape or @:individualShape + ;
+    dcterms:creator @:organizationShape or @:individualShape * ;
+	dcat:publisher @:organizationShape or @:individualShape * ;
+    sio:SIO_000233 @:benchmarkShape ;
+    ftr:invokesTest @:testShape + ;
+    ftr:scoringFunction IRI *
+}
+
+:benchmarkShape IRI {
+    a [ftr:Benchmark]
+}
+
+:testShape IRI {
+   a [ ftr:Test ] ;
+   a [ dcat:DataService ] ?
 }

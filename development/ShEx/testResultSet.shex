@@ -19,18 +19,19 @@ PREFIX dpv: <https://w3id.org/dpv#>
    dcterms:identifier xsd:string ;
    dcterms:title LITERAL ;
    dcterms:license IRI ; 
-   prov:wasGeneratedBy @:testExecutionSetActivity ? ;
+   prov:wasGeneratedBy @:testExecutionActivityShape ;
    ftr:assessmentTarget @:entityShape ;
-   prov:hadMember @:testResultShape +
+   prov:hadMember @:testResultShape + ;
 }
 
 :testShape IRI {
-   a [ftr:Test ] ;
+   a [ ftr:Test ] ;
+   a [ dcat:DataService ] ? ;
 }
 
 :entityShape IRI {
-   dcterms:identifier xsd:string ? ;
-   a [ prov:Entity ]
+   a [ prov:Entity ] ;
+   dcterms:identifier xsd:string * ;
 }
 
 :testResultShape IRI {
@@ -39,20 +40,26 @@ PREFIX dpv: <https://w3id.org/dpv#>
    dcterms:title LITERAL ;
    dcterms:description LITERAL ;
    dcterms:license IRI ;
-   prov:value LITERAL or xsd:float or xsd:integer ; # Not yet well defined
+   prov:value LITERAL ;
    ftr:log LITERAL ;
    ftr:completion xsd:integer * ;
    ftr:affectedElements IRI * ;
    ftr:outputFromTest @:testShape ;
-   ftr:assessmentTarget @:entityShape
+   ftr:assessmentTarget @:entityShape ;
+   prov:wasGeneratedBy @:testExecutionActivityShape * ;
+   ftr:suggestion @:guidanceShape +
 }
 
-:testExecutionActivity IRI {
+:testExecutionActivityShape IRI {
    a [ ftr:TestExecutionActivity ] ;
-   prov:used @:entityShape ;
-   prov:wasAssociatedWith @:testShape
+   prov:used @:entityShape ? ;
+   prov:wasAssociatedWith @:testShape * ;
+   prov:endedAtTime xsd:dateTime ;
 }
 
-:testExecutionSetActivity{
-   a [ftr:TestExecutionActivity] ;
+:guidanceShape IRI {
+   a [ ftr:GuidanceContext ]
+   dcterms:title LITERAL ;
+   dcterms:description LITERAL ;
+   sio:SIO_000339 IRI *
 }

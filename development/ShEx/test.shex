@@ -15,35 +15,36 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 PREFIX dpv: <https://w3id.org/dpv#>
 
 :organizationShape IRI {
-   vcard:organization-name LITERAL ? ;
+   vcard:organization-name LITERAL * ;
    a [vcard:Organization] ;
 }
 
 :individualShape IRI {
-   vcard:fn LITERAL ? ;
-   vcard:hasEmail IRI ? ;
+   vcard:fn LITERAL * ;
+   vcard:hasEmail IRI * ;
    a [vcard:Individual] ;
 }
 
 :testShape IRI {
-   a [ftr:Test dcat:DataService]+ ;
+   a [ ftr:Test ] ;
+   a [ dcat:DataService ] ? ;
    dcterms:identifier xsd:string ;
    dcterms:title LITERAL;
    dcterms:description LITERAL ;
    dcat:keyword LITERAL * ;
    vivo:abbreviation LITERAL * ;
-   dqv:inDimension IRI * ;
-   dcat:endpointDescription IRI ? ;
-   dcat:endpointURL IRI ? ;
-   doap:repository IRI ? ;
-   dcterms:type IRI ? ;
+   dcat:endpointDescription IRI * ;
+   dcat:endpointURL IRI * ;
+   doap:repository IRI * ;
+   dcterms:type IRI * ;
    dcterms:license IRI ;
 	ftr:applicationArea  IRI * ;
    dcat:version LITERAL ;
-   adms:versionNotes LITERAL  ? ;
-   ftr:status LITERAL * ;
+   adms:versionNotes LITERAL * ;
+   ftr:status LITERAL ? ;
    dcat:contactPoint @:organizationShape or @:individualShape + ;
-   dcterms:creator @:organizationShape or @:individualShape or IRI + ;
+   dcterms:creator @:organizationShape or @:individualShape * ;
+	dcat:publisher @:organizationShape or @:individualShape * ;
    sio:SIO_000233 @:metricShape ;
    ftr:supportedBy IRI * ;
 	dpv:isApplicableFor IRI *

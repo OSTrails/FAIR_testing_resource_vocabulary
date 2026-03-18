@@ -1,3 +1,4 @@
+@prefix sh: <http://www.w3.org/ns/shacl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
@@ -11,141 +12,211 @@
 @prefix dqv: <http://www.w3.org/ns/dqv#> .
 @prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
-@prefix dpv: <https://w3id.org/dpv#> .
-@prefix sh: <http://www.w3.org/ns/shacl#> .
 @prefix : <http://www.example.org/me#> .
+@prefix dpv: <https://w3id.org/dpv#> .
 
-
-:testResultSetShape a sh:NodeShape ;
-  sh:property [
-    sh:path rdf:type ;
-    sh:hasValue ftr:TestResultSet ;
-    sh:minCount 1 ;
-  ] ;
-  sh:property [
-    sh:path dcterms:identifier ;
-    sh:datatype xsd:string ;
-    sh:minCount 1 ; sh:maxCount 1 ;
-  ] ;
-  sh:property [
-    sh:path dcterms:title ;
-    sh:datatype rdfs:Literal ;
-    sh:minCount 1 ; sh:maxCount 1 ;
-  ] ;
-  sh:property [
-    sh:path dcterms:license ;
+:TestResultSetShape
+    a sh:NodeShape ;
     sh:nodeKind sh:IRI ;
-    sh:minCount 1 ; sh:maxCount 1 ;
-  ] ;
-  sh:property [
-    sh:path prov:wasGeneratedBy ;
-    sh:node :testExecutionSetActivity ;
-    sh:maxCount 1 ;
-  ] ;
-  sh:property [
-    sh:path ftr:assessmentTarget ;
-    sh:node :entityShape ;
-    sh:minCount 1 ; sh:maxCount 1 ;
-  ] ;
-  sh:property [
-    sh:path prov:hadMember ;
-    sh:node :testResultShape ;
-    sh:minCount 1 ;
-  ] .
+    sh:targetClass ftr:TestResultSet ;
 
-:testShape a sh:NodeShape ;
-  sh:property [
-    sh:path rdf:type ;
-    sh:hasValue ftr:Test ;
-    sh:minCount 1 ;
-  ] .
+    sh:property [
+        sh:path dcterms:identifier ;
+        sh:or (
+            [ sh:datatype xsd:string ]
+            [ sh:datatype rdf:langString ]
+        ) ;
+        sh:minCount 1 ;
+    ] ;
 
-:entityShape a sh:NodeShape ;
-  sh:targetClass prov:Entity ;
-  sh:property [
-    sh:path dcterms:identifier ;
-    sh:datatype xsd:string ;
-    sh:maxCount 1 ;
-  ] .
+    sh:property [
+        sh:path dcterms:title ;
+        sh:or (
+            [ sh:datatype xsd:string ]
+            [ sh:datatype rdf:langString ]
+        ) ;
+        sh:minCount 1 ;
+    ] ;
 
-:testResultShape a sh:NodeShape ;
-  sh:targetClass ftr:TestResult ;
+    sh:property [
+        sh:path dcterms:license ;
+        sh:nodeKind sh:IRI ;
+        sh:minCount 1 ;
+    ] ;
 
-  sh:property [
-    sh:path dcterms:identifier ;
-    sh:datatype xsd:string ;
-    sh:minCount 1 ; sh:maxCount 1 ;
-  ] ;
-  sh:property [
-    sh:path dcterms:title ;
-    sh:datatype rdfs:Literal ;
-    sh:minCount 1 ; sh:maxCount 1 ;
-  ] ;
-  sh:property [
-    sh:path dcterms:description ;
-    sh:datatype rdfs:Literal ;
-    sh:minCount 1 ; sh:maxCount 1 ;
-  ] ;
-  sh:property [
-    sh:path dcterms:license ;
+    sh:property [
+        sh:path prov:wasGeneratedBy ;
+        sh:node :TestExecutionActivityShape ;
+        sh:minCount 1 ;
+    ] ;
+
+    sh:property [
+        sh:path ftr:assessmentTarget ;
+        sh:node :EntityShape ;
+        sh:minCount 1 ;
+    ] ;
+
+    sh:property [
+        sh:path prov:hadMember ;
+        sh:node :TestResultShape ;
+        sh:minCount 1 ;
+    ] .
+
+:TestShape
+    a sh:NodeShape ;
     sh:nodeKind sh:IRI ;
-    sh:minCount 1 ; sh:maxCount 1 ;
-  ] ;
 
-  sh:property [
-    sh:path prov:value ;
-    sh:or (
-      [ sh:datatype rdfs:Literal ]
-      [ sh:datatype xsd:float ]
-      [ sh:datatype xsd:integer ]
-    ) ;
-    sh:minCount 1 ; sh:maxCount 1 ;
-  ] ;
+    sh:property [
+        sh:path rdf:type ;
+        sh:hasValue ftr:Test ;
+        sh:minCount 1 ;
+    ] .
 
-  sh:property [
-    sh:path ftr:log ;
-    sh:datatype rdfs:Literal ;
-    sh:minCount 1 ; sh:maxCount 1 ;
-  ] ;
-  sh:property [
-    sh:path ftr:completion ;
-    sh:datatype xsd:integer ;
-  ] ;
-  sh:property [
-    sh:path ftr:affectedElements ;
+:EntityShape
+    a sh:NodeShape ;
     sh:nodeKind sh:IRI ;
-  ] ;
-  sh:property [
-    sh:path ftr:outputFromTest ;
-    sh:node :testShape ;
-    sh:minCount 1 ; sh:maxCount 1 ;
-  ] ;
-  sh:property [
-    sh:path ftr:assessmentTarget ;
-    sh:node :entityShape ;
-    sh:minCount 1 ; sh:maxCount 1 ;
-  ] .
+    sh:targetClass prov:Entity ;
 
-:testExecutionActivity a sh:NodeShape ;
-  sh:property [
-    sh:path rdf:type ;
-    sh:hasValue ftr:TestExecutionActivity ;
-    sh:minCount 1 ;
-  ] ;
-  sh:property [
-    sh:path prov:used ;
-    sh:node :entityShape ;
-    sh:minCount 1 ; sh:maxCount 1 ;
-  ] ;
-  sh:property [
-    sh:path prov:wasAssociatedWith ;
-    sh:node :testShape ;
-    sh:minCount 1 ; sh:maxCount 1 ;
-  ] .
+    sh:property [
+        sh:path dcterms:identifier ;
+        sh:or (
+            [ sh:datatype xsd:string ]
+            [ sh:datatype rdf:langString ]
+        ) ;
+    ] .
 
-:testExecutionSetActivity a sh:NodeShape ;
-  sh:property [
-    sh:path rdf:type ;
-    sh:hasValue ftr:TestExecutionActivity ;
-    sh:minCount 1 ;
-  ] .
+:TestResultShape
+    a sh:NodeShape ;
+    sh:nodeKind sh:IRI ;
+    sh:targetClass ftr:TestResult ;
+
+    sh:property [
+        sh:path dcterms:identifier ;
+        sh:or (
+            [ sh:datatype xsd:string ]
+            [ sh:datatype rdf:langString ]
+        ) ;
+        sh:minCount 1 ;
+    ] ;
+
+    sh:property [
+        sh:path dcterms:title ;
+        sh:or (
+            [ sh:datatype xsd:string ]
+            [ sh:datatype rdf:langString ]
+        ) ;
+        sh:minCount 1 ;
+    ] ;
+
+    sh:property [
+        sh:path dcterms:description ;
+        sh:or (
+            [ sh:datatype xsd:string ]
+            [ sh:datatype rdf:langString ]
+        ) ;
+        sh:minCount 1 ;
+    ] ;
+
+    sh:property [
+        sh:path dcterms:license ;
+        sh:nodeKind sh:IRI ;
+        sh:minCount 1 ;
+    ] ;
+
+    sh:property [
+        sh:path prov:value ;
+        sh:or (
+            [ sh:datatype xsd:string ]
+            [ sh:datatype rdf:langString ]
+        ) ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+    ] ;
+
+    sh:property [
+        sh:path ftr:log ;
+        sh:or (
+            [ sh:datatype xsd:string ]
+            [ sh:datatype rdf:langString ]
+        ) ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+    ] ;
+
+    sh:property [
+        sh:path ftr:completion ;
+        sh:datatype xsd:integer ;
+    ] ;
+
+    sh:property [
+        sh:path ftr:affectedElements ;
+        sh:nodeKind sh:IRI ;
+    ] ;
+
+    sh:property [
+        sh:path ftr:outputFromTest ;
+        sh:node :TestShape ;
+        sh:minCount 1 ;
+    ] ;
+
+    sh:property [
+        sh:path ftr:assessmentTarget ;
+        sh:node :EntityShape ;
+        sh:minCount 1 ;
+    ] ;
+
+    sh:property [
+        sh:path prov:wasGeneratedBy ;
+        sh:node :TestExecutionActivityShape ;
+    ] ;
+
+    sh:property [
+        sh:path ftr:suggestion ;
+        sh:node :GuidanceShape ;
+        sh:minCount 1 ;
+    ] .
+
+:TestExecutionActivityShape
+    a sh:NodeShape ;
+    sh:nodeKind sh:IRI ;
+    sh:targetClass ftr:TestExecutionActivity ;
+
+    sh:property [
+        sh:path prov:used ;
+        sh:node :EntityShape ;
+    ] ;
+
+    sh:property [
+        sh:path prov:wasAssociatedWith ;
+        sh:node :TestShape ;
+    ] ;
+
+    sh:property [
+        sh:path prov:endedAtTime ;
+        sh:datatype xsd:dateTime ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+    ] .
+
+:GuidanceShape
+    a sh:NodeShape ;
+    sh:nodeKind sh:IRI ;
+    sh:targetClass ftr:GuidanceContext ;
+
+    sh:property [
+        sh:path dcterms:title ;
+        sh:or (
+            [ sh:datatype xsd:string ]
+            [ sh:datatype rdf:langString ]
+        ) ;
+        sh:minCount 1 ;
+    ] ;
+
+    sh:property [
+        sh:path dcterms:description ;
+        sh:or (
+            [ sh:datatype xsd:string ]
+            [ sh:datatype rdf:langString ]
+        ) ;
+        sh:minCount 1 ;
+    ] .
