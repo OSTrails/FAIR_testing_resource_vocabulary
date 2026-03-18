@@ -27,18 +27,23 @@ We distinguish the following main concepts:
 
 ![diagram](./development/img/FAIRTestResult_diagram_v13.drawio.png "FTR overview")
 
-## Examples
-Please see the [latest specification draft for examples](https://w3id.org/ftr#desc). The FTR specification has been implemented through two different implementations: 
-- Champion: https://tools.ostrails.eu/champion 
-- FOOPS!: https://w3id.org/foops (see API [here](https://w3id.org/foops/api))
-
 ## Context
-If you want to use JSON-LD serializations to implement FTR, we recommend using the [ftr contex](https://w3id.org/ftr/context). It will help you making your JSON-LD documents easier to read (see some [examples](https://w3id.org/ftr#desc) in the specification too). 
+If you want to use a JSON-LD serialization to implement FTR, we recommend using the [ftr contex](https://w3id.org/ftr/context). It will help you making your JSON-LD documents easier to read (see some [examples](https://w3id.org/ftr#desc) in the specification too). 
 
 ## OpenAPI template
 If you want to implement a REST API following the FTR specification, you may use the [OpenAPI template](https://github.com/OSTrails/FAIR_testing_resource_vocabulary/blob/main/development/api/open_api_description.yaml) provided in this repository. See [an example implementation](https://w3id.org/foops/api))
 
-## Requirements
+## Requirements and Competency Questions
 The proposed vocabulary is derived from a set of competency questions, available at the `cqs` folder. CQs come from:
 * Requirements based on the experience of the authors (as FAIR assessment tool developers)
 * The [open document](https://docs.google.com/document/d/1HusredfHgymRg2ub4L0GnVSRV8IWZvFJyMkE6POejpc/edit?usp=sharing) where experts from various projects regarding FAIR assessment have gathered.
+
+## Examples
+Please see the [latest specification draft for examples](https://w3id.org/ftr#desc) of tests, metrics, benchmarks and scoring algorithms.
+
+## Reference implementations
+The FTR specification has been implemented through four different reference implementations: 
+- FAIR Champion: https://tools.ostrails.eu/champion 
+- FOOPS!: https://w3id.org/foops (see API [here](https://w3id.org/foops/api))
+- Research Software FAIRness Checks (RSFC): https://w3id.org/rsfc/ (see API [here](https://w3id.org/rsfc/api))
+- FAIR for Research Objects (FAIROs): https://w3id.org/FAIROS/
