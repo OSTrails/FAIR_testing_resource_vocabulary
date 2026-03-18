@@ -116,13 +116,13 @@ Test results have basic metadata to understand which test did they run, an expla
 
 ```turtle
 @prefix rdf: &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt; .
-@prefix dcterms: &lt;http://purl.org/dc/terms/&gt;
-@prefix ftr: &lt;https://w3id.org/ftr#&gt;
-@prefix dcat: &lt;http://www.w3.org/ns/dcat#&gt;
-@prefix sio: &lt;http://semanticscience.org/resource/&gt;
-@prefix xsd: &lt;http://www.w3.org/2001/XMLSchema#&gt;
-@prefix prov: &lt;http://www.w3.org/ns/prov#&gt;
-@prefix schema: &lt;http://schema.org/&gt;
+@prefix dcterms: &lt;http://purl.org/dc/terms/&gt; .
+@prefix ftr: &lt;https://w3id.org/ftr#&gt; .
+@prefix dcat: &lt;http://www.w3.org/ns/dcat#&gt; .
+@prefix sio: &lt;http://semanticscience.org/resource/&gt; .
+@prefix xsd: &lt;http://www.w3.org/2001/XMLSchema#&gt; .
+@prefix prov: &lt;http://www.w3.org/ns/prov#&gt; .
+@prefix schema: &lt;http://schema.org/&gt; .
 
 
 &lt;urn:fairtestoutput:873a8370-77e0-40ad-a6e5-0d8349fdaea4&gt;
@@ -450,7 +450,7 @@ This metric ensures that the vocabulary is accessible in recognized RDF serializ
 [rest of the definition omitted for simplicity]
 	"""@en ;
 	vivo:abbreviation "Metric CN1"^^xsd:string ;	
-    ftr:supportedBy "https://w3id.org/foops/";
+  ftr:supportedBy &lt;https://w3id.org/foops/&gt; ;
 	dcat:contactPoint &lt;https://orcid.org/0000-0003-0454-7145&gt; ;
 	dcterms:creator &lt;https://orcid.org/0000-0003-0454-7145&gt; ; #creator details omitted for simplicity
 	dcterms:creator &lt;https://orcid.org/0000-0003-3587-0367&gt; ;
@@ -491,7 +491,7 @@ This metric ensures that the vocabulary is accessible in recognized RDF serializ
 [rest of the definition omitted for simplicity]
 	"""@en ;
 	vivo:abbreviation "Metric CN1"^^xsd:string ;	
-    ftr:supportedBy "https://w3id.org/foops/";
+  ftr:supportedBy &lt;https://w3id.org/foops/&gt; ;
 	dcat:contactPoint &lt;https://orcid.org/0000-0003-0454-7145&gt; ;
 	dcterms:creator &lt;https://orcid.org/0000-0003-0454-7145&gt; ; #creator details omitted for simplicity
 	dcterms:creator &lt;https://orcid.org/0000-0003-3587-0367&gt; ;
