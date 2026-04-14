@@ -384,11 +384,7 @@ prov:value rdf:type owl:DatatypeProperty ;
 
 ###  https://w3id.org/ftr#hasNegativeValidation
 :hasNegativeValidation rdf:type owl:DatatypeProperty ;
-                       rdfs:domain [ rdf:type owl:Class ;
-                           owl:unionOf ( :Metric
-                                         :Test
-                                       )
-                         ] ;
+                       rdfs:domain :Metric ;
                        rdfs:range xsd:anyURI ;
                        rdfs:comment "Property that links to a resource that does not pass the metric (a negative example)"@en ;
                        rdfs:label "has negative example"@en .
@@ -396,14 +392,40 @@ prov:value rdf:type owl:DatatypeProperty ;
 
 ###  https://w3id.org/ftr#hasPositiveValidation
 :hasPositiveValidation rdf:type owl:DatatypeProperty ;
-                       rdfs:domain [ rdf:type owl:Class ;
-                           owl:unionOf ( :Metric
-                                         :Test
-                                       )
-                         ] ;
+                       rdfs:domain :Metric ;
                        rdfs:range xsd:anyURI ;
                        rdfs:comment "Property that links to a resource that may be used to pass the metric (a positive example)"@en ;
                        rdfs:label "has positive validation"@en .
+
+###  https://w3id.org/ftr#hasNegativeValidation
+:hasNegativeValidation rdf:type owl:DatatypeProperty ;
+                       rdfs:domain :Test ;
+                       rdfs:range xsd:anyURI ;
+                       rdfs:comment "Property that links to a resource that does not pass the test (a negative example)"@en ;
+                       rdfs:label "has negative validation"@en .
+
+
+###  https://w3id.org/ftr#hasPositiveValidation
+:hasPositiveValidation rdf:type owl:DatatypeProperty ;
+                       rdfs:domain :Test ;
+                       rdfs:range xsd:anyURI ;
+                       rdfs:comment "Property that links to a resource that may be used to pass the test (a positive example)"@en ;
+                       rdfs:label "has positive validation"@en .
+
+###  https://w3id.org/ftr#hasNegativeExpectation
+:hasNegativeExpectation rdf:type owl:DatatypeProperty ;
+                       rdfs:domain :Metric ;
+                       rdfs:range xsd:anyURI ;
+                       rdfs:comment "Property that links to a resource that is not expected to pass the metric (a negative example)"@en ;
+                       rdfs:label "has negative expectation"@en .
+
+
+###  https://w3id.org/ftr#hasPositiveValidation
+:hasPositiveExpectation rdf:type owl:DatatypeProperty ;
+                       rdfs:domain :Metric ;
+                       rdfs:range xsd:anyURI ;
+                       rdfs:comment "Property that links to a resource that should pass the metric (a positive example)"@en ;
+                       rdfs:label "has positive expectation"@en .
 
 
 ###  https://w3id.org/ftr#log
