@@ -1,6 +1,6 @@
 <mxfile host="Electron" agent="Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/29.6.6 Chrome/144.0.7559.236 Electron/40.8.4 Safari/537.36" version="29.6.6">
   <diagram name="1.2.0" id="X21MHkXue-90yoCCHEr5">
-    <mxGraphModel dx="1097" dy="668" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="906" dy="552" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="aJPommEV7rcXcunqT9-c-0" />
         <mxCell id="aJPommEV7rcXcunqT9-c-1" parent="aJPommEV7rcXcunqT9-c-0" />
@@ -13,8 +13,8 @@
         <mxCell id="aJPommEV7rcXcunqT9-c-3" parent="aJPommEV7rcXcunqT9-c-1" style="rounded=0;whiteSpace=wrap;html=1;snapToPoint=1;points=[[0.1,0],[0.2,0],[0.3,0],[0.4,0],[0.5,0],[0.6,0],[0.7,0],[0.8,0],[0.9,0],[0,0.1],[0,0.3],[0,0.5],[0,0.7],[0,0.9],[0.1,1],[0.2,1],[0.3,1],[0.4,1],[0.5,1],[0.6,1],[0.7,1],[0.8,1],[0.9,1],[1,0.1],[1,0.3],[1,0.5],[1,0.7],[1,0.9]];fillColor=#fff2cc;strokeColor=#d6b656;" value="prov:Collection" vertex="1">
           <mxGeometry height="30" width="100" x="508" y="1584" as="geometry" />
         </mxCell>
-        <mxCell id="aJPommEV7rcXcunqT9-c-4" parent="aJPommEV7rcXcunqT9-c-1" style="shape=note;whiteSpace=wrap;html=1;backgroundOutline=1;darkOpacity=0.05;" value="&lt;div&gt;&lt;b&gt;prov&lt;/b&gt;: http://www.w3.org/ns/prov#&lt;/div&gt;&lt;div&gt;&lt;b&gt;ftr:&lt;/b&gt; https://w3id.org/ftr#&lt;br&gt;&lt;b&gt;dcat&lt;/b&gt;: https://www.w3.org/ns/dcat#&lt;/div&gt;&lt;div&gt;&lt;b&gt;sio&lt;/b&gt;: http://semanticscience.org/resource/&lt;br&gt;&lt;/div&gt;&lt;b&gt;dcterms&lt;/b&gt;: http://purl.org/dc/terms/&lt;div&gt;&lt;b&gt;doap:&amp;nbsp;&lt;/b&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;http://usefulinc.com/ns/doap#&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;b&gt;adms&lt;/b&gt;: http://www.w3.org/ns/adms#&lt;/div&gt;&lt;div&gt;&lt;b&gt;vivo&lt;/b&gt;:&amp;nbsp;http://vivoweb.org/ontology/core#&lt;/div&gt;&lt;div&gt;&lt;b&gt;dpv&lt;/b&gt;: https://w3id.org/dpv#&lt;/div&gt;&lt;div&gt;&lt;b&gt;fgv&lt;/b&gt;: https://w3id.org/fgv#&lt;/div&gt;" vertex="1">
-          <mxGeometry height="155" width="290" x="149.5" y="615" as="geometry" />
+        <mxCell id="aJPommEV7rcXcunqT9-c-4" parent="aJPommEV7rcXcunqT9-c-1" style="shape=note;whiteSpace=wrap;html=1;backgroundOutline=1;darkOpacity=0.05;" value="&lt;div&gt;&lt;b&gt;ftr:&lt;/b&gt;&amp;nbsp;https://w3id.org/ftr#&lt;b&gt;&lt;/b&gt;&lt;/div&gt;&lt;div&gt;&lt;b&gt;prov&lt;/b&gt;: http://www.w3.org/ns/prov#&lt;/div&gt;&lt;div&gt;&lt;b&gt;dqv:&amp;nbsp;&lt;/b&gt;http://www.w3.org/ns/dqv#&lt;br&gt;&lt;b&gt;dcat&lt;/b&gt;: https://www.w3.org/ns/dcat#&lt;/div&gt;&lt;div&gt;&lt;b&gt;sio&lt;/b&gt;: http://semanticscience.org/resource/&lt;br&gt;&lt;/div&gt;&lt;b&gt;dcterms&lt;/b&gt;: http://purl.org/dc/terms/&lt;div&gt;&lt;b&gt;doap:&amp;nbsp;&lt;/b&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;http://usefulinc.com/ns/doap#&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;b&gt;adms&lt;/b&gt;: http://www.w3.org/ns/adms#&lt;/div&gt;&lt;div&gt;&lt;b&gt;vivo&lt;/b&gt;:&amp;nbsp;http://vivoweb.org/ontology/core#&lt;/div&gt;&lt;div&gt;&lt;b&gt;dpv&lt;/b&gt;: https://w3id.org/dpv#&lt;/div&gt;&lt;div&gt;&lt;b&gt;fgv&lt;/b&gt;: https://w3id.org/fgv#&lt;/div&gt;" vertex="1">
+          <mxGeometry height="170" width="290" x="149.5" y="600" as="geometry" />
         </mxCell>
         <mxCell id="5aqM4S-_L2H5xlex5sq0-10" edge="1" parent="aJPommEV7rcXcunqT9-c-1" source="aJPommEV7rcXcunqT9-c-5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.3;exitDx=0;exitDy=0;entryX=0;entryY=0.7;entryDx=0;entryDy=0;" target="aJPommEV7rcXcunqT9-c-22">
           <mxGeometry relative="1" as="geometry" />
@@ -202,7 +202,7 @@
           <mxGeometry height="160" width="230" x="1350" y="390" as="geometry" />
         </mxCell>
         <mxCell id="aJPommEV7rcXcunqT9-c-40" parent="aJPommEV7rcXcunqT9-c-1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;" value="" vertex="1">
-          <mxGeometry height="185" width="459.5" x="140" y="600" as="geometry" />
+          <mxGeometry height="185" width="459.5" x="140" y="593" as="geometry" />
         </mxCell>
         <mxCell id="aJPommEV7rcXcunqT9-c-41" parent="aJPommEV7rcXcunqT9-c-1" style="rounded=0;whiteSpace=wrap;html=1;snapToPoint=1;points=[[0.1,0],[0.2,0],[0.3,0],[0.4,0],[0.5,0],[0.6,0],[0.7,0],[0.8,0],[0.9,0],[0,0.1],[0,0.3],[0,0.5],[0,0.7],[0,0.9],[0.1,1],[0.2,1],[0.3,1],[0.4,1],[0.5,1],[0.6,1],[0.7,1],[0.8,1],[0.9,1],[1,0.1],[1,0.3],[1,0.5],[1,0.7],[1,0.9]];fillColor=#dae8fc;strokeColor=#6c8ebf;" value="&lt;font style=&quot;font-size: 13px;&quot;&gt;ftr:Benchmark&lt;/font&gt;" vertex="1">
           <mxGeometry height="30" width="230" x="1350" y="360" as="geometry" />
