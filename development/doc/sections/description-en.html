@@ -22,7 +22,7 @@ In the following we describe with examples how to adopt each of the classes and 
 <h3 id="example-single-test" class="list"> Example: Describing a single test result <span class="backlink"> back to <a href="#toc">ToC</a></span></h3>
 
 <span class="markdown">
-Test results have basic metadata to understand which test was it run, an explanation of the results and whether they passed or not (or whether they were completed to a certain extent, if applicable). In the snippet below a test with identifier <a href="https://w3id.org/foops/test/OM1">https://w3id.org/foops/test/OM1</a> is run on the resource <a href="https://w3id.org/example">https://w3id.org/example</a> (a vocabulary) which passes the test. A log and a human readable description of both the test and its results are returned. Note that the tests includes properties to point to the web service where the test is hosted (if exists), its landing page (dcat:landingPage) and its machine-readable representation (rdfs:isDefinedBy).  The following snippet shows an example in JSON-LD and Turtle  syntax on the test results. To facilitate dealing with JSON-LD, we define [a context file](https://w3id.org/ftr/context):
+Test results have basic metadata to understand which test was it run and its version, an explanation of the results and whether they passed or not (or whether they were completed to a certain extent, if applicable). In the snippet below a test with identifier <a href="https://w3id.org/foops/test/OM1">https://w3id.org/foops/test/OM1</a> is run on the resource <a href="https://w3id.org/example">https://w3id.org/example</a> (a vocabulary) which passes the test. A log and a human readable description of both the test and its results are returned. Note that the tests includes properties to point to the web service where the test is hosted (if exists), its landing page (dcat:landingPage) and its machine-readable representation (rdfs:isDefinedBy).  The following snippet shows an example in JSON-LD and Turtle  syntax on the test results. To facilitate dealing with JSON-LD, we define [a context file](https://w3id.org/ftr/context):
 </span>
 
 <aside class="example ds-selector-tabs" id="test-example">
@@ -67,6 +67,10 @@ Test results have basic metadata to understand which test was it run, an explana
     "wasAssociatedWith": {
       "@id": "https://w3id.org/foops/test/OM1",
       "identifier": "https://w3id.org/foops/test/OM1",
+      "version": {
+        "@type": "http://www.w3.org/2001/XMLSchema#string",
+        "@value": "0.0.1"
+      },
       "isDefinedBy": "https://oeg-upm.github.io/fair_ontologies/doc/test/OM1/OM1.ttl",
       "landingPage": {
         "@id": "https://oeg-upm.github.io/fair_ontologies/doc/test/OM1/OM1.html"
@@ -115,7 +119,8 @@ Test results have basic metadata to understand which test was it run, an explana
   dcterms:identifier "https://w3id.org/foops/test/OM1" ;
   dcterms:title "Ontology minimum metadata is declared" ;
   rdfs:isDefinedBy "https://oeg-upm.github.io/fair_ontologies/doc/test/OM1/OM1.ttl"^^xsd:anyURI;
-  dcat:landingPage &lt;https://oeg-upm.github.io/fair_ontologies/doc/test/OM1/OM1.html&gt;
+  dcat:landingPage &lt;https://oeg-upm.github.io/fair_ontologies/doc/test/OM1/OM1.html&gt; ;
+  dcat:version "0.0.1";
   dcat:endpointDescription &lt;https://w3id.org/foops/api&gt; ;
   dcat:endpointURL &lt;https://w3id.org/foops/api/assess/test/OM1&gt; .         
     </pre>
@@ -226,6 +231,10 @@ Many assessment tools run a set of tests (e.g., organized under a benchmark). In
         "landingPage": {
           "@id": "https://oeg-upm.github.io/fair_ontologies/doc/test/PURL1/PURL1.html"
         },
+        "version": {
+          "@type": "http://www.w3.org/2001/XMLSchema#string",
+          "@value": "0.0.1"
+        },
         "title": "Ontology has a persistent URL"
       }
     },
@@ -250,6 +259,10 @@ Many assessment tools run a set of tests (e.g., organized under a benchmark). In
         "isDefinedBy": "https://oeg-upm.github.io/fair_ontologies/doc/test/URI1/URI1.ttl",
         "landingPage": {
           "@id": "https://oeg-upm.github.io/fair_ontologies/doc/test/URI1/URI1.html"
+        },
+        "version": {
+          "@type": "http://www.w3.org/2001/XMLSchema#string",
+          "@value": "0.0.1"
         },
         "title": "Ontology URI is resolvable"
       }
@@ -300,6 +313,7 @@ Many assessment tools run a set of tests (e.g., organized under a benchmark). In
   dc:identifier "https://w3id.org/foops/test/PURL1" ;
   rdfs:isDefinedBy "https://oeg-upm.github.io/fair_ontologies/doc/test/PURL1/PURL1.ttl"^^xsd:anyURI;
   dcat:landingPage &lt;https://oeg-upm.github.io/fair_ontologies/doc/test/PURL1/PURL1.html&gt; ;
+  dcat:version "0.0.1" ;
   dc:title "Ontology has a persistent URL" .
 
 &lt;https://w3id.org/foops/test/URI1&gt;
@@ -308,6 +322,7 @@ Many assessment tools run a set of tests (e.g., organized under a benchmark). In
   dc:identifier "https://w3id.org/foops/test/URI1" ;
   rdfs:isDefinedBy "https://oeg-upm.github.io/fair_ontologies/doc/test/URI1/URI.ttl"^^xsd:anyURI;
   dcat:landingPage &lt;https://oeg-upm.github.io/fair_ontologies/doc/test/URI1/URI1.html&gt; ;
+  dcat:version "0.0.1" ;
   dc:title "Ontology URI is resolvable" .         
     </pre>
 </aside>
@@ -419,6 +434,10 @@ A metric contains basic metadata to undertand what a test must implement. Below 
     "landingPage": {
         "@id": "https://oeg-upm.github.io/fair_ontologies/doc/test/CN1/CN1.html"
     },
+    "version": {
+      "@type": "http://www.w3.org/2001/XMLSchema#string",
+      "@value": "0.0.1"
+    },
     "hasSoftwareImage": {
       "availableInRegistry": "https://hub.docker.com",
       "identifier": "user/imageName:tag" 
@@ -513,6 +532,7 @@ This metric ensures that the vocabulary is accessible in recognized RDF serializ
     dcat:endpointURL &lt;https://w3id.org/foops/api/assess/test/CN1&gt; 
     rdfs:isDefinedBy "https://oeg-upm.github.io/fair_ontologies/doc/test/CN1/CN1.ttl"^^xsd:anyURI ;
     dcat:landingPage &lt;https://oeg-upm.github.io/fair_ontologies/doc/test/CN1/CN1.html&gt; ;
+    dcat:version "0.0.1" ;
     sd:hasSoftwareImage [
       a sd:SoftwareImage;
       sd:availableInRegistry "https://hub.docker.com";
@@ -524,6 +544,7 @@ This metric ensures that the vocabulary is accessible in recognized RDF serializ
     dpv:isApplicableFor &lt;https://schema.org/DefinedTermSet&gt; ; 
     rdfs:isDefinedBy "https://oeg-upm.github.io/fair_ontologies/doc/benchmark/ALL/ALL.ttl"^^xsd:anyURI ;
     dcat:landingPage &lt;https://oeg-upm.github.io/fair_ontologies/doc/benchmark/ALL/ALL.html&gt; ;
+    dcat:version "0.0.1" ;
     dcterms:description "This benchmark specifies the criteria for evaluating aspects of vocabularies according to the FAIR principles."@en .        
     </pre>
 </aside>
