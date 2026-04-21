@@ -19,10 +19,10 @@ We distinguish the following main concepts:
 In the following we describe with examples how to adopt each of the classes and properties in the specification.
 </span>    
 
-<h3 id="desc" class="list"> Example: Describing a single test result <span class="backlink"> back to <a href="#toc">ToC</a></span></h3>
+<h3 id="example-single-test" class="list"> Example: Describing a single test result <span class="backlink"> back to <a href="#toc">ToC</a></span></h3>
 
 <span class="markdown">
-Test results have basic metadata to understand which test did they run, an explanation and whether they passed or not (or whether they were completed to a certain extent, if applicable). In the snippet below a test with identifier <a href="https://w3id.org/foops/test/OM1">https://w3id.org/foops/test/OM1</a> is run on the resource <a href="https://w3id.org/example">https://w3id.org/example</a> (a vocabulary) which passes the test. A log and a human readable description of both the test and its results are returned.  The following snippet shows an example in JSON-LD and Turtle  syntax on the test results. To facilitate dealing with JSON-LD, we define [a context file](https://w3id.org/ftr/context):
+Test results have basic metadata to understand which test was it run, an explanation of the results and whether they passed or not (or whether they were completed to a certain extent, if applicable). In the snippet below a test with identifier <a href="https://w3id.org/foops/test/OM1">https://w3id.org/foops/test/OM1</a> is run on the resource <a href="https://w3id.org/example">https://w3id.org/example</a> (a vocabulary) which passes the test. A log and a human readable description of both the test and its results are returned. Note that the tests includes properties to point to the web service where the test is hosted (if exists), its landing page (dcat:landingPage) and its machine-readable representation (rdfs:isDefinedBy).  The following snippet shows an example in JSON-LD and Turtle  syntax on the test results. To facilitate dealing with JSON-LD, we define [a context file](https://w3id.org/ftr/context):
 </span>
 
 <aside class="example ds-selector-tabs" id="test-example">
@@ -171,9 +171,10 @@ PASS:  The GUID of the metadata is a uri, which is known to be allow authenticat
    prov:wasAssociatedWith &lt;urn:ostrails:fairtestsoftware:e5e67c2a-769a-4efd-aa1c-c9cc96148e22&gt; .
 ```
 -->
-<span class = "markdown">
 
-### Example: Grouping test results in a test result set
+<h3 id="example-test-result-set" class="list">Example: Grouping test results in a test result set<span class="backlink"> back to <a href="#toc">ToC</a></span></h3>
+
+<span class="markdown">
 Many assessment tools run a set of tests (e.g., organized under a benchmark). In those cases, we propose a flexible approach by using a test result set to record their common provenance information (e.g., the assessment target). For example, the following result set describes two successful test results from two tests (one for checking compliance with URI schemes and another one for content negotiation) over the same resource as before ([https://w3id.org/example](https://w3id.org/example)). Both JSON-LD and Turtle serializations are provided:
 </span>
 
@@ -365,10 +366,9 @@ ex:foops a schema:SoftwareApplication;
 ```
 -->
 
-<span class = "markdown">
+<h3 id="example-metric-test" class="list">Example: Defining a metric and associating it with a test and a benchmark <span class="backlink"> back to <a href="#toc">ToC</a></span></h3>
 
-### Example: Defining a metric and associating it with a test and a benchmark
-
+ <span class = "markdown">
 A metric contains basic metadata to undertand what a test must implement. Below is an exemplar representation of a Metric designed to assess the availablity of an ontology on the web (applicable only for defined term sets like). In this case, the metric metadata points to its test implementation ([https://w3id.org/foops/metric/CN1](https://w3id.org/foops/metric/CN1)):
 
 </span>
@@ -591,9 +591,11 @@ Metrics and benchmarks may be applicable to specific types of digital objects. F
 
 These types are maintained at [https://github.com/OSTrails/digital-object-commons/blob/main/object_types_draft.csv](https://github.com/OSTrails/digital-object-commons/blob/main/object_types_draft.csv)
 
+</span>
 
-### Example: Declaring a benchmark with a set of defined metrics
+<h3 id="example-benchmark" class="list">Example: Declaring a benchmark with a set of defined metrics<span class="backlink"> back to <a href="#toc">ToC</a></span></h3>
 
+<span class="markdown">
 Benchmarks describe community-specific groupings of metrics that provides a narrative of those particular ways in which that community defines FAIR for assessment purposes. For example, the following benchmark groups two metrics that are relevant for assessing ontologies (the [original benchmark used for this example](https://oeg-upm.github.io/fair_ontologies/doc/benchmark/ALL/ALL.ttl) contains more metrics, but it is simplified for illustration purposes): 
 
 ```turtle
@@ -641,8 +643,11 @@ Benchmarks describe community-specific groupings of metrics that provides a narr
 	rdfs:label "Metric DOC1"^^xsd:string ;
     vivo:abbreviation "Metric DOC1"^^xsd:string .
 ```
+</span>
 
-### Example: Describing a scoring algortihm with metadata
+<h3 id="example-algorithm" class="list">Example: Describing a scoring algortihm with metadata<span class="backlink"> back to <a href="#toc">ToC</a></span></h3>
+
+<span class="markdown">
 Scoring algorithms implement a benchmark by indicating which tests are run and how their scores come to be. Here is a minimal example explaining how the benchmark described above is implemented to receive a score:
 
 ```turtle
@@ -667,8 +672,11 @@ Scoring algorithms implement a benchmark by indicating which tests are run and h
         &lt;https://w3id.org/foops/test/DOC1&gt .    # concrete tests that will be invoked when running the scoring algorithm
 
 ```
+</span>
 
-### Example: Describing a benchmark score
+<h3 id="example-benchmark-score" class="list">Example: Describing a benchmark score<span class="backlink"> back to <a href="#toc">ToC</a></span></h3>
+
+<span class="markdown">
 Finally, we get to the score obtained by running a scoring algorithm. The score contains a value, a link to the test result set run and a log explaining the score. Following on the previous example:
 
 ```turtle
