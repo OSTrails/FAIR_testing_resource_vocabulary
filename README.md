@@ -20,7 +20,8 @@ We distinguish the following main concepts:
 - **TestResultSet**: A set of FAIR test results, together with their respective metadata. Common metadata may describe the set. For example, if all results where run by a request to the same API.
 - **Test**: Service, formed by an API and associated piece of code that implements a Metric, and is executed (by a FAIR assessment tool), retrieving a particular and standardised result.
 - **TestExecutionActivity**: The action carried out by an agent of calling an API in which a test (or set of tests) were run. The result of this activity is either a `TestResult` or a `TestResultSet`.
-- **Metric**: Narrative description that a Test must wholly implement. Metrics may be domain-agnostic or not.
+- **Metric**: Narrative description that a Test must wholly implement. Metrics may be domain-agnostic or not. Metrics do not include technical details on their implementation.
+- **Dimension**: Represents criteria relevant for an assessment (e.g., one of the FAIR principles). Each quality dimension must have one or more metric to measure it (definition adapted from [W3C Data Quality Vocabulary](https://www.w3.org/TR/vocab-dqv/#dqv:Dimension)).
 - **Benchmark**: Benchmarks are community-specific groupings of a set of Metrics that provides a narrative of those particular ways in which that community defines FAIR for assessment purposes.
 - **ScoringAlgorithm**: Piece of code that contextualises the sum of all test results for a given benchmark, into a final quantitative assessment result. 
 - **BenchmarkScore**: Score obtained after executing a scoring algorithm over a set of test results. The benchmark score includes a value, a log and a link to the test results used to obtain the score.

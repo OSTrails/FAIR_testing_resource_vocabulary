@@ -7,19 +7,21 @@
 <span class="markdown">
 We distinguish the following main concepts:
 - **TestResult**: Output of running a test over a resource. A test result also should contain provenance metadata about the process followed to create it. `TestResult`is represented as an extension of `prov:Entity`. A test result points to the corresponding test through the `ftr:outputFromTest` property.
-- **Test**: Service, formed by an API and associated piece of code that implements a Metric, and is executed (by a FAIR assessment tool), retrieving a particular and standardised result.
+- **Test**: Service, formed by an API and associated piece of code that implements a Metric, and is executed (by a FAIR assessment tool), retrieving a particular and standardised result. A test should specify the type of digital object it tests (e.g., datasets, software, ontologies) and the input in which it expects it (a URI, Zip file, etc.)
 - **TestResultSet**: A set of FAIR test results, together with their respective metadata. Common metadata may describe the set. For example, if all results where run by a request to the same API.
 - **TestExecutionActivity**: The action carried out by an agent of calling an API in which a test (or set of tests) were run. The result of this activity is either a `TestResult` or a `TestResultSet`.
-- **Metric**: Narrative description that a Test must wholly implement. Metrics may be domain-agnostic or not.
+- **Metric**: Narrative description that a Test must wholly implement. Metrics may be domain-agnostic or not. Metrics do not include technical details on their implementation.
+- **Dimension**: Represents criteria relevant for an assessment (e.g., one of the FAIR principles). Each quality dimension must have one or more metric to measure it (definition adapted from [W3C Data Quality Vocabulary](https://www.w3.org/TR/vocab-dqv/#dqv:Dimension)).
 - **Benchmark**: Benchmarks are community-specific groupings of a set of Metrics that provides a narrative of those particular ways in which that community defines FAIR for assessment purposes.
 - **Scoring algorithm**: A benchmark implementation in the form of an interpretative algorithm. Algorithms may specify the exact set of tests which are to be run by the assessment service. Algorithms contextualise the sum of all test results for a given benchmark, into a final quantitative assessment result. The execution of an algorithm yields an assessment result. 
 - **Benchmark score**: Score obtained after executing a scoring algorithm over a set of test results. The benchmark score includes a value, a log and a link to the test results used to obtain the score. 
 
 In the following we describe with examples how to adopt each of the classes and properties in the specification.
-    
+</span>    
 
-### Example: Describing a single test result
+<h3 id="desc" class="list"> Example: Describing a single test result <span class="backlink"> back to <a href="#toc">ToC</a></span></h3>
 
+<span class="markdown">
 Test results have basic metadata to understand which test did they run, an explanation and whether they passed or not (or whether they were completed to a certain extent, if applicable). In the snippet below a test with identifier <a href="https://w3id.org/foops/test/OM1">https://w3id.org/foops/test/OM1</a> is run on the resource <a href="https://w3id.org/example">https://w3id.org/example</a> (a vocabulary) which passes the test. A log and a human readable description of both the test and its results are returned.  The following snippet shows an example in JSON-LD and Turtle  syntax on the test results. To facilitate dealing with JSON-LD, we define [a context file](https://w3id.org/ftr/context):
 </span>
 
@@ -65,6 +67,10 @@ Test results have basic metadata to understand which test did they run, an expla
     "wasAssociatedWith": {
       "@id": "https://w3id.org/foops/test/OM1",
       "identifier": "https://w3id.org/foops/test/OM1",
+      "isDefinedBy": "https://oeg-upm.github.io/fair_ontologies/doc/test/OM1/OM1.ttl",
+      "landingPage": {
+        "@id": "https://oeg-upm.github.io/fair_ontologies/doc/test/OM1/OM1.html"
+      },
       "title": "Ontology minimum metadata is declared",
       "description": "This check verifies if the following  minimum metadata are present in the ontology metadata [... definition omitted for simplicity...]",
       "endpointDescription": {
@@ -78,11 +84,12 @@ Test results have basic metadata to understand which test did they run, an expla
 }
     </pre>
     <pre class="turtle" data-content-type="text/turtle" data-result-for="Sample test result metadata" data-to-rdf="" aria-busy="false">
-@prefix dcterms: &lt;http://purl.org/dc/terms/&gt;
-@prefix ftr: &lt;https://w3id.org/ftr#&gt;
-@prefix dcat: &lt;http://www.w3.org/ns/dcat#&gt;
-@prefix xsd: &lt;http://www.w3.org/2001/XMLSchema#&gt;
-@prefix prov: &lt;http://www.w3.org/ns/prov#&gt;
+@prefix dcterms: &lt;http://purl.org/dc/terms/&gt; .
+@prefix ftr: &lt;https://w3id.org/ftr#&gt; .
+@prefix dcat: &lt;http://www.w3.org/ns/dcat#&gt; .
+@prefix xsd: &lt;http://www.w3.org/2001/XMLSchema#&gt; .
+@prefix prov: &lt;http://www.w3.org/ns/prov#&gt; .
+@prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt; .
 
 &lt;urn:foops:c8e0f7a4-fa0c-432f-b1bc-d63206422e4a&gt;
   a &lt;https://w3id.org/ftr#TestResult&gt; ;
@@ -107,6 +114,8 @@ Test results have basic metadata to understand which test did they run, an expla
   dcterms:description """This check verifies if the following  minimum metadata are present in the ontology metadata [... definition omitted for simplicity...]""" ;
   dcterms:identifier "https://w3id.org/foops/test/OM1" ;
   dcterms:title "Ontology minimum metadata is declared" ;
+  rdfs:isDefinedBy "https://oeg-upm.github.io/fair_ontologies/doc/test/OM1/OM1.ttl"^^xsd:anyURI;
+  dcat:landingPage &lt;https://oeg-upm.github.io/fair_ontologies/doc/test/OM1/OM1.html&gt;
   dcat:endpointDescription &lt;https://w3id.org/foops/api&gt; ;
   dcat:endpointURL &lt;https://w3id.org/foops/api/assess/test/OM1&gt; .         
     </pre>
@@ -212,6 +221,10 @@ Many assessment tools run a set of tests (e.g., organized under a benchmark). In
         "@type": "Test",
         "description": "This test verifies if the ontology has a persistent URL. [description shortened]",
         "identifier": "https://w3id.org/foops/test/PURL1",
+        "isDefinedBy": "https://oeg-upm.github.io/fair_ontologies/doc/test/PURL1/PURL1.ttl",
+        "landingPage": {
+          "@id": "https://oeg-upm.github.io/fair_ontologies/doc/test/PURL1/PURL1.html"
+        },
         "title": "Ontology has a persistent URL"
       }
     },
@@ -233,6 +246,10 @@ Many assessment tools run a set of tests (e.g., organized under a benchmark). In
         "@type": "Test",
         "description": "This test verifies if the ontology URI that was found within the ontology document is resolvable. [... description shortened]",
         "identifier": "https://w3id.org/foops/test/URI1",
+        "isDefinedBy": "https://oeg-upm.github.io/fair_ontologies/doc/test/URI1/URI1.ttl",
+        "landingPage": {
+          "@id": "https://oeg-upm.github.io/fair_ontologies/doc/test/URI1/URI1.html"
+        },
         "title": "Ontology URI is resolvable"
       }
     }
@@ -243,7 +260,9 @@ Many assessment tools run a set of tests (e.g., organized under a benchmark). In
 @prefix dc: &lt;http://purl.org/dc/terms/&gt; .
 @prefix prov: &lt;http://www.w3.org/ns/prov#&gt; .
 @prefix ftr: &lt;https://w3id.org/ftr#&gt; .
+@prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt; .
 @prefix xsd: &lt;http://www.w3.org/2001/XMLSchema#&gt; .
+@prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt; .
 
 &lt;urn:foops:66b6e48a-b8db-4ac9-b935-1a94b8d93ea7&gt;
   a ftr:TestResultSet ;
@@ -278,12 +297,16 @@ Many assessment tools run a set of tests (e.g., organized under a benchmark). In
   a ftr:Test ;
   dc:description "This test verifies if the ontology has a persistent URL. [description shortened]" ;
   dc:identifier "https://w3id.org/foops/test/PURL1" ;
+  rdfs:isDefinedBy "https://oeg-upm.github.io/fair_ontologies/doc/test/PURL1/PURL1.ttl"^^xsd:anyURI;
+  dcat:landingPage &lt;https://oeg-upm.github.io/fair_ontologies/doc/test/PURL1/PURL1.html&gt; ;
   dc:title "Ontology has a persistent URL" .
 
 &lt;https://w3id.org/foops/test/URI1&gt;
   a ftr:Test ;
   dc:description "This test verifies if the ontology URI that was found within the ontology document is resolvable. [... description shortened]" ;
   dc:identifier "https://w3id.org/foops/test/URI1" ;
+  rdfs:isDefinedBy "https://oeg-upm.github.io/fair_ontologies/doc/test/URI1/URI.ttl"^^xsd:anyURI;
+  dcat:landingPage &lt;https://oeg-upm.github.io/fair_ontologies/doc/test/URI1/URI1.html&gt; ;
   dc:title "Ontology URI is resolvable" .         
     </pre>
 </aside>
@@ -392,6 +415,10 @@ A metric contains basic metadata to undertand what a test must implement. Below 
     "endpointDescription": "https://w3id.org/foops/api" ,
     "endpointURL": "https://w3id.org/foops/api/assess/test/CN1", 
     "isApplicableFor": "https://schema.org/DefinedTermSet" ,
+    "isDefinedBy": "https://oeg-upm.github.io/fair_ontologies/doc/test/CN1/CN1.ttl",
+    "landingPage": {
+        "@id": "https://oeg-upm.github.io/fair_ontologies/doc/test/CN1/CN1.html"
+    },
     "hasSoftwareImage": {
       "availableInRegistry": "https://hub.docker.com",
       "identifier": "user/imageName:tag" 
@@ -419,7 +446,7 @@ A metric contains basic metadata to undertand what a test must implement. Below 
     }
   ],
   "landingPage": {
-    "@id": "https://w3id.org/foops/metric/CN1"
+    "@id": "https://oeg-upm.github.io/fair_ontologies/doc/metric/CN1/CN1.html"
   },
   "version": {
     "@type": "http://www.w3.org/2001/XMLSchema#string",
@@ -471,7 +498,7 @@ This metric ensures that the vocabulary is accessible in recognized RDF serializ
 	dcterms:license &lt;http://creativecommons.org/licenses/by/2.0/&gt; ;
 	dcat:keyword "Content negotiation"@en , "Metric"@en ;
 	&lt;http://semanticscience.org/resource/SIO_000233&gt; &lt;https://w3id.org/foops/test/CN1&gt; ;
-	dcat:landingPage &lt;https://w3id.org/foops/metric/CN1&gt; ; 
+	dcat:landingPage &lt;https://oeg-upm.github.io/fair_ontologies/doc/metric/CN1/CN1.html&gt; ; 
 	ftr:hasBenchmark &lt;https://w3id.org/foops/benchmark/ALL&gt; ; 
   dpv:isApplicableFor &lt;https://schema.org/DefinedTermSet&gt; ;
 	ftr:status "Active"@en .
@@ -484,6 +511,8 @@ This metric ensures that the vocabulary is accessible in recognized RDF serializ
     dpv:isApplicableFor &lt;https://schema.org/DefinedTermSet&gt; ;
     dcat:endpointDescription &lt;https://w3id.org/foops/api&gt; ;
     dcat:endpointURL &lt;https://w3id.org/foops/api/assess/test/CN1&gt; 
+    rdfs:isDefinedBy "https://oeg-upm.github.io/fair_ontologies/doc/test/CN1/CN1.ttl"^^xsd:anyURI ;
+    dcat:landingPage &lt;https://oeg-upm.github.io/fair_ontologies/doc/test/CN1/CN1.html&gt; ;
     sd:hasSoftwareImage [
       a sd:SoftwareImage;
       sd:availableInRegistry "https://hub.docker.com";
@@ -492,7 +521,9 @@ This metric ensures that the vocabulary is accessible in recognized RDF serializ
 
 &lt;https://w3id.org/foops/benchmark/ALL&gt; a ftr:Benchmark;
     dcterms:title "General Benchmark ALL for FAIR Principles"@en ;
-    dpv:isApplicableFor &lt;https://schema.org/DefinedTermSet&gt; ;
+    dpv:isApplicableFor &lt;https://schema.org/DefinedTermSet&gt; ; 
+    rdfs:isDefinedBy "https://oeg-upm.github.io/fair_ontologies/doc/benchmark/ALL/ALL.ttl"^^xsd:anyURI ;
+    dcat:landingPage &lt;https://oeg-upm.github.io/fair_ontologies/doc/benchmark/ALL/ALL.html&gt; ;
     dcterms:description "This benchmark specifies the criteria for evaluating aspects of vocabularies according to the FAIR principles."@en .        
     </pre>
 </aside>
@@ -653,7 +684,7 @@ Finally, we get to the score obtained by running a scoring algorithm. The score 
 @prefix vivo: &lt;http://vivoweb.org/ontology/core#&gt; .
 
 &lt;urn:foops:66b6e48a-b8db-4ac9-bbbb-example&gt; a ftr:BenchmarkScore ;
-    ftr:outputFromAlgorithm &lt;https://w3id.org/foops/algorithm/ALL&gt;          ## link to the previous algorithm.
+    ftr:outputFromAlgorithm &lt;https://w3id.org/foops/algorithm/ALL&gt;    ## link to the previous algorithm.
     prov:value "100";                                                       ## all tests are passed! 
     ftr:log """
         [Here goes the output rationale]
