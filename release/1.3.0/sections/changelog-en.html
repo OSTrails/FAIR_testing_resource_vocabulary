@@ -1,0 +1,104 @@
+<div id="changelog">
+<h2 id="changes" class="list">Changes from last version</h2>
+<h3 id="changeClass" class="list">Classes</h3>
+<details><summary><u>Modified classes</u></summary>
+<ul><li><a href="#ScoringAlgorithm">https://w3id.org/ftr#ScoringAlgorithm</a>
+<ul>
+<li>Added: rdfs:comment "A benchmark implementation in the form of an interpretative algorithm. 
+Algorithms may specify the exact set of tests which are to be run by the assessment service. Algorithms contextualise the sum of all test results for a given benchmark, into a final quantitative assessment result. The execution of an algorithm yields an assessment result."@en</li>
+</ul>
+<ul>
+<li>Deleted: rdfs:comment "A benchmark implementation in the form of an interpretative algorithm
+Algorithms may specify the exact set of tests which are to be run by the assessment service. Algorithms contextualise the sum of all test results for a given benchmark, into a final quantitative assessment result. The execution of an algorithm yields an assessment result."@en</li>
+</ul>
+</li>
+</ul></details><details><summary><u>Added classes</u></summary>
+<ul><li><a href="#http://xmlns.com/foaf/0.1/Organization">http://xmlns.com/foaf/0.1/Organization</a>
+</li>
+<li><a href="#http://xmlns.com/foaf/0.1/Person">http://xmlns.com/foaf/0.1/Person</a>
+</li>
+<li><a href="#https://w3id.org/fgv#GuidanceElement">https://w3id.org/fgv#GuidanceElement</a>
+</li>
+<li><a href="#GuidanceContext">https://w3id.org/ftr#GuidanceContext</a>
+</li>
+</ul></details><h3 id="changeProp" class="list">Object Properties</h3>
+<details><summary><u>Modified object properties</u></summary>
+<ul><li><a href="#https://w3id.org/dpv#isApplicableFor">https://w3id.org/dpv#isApplicableFor</a>
+<ul>
+<li>Added: rdfs:comment "Property designed to indicate the type of digital object the test, metric, benchmark, or scoring algorithm is applicable for. See [https://github.com/OSTrails/digital-object-commons/blob/main/object_types_draft.csv](https://github.com/OSTrails/digital-object-commons/blob/main/object_types_draft.csv) for a set of supported digital object types"^^xsd:string</li>
+</ul>
+<ul>
+<li>Deleted: rdfs:comment "Property designed to indicate the type of digital object the metric or test is applicable for. See [https://github.com/OSTrails/digital-object-commons/blob/main/object_types_draft.csv](https://github.com/OSTrails/digital-object-commons/blob/main/object_types_draft.csv) for a set of supported digital object types"^^xsd:string</li>
+</ul>
+</li>
+<li><a href="#scoringFunction">https://w3id.org/ftr#scoringFunction</a>
+<ul>
+<li>Added: rdfs:comment "Property used to link a scoring algorithm with the specification document that indicates how the scoring works. A benchmark may be implemented with one or more scoring algorithms"@en</li>
+<li>Added: domain https://w3id.org/ftr#ScoringAlgorithm</li>
+</ul>
+<ul>
+<li>Deleted: domain https://w3id.org/ftr#Benchmark</li>
+<li>Deleted: rdfs:comment "Property used to link a benchmark with the specification document that indicates how to score it. The benchmark itself may be implemented with a scoring algorithm"@en</li>
+</ul>
+</li>
+</ul></details><details><summary><u>Added object properties</u></summary>
+<ul><li><a href="#https://semanticscience.org/resource/SIO_000339">https://semanticscience.org/resource/SIO_000339</a>
+</li>
+<li><a href="#suggestion">https://w3id.org/ftr#suggestion</a>
+<ul>
+<li>Added: domain https://w3id.org/ftr#TestResult</li>
+<li>Added: Range https://w3id.org/ftr#GuidanceContext</li>
+</ul>
+</li>
+<li><a href="#supportedBy">https://w3id.org/ftr#supportedBy</a>
+<ul>
+<li>Added: Range http://www.w3.org/ns/prov#Entity</li>
+<li>Added: domain Union of (https://w3id.org/ftr#Metric, https://w3id.org/ftr#Test)</li>
+</ul>
+</li>
+<li><a href="#https://w3id.org/okn/o/sd#hasSoftwareImage">https://w3id.org/okn/o/sd#hasSoftwareImage</a>
+</li>
+</ul></details><h3 id="changeDataProp" class="list">Data Properties</h3>
+<details><summary><u>Modified data properties</u></summary>
+<ul><li><a href="#http://www.w3.org/ns/prov#value">http://www.w3.org/ns/prov#value</a>
+<ul>
+<li>Added: rdfs:label "ended at time"@en</li>
+<li>Added: rdfs:comment "Property used to indicate the value of a test results (i.e., pass/fail). When used in a benchmarkScore, the value may be a number that indicates the assessment score according a benchmark scoring algorihtm."^^xsd:string</li>
+</ul>
+<ul>
+<li>Deleted: rdfs:comment "Property used to indicate th value of a test results (e.g., pass/fail). When used in a benchmarkScore, the value may be a number that indicates the assessment score according a benchmark scoring algorihtm."^^xsd:string</li>
+</ul>
+</li>
+<li><a href="#hasNegativeValidation">https://w3id.org/ftr#hasNegativeValidation</a>
+<ul>
+<li>Added: Domain https://w3id.org/ftr#Test</li>
+<li>Added: rdfs:label "has negative validation"@en</li>
+<li>Added: rdfs:comment "Property that links to a resource that does not pass the test (a negative example)"@en</li>
+</ul>
+</li>
+<li><a href="#supportedBy">https://w3id.org/ftr#supportedBy</a>
+<ul>
+<li>Deleted: Range http://www.w3.org/2001/XMLSchema#anyURI</li>
+<li>Deleted: Domain Union of (https://w3id.org/ftr#Metric, https://w3id.org/ftr#Test)</li>
+</ul>
+</li>
+</ul></details><details><summary><u>Added data properties</u></summary>
+<ul><li><a href="#hasIndeterminateValidation">https://w3id.org/ftr#hasIndeterminateValidation</a>
+<ul>
+<li>Added: Domain https://w3id.org/ftr#Test</li>
+<li>Added: Range http://www.w3.org/2001/XMLSchema#anyURI</li>
+</ul>
+</li>
+<li><a href="#hasNegativeExpectation">https://w3id.org/ftr#hasNegativeExpectation</a>
+<ul>
+<li>Added: Domain https://w3id.org/ftr#Metric</li>
+<li>Added: Range http://www.w3.org/2001/XMLSchema#anyURI</li>
+</ul>
+</li>
+<li><a href="#hasPositiveExpectation">https://w3id.org/ftr#hasPositiveExpectation</a>
+<ul>
+<li>Added: Domain https://w3id.org/ftr#Metric</li>
+<li>Added: Range http://www.w3.org/2001/XMLSchema#anyURI</li>
+</ul>
+</li>
+</ul></details></div>
