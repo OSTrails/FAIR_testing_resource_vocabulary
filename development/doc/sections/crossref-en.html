@@ -11,6 +11,8 @@ This section provides details for each class and property defined by FAIR Testin
   <li><a href="#http://www.w3.org/ns/dcat#DataService" title="http://www.w3.org/ns/dcat#DataService">Data service</a></li>
   <li><a href="#http://www.w3.org/ns/dqv#Dimension" title="http://www.w3.org/ns/dqv#Dimension">Dimension</a></li>
   <li><a href="#http://www.w3.org/ns/prov#Entity" title="http://www.w3.org/ns/prov#Entity">Entity</a></li>
+  <li><a href="#GuidanceContext" title="https://w3id.org/ftr#GuidanceContext">Guidance context</a></li>
+  <li><a href="#https://w3id.org/fgv#GuidanceElement" title="https://w3id.org/fgv#GuidanceElement">Guidance Element</a></li>
   <li><a href="#http://www.w3.org/ns/dqv#Metric" title="http://www.w3.org/ns/dqv#Metric">Metric</a></li>
   <li><a href="#Metric" title="https://w3id.org/ftr#Metric">Metric</a></li>
   <li><a href="#http://www.w3.org/ns/dqv#QualityMeasurement" title="http://www.w3.org/ns/dqv#QualityMeasurement">Quality measurement</a></li>
@@ -72,7 +74,7 @@ This section provides details for each class and property defined by FAIR Testin
     is in domain of
    </dt>
    <dd>
-    <a href="#applicationArea" title="https://w3id.org/ftr#applicationArea">application area</a> <sup class="type-dp" title="data property">dp</sup>, <a href="#hasAssociatedMetric" title="https://w3id.org/ftr#hasAssociatedMetric">has associated metric</a> <sup class="type-op" title="object property">op</sup>, <a href="#scoringFunction" title="https://w3id.org/ftr#scoringFunction">scoring function</a> <sup class="type-op" title="object property">op</sup>
+    <a href="#applicationArea" title="https://w3id.org/ftr#applicationArea">application area</a> <sup class="type-dp" title="data property">dp</sup>, <a href="#hasAssociatedMetric" title="https://w3id.org/ftr#hasAssociatedMetric">has associated metric</a> <sup class="type-op" title="object property">op</sup>
    </dd>
    <dt>
     is in range of
@@ -177,7 +179,34 @@ This section provides details for each class and property defined by FAIR Testin
     is in range of
    </dt>
    <dd>
-    <a href="#assessmentTarget" title="https://w3id.org/ftr#assessmentTarget">assessment target</a> <sup class="type-op" title="object property">op</sup>
+    <a href="#assessmentTarget" title="https://w3id.org/ftr#assessmentTarget">assessment target</a> <sup class="type-op" title="object property">op</sup>, <a href="#supportedBy" title="https://w3id.org/ftr#supportedBy">supported by</a> <sup class="type-op" title="object property">op</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="GuidanceContext">
+  <h3>Guidance context<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/ftr#GuidanceContext</p>
+  <div class="comment">
+   <span class="markdown">Class that represents a concrete suggestion from a test. A guidance context has a title, description and points to a general guidance element (e.g., a good practice)</span>
+  </div>
+  <dl class="description">
+   <dt>
+    is in range of
+   </dt>
+   <dd>
+    <a href="#suggestion" title="https://w3id.org/ftr#suggestion">suggestion</a> <sup class="type-op" title="object property">op</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="https://w3id.org/fgv#GuidanceElement">
+  <h3>Guidance Element<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/fgv#GuidanceElement</p>
+  <dl class="definedBy">
+   <dt>
+    Is defined by
+   </dt>
+   <dd>
+    <a href="https://w3id.org/fgv#">https://w3id.org/fgv#</a>
    </dd>
   </dl>
  </div>
@@ -218,7 +247,7 @@ This section provides details for each class and property defined by FAIR Testin
     is in domain of
    </dt>
    <dd>
-    <a href="#applicationArea" title="https://w3id.org/ftr#applicationArea">application area</a> <sup class="type-dp" title="data property">dp</sup>, <a href="#hasBenchmark" title="https://w3id.org/ftr#hasBenchmark">has benchmark</a> <sup class="type-op" title="object property">op</sup>, <a href="#hasNegativeValidation" title="https://w3id.org/ftr#hasNegativeValidation">has negative example</a> <sup class="type-dp" title="data property">dp</sup>, <a href="#hasPositiveValidation" title="https://w3id.org/ftr#hasPositiveValidation">has positive validation</a> <sup class="type-dp" title="data property">dp</sup>, <a href="#supportedBy" title="https://w3id.org/ftr#supportedBy">supported by</a> <sup class="type-dp" title="data property">dp</sup>
+    <a href="#applicationArea" title="https://w3id.org/ftr#applicationArea">application area</a> <sup class="type-dp" title="data property">dp</sup>, <a href="#hasBenchmark" title="https://w3id.org/ftr#hasBenchmark">has benchmark</a> <sup class="type-op" title="object property">op</sup>, <a href="#hasNegativeExpectation" title="https://w3id.org/ftr#hasNegativeExpectation">has indeterminate expectation</a> <sup class="type-dp" title="data property">dp</sup>, <a href="#hasNegativeValidation" title="https://w3id.org/ftr#hasNegativeValidation">has negative example</a> <sup class="type-dp" title="data property">dp</sup>, <a href="#hasPositiveExpectation" title="https://w3id.org/ftr#hasPositiveExpectation">has positive expectation</a> <sup class="type-dp" title="data property">dp</sup>, <a href="#hasPositiveValidation" title="https://w3id.org/ftr#hasPositiveValidation">has positive validation</a> <sup class="type-dp" title="data property">dp</sup>, <a href="#supportedBy" title="https://w3id.org/ftr#supportedBy">supported by</a> <sup class="type-op" title="object property">op</sup>
    </dd>
    <dt>
     is in range of
@@ -252,14 +281,14 @@ This section provides details for each class and property defined by FAIR Testin
   <h3>Scoring algorithm<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
   <p><strong>IRI:</strong> https://w3id.org/ftr#ScoringAlgorithm</p>
   <div class="comment">
-   <span class="markdown">A benchmark implementation in the form of an interpretative algorithm Algorithms may specify the exact set of tests which are to be run by the assessment service. Algorithms contextualise the sum of all test results for a given benchmark, into a final quantitative assessment result. The execution of an algorithm yields an assessment result.</span>
+   <span class="markdown">A benchmark implementation in the form of an interpretative algorithm. Algorithms may specify the exact set of tests which are to be run by the assessment service. Algorithms contextualise the sum of all test results for a given benchmark, into a final quantitative assessment result. The execution of an algorithm yields an assessment result.</span>
   </div>
   <dl class="description">
    <dt>
     is in domain of
    </dt>
    <dd>
-    <a href="#invokesTest" title="https://w3id.org/ftr#invokesTest">invokes Test</a> <sup class="type-op" title="object property">op</sup>
+    <a href="#invokesTest" title="https://w3id.org/ftr#invokesTest">invokes Test</a> <sup class="type-op" title="object property">op</sup>, <a href="#scoringFunction" title="https://w3id.org/ftr#scoringFunction">scoring function</a> <sup class="type-op" title="object property">op</sup>
    </dd>
    <dt>
     is in range of
@@ -306,7 +335,7 @@ This section provides details for each class and property defined by FAIR Testin
     is in domain of
    </dt>
    <dd>
-    <a href="#supportedBy" title="https://w3id.org/ftr#supportedBy">supported by</a> <sup class="type-dp" title="data property">dp</sup>
+    <a href="#hasIndeterminateValidation" title="https://w3id.org/ftr#hasIndeterminateValidation">has indeterminate validation</a> <sup class="type-dp" title="data property">dp</sup>, <a href="#hasNegativeValidation" title="https://w3id.org/ftr#hasNegativeValidation">has negative example</a> <sup class="type-dp" title="data property">dp</sup>, <a href="#supportedBy" title="https://w3id.org/ftr#supportedBy">supported by</a> <sup class="type-op" title="object property">op</sup>
    </dd>
    <dt>
     is in range of
@@ -348,7 +377,7 @@ This section provides details for each class and property defined by FAIR Testin
     is in domain of
    </dt>
    <dd>
-    <a href="#affectedElements" title="https://w3id.org/ftr#affectedElements">affected elements</a> <sup class="type-dp" title="data property">dp</sup>, <a href="#assessmentTarget" title="https://w3id.org/ftr#assessmentTarget">assessment target</a> <sup class="type-op" title="object property">op</sup>, <a href="#completion" title="https://w3id.org/ftr#completion">completion</a> <sup class="type-dp" title="data property">dp</sup>, <a href="#log" title="https://w3id.org/ftr#log">log</a> <sup class="type-dp" title="data property">dp</sup>, <a href="#outputFromTest" title="https://w3id.org/ftr#outputFromTest">output from test</a> <sup class="type-op" title="object property">op</sup>
+    <a href="#affectedElements" title="https://w3id.org/ftr#affectedElements">affected elements</a> <sup class="type-dp" title="data property">dp</sup>, <a href="#assessmentTarget" title="https://w3id.org/ftr#assessmentTarget">assessment target</a> <sup class="type-op" title="object property">op</sup>, <a href="#completion" title="https://w3id.org/ftr#completion">completion</a> <sup class="type-dp" title="data property">dp</sup>, <a href="#log" title="https://w3id.org/ftr#log">log</a> <sup class="type-dp" title="data property">dp</sup>, <a href="#outputFromTest" title="https://w3id.org/ftr#outputFromTest">output from test</a> <sup class="type-op" title="object property">op</sup>, <a href="#suggestion" title="https://w3id.org/ftr#suggestion">suggestion</a> <sup class="type-op" title="object property">op</sup>
    </dd>
   </dl>
  </div>
@@ -384,22 +413,28 @@ This section provides details for each class and property defined by FAIR Testin
  <ul class="hlist">
   <li><a href="#assessmentTarget" title="https://w3id.org/ftr#assessmentTarget">assessment target</a></li>
   <li><a href="#http://www.w3.org/ns/dcat#contactPoint" title="http://www.w3.org/ns/dcat#contactPoint">contact point</a></li>
+  <li><a href="#http://purl.org/dc/terms/creator" title="http://purl.org/dc/terms/creator">creator</a></li>
   <li><a href="#http://www.w3.org/ns/dcat#endpointDescription" title="http://www.w3.org/ns/dcat#endpointDescription">endpoint description</a></li>
   <li><a href="#http://www.w3.org/ns/dcat#endpointURL" title="http://www.w3.org/ns/dcat#endpointURL">endpoint URL</a></li>
   <li><a href="#http://www.w3.org/ns/prov#hadMember" title="http://www.w3.org/ns/prov#hadMember">had member</a></li>
   <li><a href="#hasAssociatedMetric" title="https://w3id.org/ftr#hasAssociatedMetric">has associated metric</a></li>
   <li><a href="#hasBenchmark" title="https://w3id.org/ftr#hasBenchmark">has benchmark</a></li>
   <li><a href="#https://semanticscience.org/resource/SIO_000234" title="https://semanticscience.org/resource/SIO_000234">has implementation</a></li>
+  <li><a href="#https://w3id.org/okn/o/sd#hasSoftwareImage" title="https://w3id.org/okn/o/sd#hasSoftwareImage">has software image</a></li>
   <li><a href="#http://www.w3.org/ns/dqv#inDimension" title="http://www.w3.org/ns/dqv#inDimension">in dimension</a></li>
   <li><a href="#invokesTest" title="https://w3id.org/ftr#invokesTest"> <span>invokes Test</span> </a></li>
   <li><a href="#https://w3id.org/dpv#isApplicableFor" title="https://w3id.org/dpv#isApplicableFor">is applicable for</a></li>
   <li><a href="#https://semanticscience.org/resource/SIO_000233" title="https://semanticscience.org/resource/SIO_000233">is implementation of</a></li>
+  <li><a href="#https://semanticscience.org/resource/SIO_000339" title="https://semanticscience.org/resource/SIO_000339">is specified by</a></li>
   <li><a href="#http://www.w3.org/ns/dcat#landingPage" title="http://www.w3.org/ns/dcat#landingPage">landing page</a></li>
+  <li><a href="#http://purl.org/dc/terms/license" title="http://purl.org/dc/terms/license">license</a></li>
   <li><a href="#outputFromAlgorithm" title="https://w3id.org/ftr#outputFromAlgorithm">output from algorithm</a></li>
   <li><a href="#outputFromTest" title="https://w3id.org/ftr#outputFromTest">output from test</a></li>
   <li><a href="#http://usefulinc.com/ns/doap#repository" title="http://usefulinc.com/ns/doap#repository">repository</a></li>
   <li><a href="#scoredTestResults" title="https://w3id.org/ftr#scoredTestResults">scored test results</a></li>
   <li><a href="#scoringFunction" title="https://w3id.org/ftr#scoringFunction">scoring function</a></li>
+  <li><a href="#suggestion" title="https://w3id.org/ftr#suggestion">suggestion</a></li>
+  <li><a href="#supportedBy" title="https://w3id.org/ftr#supportedBy"> <span>supported by</span> </a></li>
   <li><a href="#http://www.w3.org/ns/dcat#theme" title="http://www.w3.org/ns/dcat#theme">theme</a></li>
   <li><a href="#http://www.w3.org/ns/prov#used" title="http://www.w3.org/ns/prov#used">used</a></li>
   <li><a href="#http://www.w3.org/ns/prov#wasAssociatedWith" title="http://www.w3.org/ns/prov#wasAssociatedWith">was associated with</a></li>
@@ -446,6 +481,18 @@ This section provides details for each class and property defined by FAIR Testin
    </dt>
    <dd>
     <a href="http://www.w3.org/ns/dcat#">http://www.w3.org/ns/dcat#</a>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="http://purl.org/dc/terms/creator">
+  <h3>creator<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://purl.org/dc/terms/creator</p>
+  <dl class="definedBy">
+   <dt>
+    Is defined by
+   </dt>
+   <dd>
+    <a href="http://purl.org/dc/terms/">http://purl.org/dc/terms/</a>
    </dd>
   </dl>
  </div>
@@ -555,6 +602,21 @@ This section provides details for each class and property defined by FAIR Testin
    </dd>
   </dl>
  </div>
+ <div class="entity" id="https://w3id.org/okn/o/sd#hasSoftwareImage">
+  <h3>has software image<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/okn/o/sd#hasSoftwareImage</p>
+  <div class="comment">
+   <span class="markdown">Property designed to to link a test (service) with its corresponding software image</span>
+  </div>
+  <dl class="definedBy">
+   <dt>
+    Is defined by
+   </dt>
+   <dd>
+    <a href="https://w3id.org/okn/o/sd">https://w3id.org/okn/o/sd</a>
+   </dd>
+  </dl>
+ </div>
  <div class="entity" id="http://www.w3.org/ns/dqv#inDimension">
   <h3>in dimension<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
   <p><strong>IRI:</strong> http://www.w3.org/ns/dqv#inDimension</p>
@@ -594,7 +656,7 @@ This section provides details for each class and property defined by FAIR Testin
   <h3>is applicable for<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
   <p><strong>IRI:</strong> https://w3id.org/dpv#isApplicableFor</p>
   <div class="comment">
-   <span class="markdown">Property designed to indicate the type of digital object the metric or test is applicable for. See [https://github.com/OSTrails/digital-object-commons/blob/main/object_types_draft.csv](https://github.com/OSTrails/digital-object-commons/blob/main/object_types_draft.csv) for a set of supported digital object types</span>
+   <span class="markdown">Property designed to indicate the type of digital object the test, metric, benchmark, or scoring algorithm is applicable for. See [https://github.com/OSTrails/digital-object-commons/blob/main/object_types_draft.csv](https://github.com/OSTrails/digital-object-commons/blob/main/object_types_draft.csv) for a set of supported digital object types</span>
   </div>
   <dl class="definedBy">
    <dt>
@@ -617,6 +679,18 @@ This section provides details for each class and property defined by FAIR Testin
    </dd>
   </dl>
  </div>
+ <div class="entity" id="https://semanticscience.org/resource/SIO_000339">
+  <h3>is specified by<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://semanticscience.org/resource/SIO_000339</p>
+  <dl class="definedBy">
+   <dt>
+    Is defined by
+   </dt>
+   <dd>
+    <a href="http://semanticscience.org/ontology/sio.owl">http://semanticscience.org/ontology/sio.owl</a>
+   </dd>
+  </dl>
+ </div>
  <div class="entity" id="http://www.w3.org/ns/dcat#landingPage">
   <h3>landing page<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
   <p><strong>IRI:</strong> http://www.w3.org/ns/dcat#landingPage</p>
@@ -626,6 +700,18 @@ This section provides details for each class and property defined by FAIR Testin
    </dt>
    <dd>
     <a href="http://www.w3.org/ns/dcat#">http://www.w3.org/ns/dcat#</a>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="http://purl.org/dc/terms/license">
+  <h3>license<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://purl.org/dc/terms/license</p>
+  <dl class="definedBy">
+   <dt>
+    Is defined by
+   </dt>
+   <dd>
+    <a href="http://purl.org/dc/terms/">http://purl.org/dc/terms/</a>
    </dd>
   </dl>
  </div>
@@ -732,7 +818,7 @@ This section provides details for each class and property defined by FAIR Testin
   <h3>scoring function<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
   <p><strong>IRI:</strong> https://w3id.org/ftr#scoringFunction</p>
   <div class="comment">
-   <span class="markdown">Property used to link a benchmark with the specification document that indicates how to score it. The benchmark itself may be implemented with a scoring algorithm</span>
+   <span class="markdown">Property used to link a scoring algorithm with the specification document that indicates how the scoring works. A benchmark may be implemented with one or more scoring algorithms</span>
   </div>
   <div class="description">
    <dl>
@@ -740,13 +826,62 @@ This section provides details for each class and property defined by FAIR Testin
      has domain
     </dt>
     <dd>
-     <a href="#Benchmark" title="https://w3id.org/ftr#Benchmark">Benchmark</a> <sup class="type-c" title="class">c</sup>
+     <a href="#ScoringAlgorithm" title="https://w3id.org/ftr#ScoringAlgorithm">Scoring algorithm</a> <sup class="type-c" title="class">c</sup>
     </dd>
     <dt>
      has range
     </dt>
     <dd>
      <a href="#https://semanticscience.org/resource/SIO_000090" title="https://semanticscience.org/resource/SIO_000090">Specification</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="suggestion">
+  <h3>suggestion<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/ftr#suggestion</p>
+  <div class="comment">
+   <span class="markdown">Property used to link a test result with the corresponding suggestion that may be used to guide users in addressing it.</span>
+  </div>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#TestResult" title="https://w3id.org/ftr#TestResult">Test result</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="#GuidanceContext" title="https://w3id.org/ftr#GuidanceContext">Guidance context</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="supportedBy">
+  <h3>supported by<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/ftr#supportedBy</p>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#Metric" title="https://w3id.org/ftr#Metric">Metric</a> <sup class="type-c" title="class">c</sup> <span class="logic">or</span> <a href="#Test" title="https://w3id.org/ftr#Test">Test</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="#http://www.w3.org/ns/prov#Entity" title="http://www.w3.org/ns/prov#Entity">Entity</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     is also defined as
+    </dt>
+    <dd>
+     data property
     </dd>
    </dl>
   </div>
@@ -853,15 +988,17 @@ This section provides details for each class and property defined by FAIR Testin
   <li><a href="#applicationArea" title="https://w3id.org/ftr#applicationArea">application area</a></li>
   <li><a href="#completion" title="https://w3id.org/ftr#completion">completion</a></li>
   <li><a href="#http://purl.org/dc/terms/description" title="http://purl.org/dc/terms/description">description</a></li>
+  <li><a href="#http://www.w3.org/ns/prov#value" title="http://www.w3.org/ns/prov#value">ended at time</a></li>
+  <li><a href="#hasNegativeExpectation" title="https://w3id.org/ftr#hasNegativeExpectation">has indeterminate expectation</a></li>
+  <li><a href="#hasIndeterminateValidation" title="https://w3id.org/ftr#hasIndeterminateValidation">has indeterminate validation</a></li>
   <li><a href="#hasNegativeValidation" title="https://w3id.org/ftr#hasNegativeValidation">has negative example</a></li>
+  <li><a href="#hasPositiveExpectation" title="https://w3id.org/ftr#hasPositiveExpectation">has positive expectation</a></li>
   <li><a href="#hasPositiveValidation" title="https://w3id.org/ftr#hasPositiveValidation">has positive validation</a></li>
   <li><a href="#http://purl.org/dc/terms/identifier" title="http://purl.org/dc/terms/identifier">identifier</a></li>
   <li><a href="#http://www.w3.org/ns/dcat#keyword" title="http://www.w3.org/ns/dcat#keyword">keyword</a></li>
   <li><a href="#log" title="https://w3id.org/ftr#log">log</a></li>
   <li><a href="#status" title="https://w3id.org/ftr#status">status</a></li>
-  <li><a href="#supportedBy" title="https://w3id.org/ftr#supportedBy">supported by</a></li>
   <li><a href="#http://purl.org/dc/terms/title" title="http://purl.org/dc/terms/title">title</a></li>
-  <li><a href="#http://www.w3.org/ns/prov#value" title="http://www.w3.org/ns/prov#value">value</a></li>
   <li><a href="#http://www.w3.org/ns/dcat#version" title="http://www.w3.org/ns/dcat#version">version</a></li>
  </ul>
  <div class="entity" id="http://vivoweb.org/ontology/core#abbreviation">
@@ -957,11 +1094,98 @@ This section provides details for each class and property defined by FAIR Testin
    </dd>
   </dl>
  </div>
+ <div class="entity" id="http://www.w3.org/ns/prov#value">
+  <h3>ended at time<sup class="type-dp" title="data property">dp</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://www.w3.org/ns/prov#value</p>
+  <div class="comment">
+   <span class="markdown">Property used to indicate the value of a test results (i.e., pass/fail). When used in a benchmarkScore, the value may be a number that indicates the assessment score according a benchmark scoring algorihtm.</span>
+  </div>
+  <dl class="definedBy">
+   <dt>
+    Is defined by
+   </dt>
+   <dd>
+    <a href="http://www.w3.org/ns/prov#">http://www.w3.org/ns/prov#</a>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="hasNegativeExpectation">
+  <h3>has indeterminate expectation<sup class="type-dp" title="data property">dp</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/ftr#hasNegativeExpectation</p>
+  <div class="comment">
+   <span class="markdown">Property that links to a resource that is not expected to pass the metric (a negative example)</span>
+  </div>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#Metric" title="https://w3id.org/ftr#Metric">Metric</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="http://www.w3.org/2001/XMLSchema#anyURI" target="_blank" title="http://www.w3.org/2001/XMLSchema#anyURI">any U R I</a>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="hasIndeterminateValidation">
+  <h3>has indeterminate validation<sup class="type-dp" title="data property">dp</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/ftr#hasIndeterminateValidation</p>
+  <div class="comment">
+   <span class="markdown">Property that links to a resource that may be used to pass the test (an indeterminate example)</span>
+  </div>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#Test" title="https://w3id.org/ftr#Test">Test</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="http://www.w3.org/2001/XMLSchema#anyURI" target="_blank" title="http://www.w3.org/2001/XMLSchema#anyURI">any U R I</a>
+    </dd>
+   </dl>
+  </div>
+ </div>
  <div class="entity" id="hasNegativeValidation">
   <h3>has negative example<sup class="type-dp" title="data property">dp</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a> </span></h3>
   <p><strong>IRI:</strong> https://w3id.org/ftr#hasNegativeValidation</p>
   <div class="comment">
    <span class="markdown">Property that links to a resource that does not pass the metric (a negative example)</span>
+  </div>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#Metric" title="https://w3id.org/ftr#Metric">Metric</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dd>
+     <a href="#Test" title="https://w3id.org/ftr#Test">Test</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="http://www.w3.org/2001/XMLSchema#anyURI" target="_blank" title="http://www.w3.org/2001/XMLSchema#anyURI">any U R I</a>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="hasPositiveExpectation">
+  <h3>has positive expectation<sup class="type-dp" title="data property">dp</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/ftr#hasPositiveExpectation</p>
+  <div class="comment">
+   <span class="markdown">Property that links to a resource that is expected to pass the metric (a positive example)</span>
   </div>
   <div class="description">
    <dl>
@@ -1062,29 +1286,6 @@ This section provides details for each class and property defined by FAIR Testin
    </dl>
   </div>
  </div>
- <div class="entity" id="supportedBy">
-  <h3>supported by<sup class="type-dp" title="data property">dp</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a> </span></h3>
-  <p><strong>IRI:</strong> https://w3id.org/ftr#supportedBy</p>
-  <div class="comment">
-   <span class="markdown">Describes which tools support this particular metric or test</span>
-  </div>
-  <div class="description">
-   <dl>
-    <dt>
-     has domain
-    </dt>
-    <dd>
-     <a href="#Metric" title="https://w3id.org/ftr#Metric">Metric</a> <sup class="type-c" title="class">c</sup> <span class="logic">or</span> <a href="#Test" title="https://w3id.org/ftr#Test">Test</a> <sup class="type-c" title="class">c</sup>
-    </dd>
-    <dt>
-     has range
-    </dt>
-    <dd>
-     <a href="http://www.w3.org/2001/XMLSchema#anyURI" target="_blank" title="http://www.w3.org/2001/XMLSchema#anyURI">any U R I</a>
-    </dd>
-   </dl>
-  </div>
- </div>
  <div class="entity" id="http://purl.org/dc/terms/title">
   <h3>title<sup class="type-dp" title="data property">dp</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a> </span></h3>
   <p><strong>IRI:</strong> http://purl.org/dc/terms/title</p>
@@ -1094,21 +1295,6 @@ This section provides details for each class and property defined by FAIR Testin
    </dt>
    <dd>
     <a href="http://purl.org/dc/terms/">http://purl.org/dc/terms/</a>
-   </dd>
-  </dl>
- </div>
- <div class="entity" id="http://www.w3.org/ns/prov#value">
-  <h3>value<sup class="type-dp" title="data property">dp</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a> </span></h3>
-  <p><strong>IRI:</strong> http://www.w3.org/ns/prov#value</p>
-  <div class="comment">
-   <span class="markdown">Property used to indicate th value of a test results (e.g., pass/fail). When used in a benchmarkScore, the value may be a number that indicates the assessment score according a benchmark scoring algorihtm.</span>
-  </div>
-  <dl class="definedBy">
-   <dt>
-    Is defined by
-   </dt>
-   <dd>
-    <a href="http://www.w3.org/ns/prov#">http://www.w3.org/ns/prov#</a>
    </dd>
   </dl>
  </div>
@@ -1124,13 +1310,12 @@ This section provides details for each class and property defined by FAIR Testin
    </dd>
   </dl>
  </div>
-</div>
-<div id="legend">
+</div><div id="legend">
 <h2>Legend <span class="backlink"> back to <a href="#toc">ToC</a></span></h2>
 <div   class="entity">
 <sup class="type-c" title="Classes">c</sup>: Classes <br/>
 <sup class="type-op" title="Object Properties">op</sup>: Object Properties <br/>
 <sup class="type-dp" title="Data Properties">dp</sup>: Data Properties <br/>
-<sup class="type-ni" title="Named Individuals">ni</sup>: Named Individuals <br/>
+<sup class="type-ep" title="External Properties">ep</sup>: External Properties
 </div>
 </div>
