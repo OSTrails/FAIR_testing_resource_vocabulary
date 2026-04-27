@@ -126,6 +126,124 @@ Test results have basic metadata to understand which test was it run and its ver
     </pre>
 </aside>
 
+<h3 id="guidance" class="list">Example: Linking a test result with guidance <span class="backlink"> back to <a href="#toc">ToC</a></span></h3>
+
+<span class="markdown">
+A test result may not just provides test results, but also guidance for users on what may be improved in the target resource, due to a test failure. 
+We provide an example below, extending the previous example (assumming the test run failed). Some test metadata is ommitted for simplicity:
+</span>
+
+<aside class="example ds-selector-tabs" id="test-example">
+    <div class="selectors">
+      <button class="selected" data-selects="expanded">JSON-LD</button>
+      <button data-selects="turtle" class="">Turtle</button>
+    </div>
+    <pre class="expanded json-ld nohighlight selected">
+{
+  "@context": "https://w3id.org/ftr/context",
+  "@id": "urn:foops:c8e0f7a4-fa0c-432f-b1bc-d63206422e4a",
+  "@type": "https://w3id.org/ftr#TestResult",
+  "identifier": {
+    "@id": "urn:foops:c8e0f7a4-fa0c-432f-b1bc-d63206422e4a"
+  },
+  "title": "Output from running test: OM1 (https://w3id.org/foops/test/OM1)",
+  "description": "Output from running OM1 test is fail",
+  "value": "fail",
+  "assessmentTarget": {
+    "@id": "https://w3id.org/example"
+  },
+  "log": "Could not find all minimum metadata: creator is missing",
+  "suggestion": {
+    "@type": "GuidanceContext",
+    "description":"Please add a creator in your resource using one of the following properties dc:creator, dcterms:creator, pav:createdBy, pav:authoredBy, schema:creator, prov:wasAttributedTo or doap:developer",
+    "specifiedBy": {
+      "@id":"https://w3id.org/widoco/bestPractices",
+      "title":"A checklist for complete vocabulary metadata"
+    }
+  },
+  "outputFromTest": {
+    "@id": "https://w3id.org/foops/test/OM1",
+    "@type": "Test"
+  },
+  "wasGeneratedBy": {
+    "@type": "TestExecutionActivity",
+    "used": {
+      "@id": "https://w3id.org/example"
+    },
+    "wasAssociatedWith": {
+      "@id": "https://w3id.org/foops/test/OM1",
+      "identifier": "https://w3id.org/foops/test/OM1",
+      "version": {
+        "@type": "http://www.w3.org/2001/XMLSchema#string",
+        "@value": "0.0.1"
+      },
+      "isDefinedBy": "https://oeg-upm.github.io/fair_ontologies/doc/test/OM1/OM1.ttl",
+      "landingPage": {
+        "@id": "https://oeg-upm.github.io/fair_ontologies/doc/test/OM1/OM1.html"
+      },
+      "title": "Ontology minimum metadata is declared",
+      "description": "This check verifies if the following  minimum metadata are present in the ontology metadata [... definition omitted for simplicity...]",
+      "endpointDescription": {
+        "@id": "https://w3id.org/foops/api"
+      },
+      "endpointURL": {
+        "@id": "https://foops.linkeddata.es/assess/test/OM1"
+      }
+    }
+  }
+}
+    </pre>
+    <pre class="turtle" data-content-type="text/turtle" data-result-for="Sample test result metadata" data-to-rdf="" aria-busy="false">
+@prefix dcterms: &lt;http://purl.org/dc/terms/&gt; .
+@prefix ftr: &lt;https://w3id.org/ftr#&gt; .
+@prefix fgv: &lt;https://w3id.org/fgv#&gt; .
+@prefix dcat: &lt;http://www.w3.org/ns/dcat#&gt; .
+@prefix xsd: &lt;http://www.w3.org/2001/XMLSchema#&gt; .
+@prefix prov: &lt;http://www.w3.org/ns/prov#&gt; .
+@prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt; .
+@prefix sio: &lt;http://semanticscience.org/resource/&gt; .
+
+&lt;urn:foops:c8e0f7a4-fa0c-432f-b1bc-d63206422e4a&gt;
+  a &lt;https://w3id.org/ftr#TestResult&gt; ;
+  dcterms:description "Output from running OM1 test is fail";
+  ftr:assessmentTarget &lt;https://w3id.org/example&gt; ;
+  dcterms:identifier &lt;urn:foops:c8e0f7a4-fa0c-432f-b1bc-d63206422e4a&gt; ;
+  dcterms:license &lt;http://creativecommons.org/licenses/by/4.0/&gt; ;
+  dcterms:title "Output from running test: OM1 (https://w3id.org/foops/test/OM1)" ;
+  prov:generatedAtTime "Wed Aug 13 18:25:34 CEST 2025"^^xsd:date ;
+  prov:value "fail" ;
+  ftr:suggestion [
+      a &lt;https://w3id.org/ftr#GuidanceContext&gt; ;
+      dcterms:description "Please add a creator in your resource using one of the following properties dc:creator, dcterms:creator, pav:createdBy, pav:authoredBy, schema:creator, prov:wasAttributedTo or doap:developer" @en ;
+      sio:SIO_000339 &lt;https://w3id.org/widoco/bestPractices&gt; .
+    }
+  ]
+  prov:wasGeneratedBy [
+    a &lt;https://w3id.org/ftr#TestExecutionActivity&gt; ;
+    prov:used &lt;https://w3id.org/example&gt; ;
+    prov:wasAssociatedWith &lt;https://w3id.org/foops/test/OM1&gt;
+  ] ;
+  ftr:completion 100 ;
+  ftr:log "All the minimum metadata were found!" ;
+  ftr:outputFromTest &lt;https://w3id.org/foops/test/OM1&gt; .
+
+&lt;https://w3id.org/widoco/bestPractices&gt; a fgv:GuidanceElement;
+      dcat:landingPage &lt;https://w3id.org/widoco/bestPractices&gt; ;
+      "title":"A checklist for complete vocabulary metadata" .
+
+&lt;https://w3id.org/foops/test/OM1&gt;
+  a &lt;https://w3id.org/ftr#Test&gt; ;
+  dcterms:description """This check verifies if the following  minimum metadata are present in the ontology metadata [... definition omitted for simplicity...]""" ;
+  dcterms:identifier "https://w3id.org/foops/test/OM1" ;
+  dcterms:title "Ontology minimum metadata is declared" ;
+  rdfs:isDefinedBy "https://oeg-upm.github.io/fair_ontologies/doc/test/OM1/OM1.ttl"^^xsd:anyURI;
+  dcat:landingPage &lt;https://oeg-upm.github.io/fair_ontologies/doc/test/OM1/OM1.html&gt; ;
+  dcat:version "0.0.1";
+  dcat:endpointDescription &lt;https://w3id.org/foops/api&gt; ;
+  dcat:endpointURL &lt;https://w3id.org/foops/api/assess/test/OM1&gt; .         
+    </pre>
+</aside>
+
 <!--
 
 ```turtle
@@ -724,4 +842,6 @@ Finally, we get to the score obtained by running a scoring algorithm. The score 
 ```
 
 </span>
+
+
 
