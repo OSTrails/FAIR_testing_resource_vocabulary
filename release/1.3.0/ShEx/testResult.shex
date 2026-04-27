@@ -1,0 +1,56 @@
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX prov: <http://www.w3.org/ns/prov#>
+PREFIX ftr: <https://w3id.org/ftr#>
+PREFIX dcat: <http://www.w3.org/ns/dcat#>
+PREFIX sio: <http://semanticscience.org/resource/>
+PREFIX dcterms: <http://purl.org/dc/terms/>
+PREFIX adms: <http://www.w3.org/ns/adms#>
+PREFIX vivo: <http://vivoweb.org/ontology/core#>
+PREFIX doap: <http://usefulinc.com/ns/doap#>
+PREFIX dqv: <http://www.w3.org/ns/dqv#>
+PREFIX vcard: <http://www.w3.org/2006/vcard/ns#>
+PREFIX : <http://www.example.org/me#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX dpv: <https://w3id.org/dpv#>
+
+:testShape IRI {
+   a [ ftr:Test ] ;
+   a [ dcat:DataService ] ? 
+}
+
+:entityShape IRI {
+   a [ prov:Entity ] ;
+   dcterms:identifier xsd:string *
+}
+
+:testResultShape IRI {
+   a [ ftr:TestResult ] ;
+   dcterms:identifier xsd:string ;
+   dcterms:title LITERAL ;
+   dcterms:description LITERAL ;
+   dcterms:license IRI ;
+   prov:value LITERAL ;
+   ftr:log LITERAL ;
+   ftr:completion xsd:integer * ;
+   ftr:affectedElements IRI * ;
+   ftr:outputFromTest @:testShape ;
+   ftr:assessmentTarget @:entityShape ;
+   prov:wasGeneratedBy @:testExecutionActivityShape * ;
+   ftr:suggestion @:guidanceShape +
+}
+
+:testExecutionActivityShape IRI {
+   a [ ftr:TestExecutionActivity ] ;
+   prov:used @:entityShape ? ;
+   prov:wasAssociatedWith @:testShape * ;
+   prov:endedAtTime xsd:dateTime
+}
+
+
+:guidanceShape IRI {
+   a [ ftr:GuidanceContext ]
+   dcterms:title LITERAL ;
+   dcterms:description LITERAL ;
+   sio:SIO_000339 IRI *
+}

@@ -1,0 +1,61 @@
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX prov: <http://www.w3.org/ns/prov#>
+PREFIX ftr: <https://w3id.org/ftr#>
+PREFIX dcat: <http://www.w3.org/ns/dcat#>
+PREFIX sio: <http://semanticscience.org/resource/>
+PREFIX dcterms: <http://purl.org/dc/terms/>
+PREFIX adms: <http://www.w3.org/ns/adms#>
+PREFIX vivo: <http://vivoweb.org/ontology/core#>
+PREFIX doap: <http://usefulinc.com/ns/doap#>
+PREFIX dqv: <http://www.w3.org/ns/dqv#>
+PREFIX vcard: <http://www.w3.org/2006/vcard/ns#>
+PREFIX : <http://www.example.org/me#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX dpv: <https://w3id.org/dpv#>
+
+:organizationShape IRI {
+   vcard:organization-name LITERAL * ;
+   a [vcard:Organization]
+}
+
+:individualShape IRI {
+   vcard:fn LITERAL * ;
+   vcard:hasEmail IRI * ;
+   a [vcard:Individual]
+}
+
+:metricShape IRI {
+	a [ftr:Metric] ;
+	dcterms:identifier xsd:string ;
+	dcterms:title LITERAL ;
+	dcterms:description LITERAL ;
+	dcat:keyword LITERAL * ;
+	dqv:inDimension @dimensionShape * ;
+	vivo:abbreviation LITERAL * ;
+	dcat:landingPage IRI * ;
+	dcat:version LITERAL ;
+	ftr:applicationArea IRI * ;
+	ftr:status LITERAL * ;
+	ftr:hasBenchmark @:benchmarkShape * ;
+    dcat:contactPoint @:organizationShape or @:individualShape + ;
+    dcterms:creator @:organizationShape or @:individualShape * ;
+	dcat:publisher @:organizationShape or @:individualShape * ;
+	ftr:hasPositiveValidation IRI * ;
+	ftr:hasNegativeValidation IRI * ;
+	ftr:supportedBy IRI * ;
+	dpv:isApplicableFor IRI * ;
+	sio:SIO_000234 @:testShape *
+}
+
+:benchmarkShape IRI {
+	a [ftr:Benchmark]
+}
+
+:dimensionShape IRI {
+	a [dqv:Dimension]
+}
+
+:testShape IRI {
+    a [ ftr:Test ]
+}

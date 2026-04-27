@@ -1,0 +1,40 @@
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX prov: <http://www.w3.org/ns/prov#>
+PREFIX ftr: <https://w3id.org/ftr#>
+PREFIX dcat: <http://www.w3.org/ns/dcat#>
+PREFIX sio: <http://semanticscience.org/resource/>
+PREFIX dcterms: <http://purl.org/dc/terms/>
+PREFIX adms: <http://www.w3.org/ns/adms#>
+PREFIX vivo: <http://vivoweb.org/ontology/core#>
+PREFIX doap: <http://usefulinc.com/ns/doap#>
+PREFIX dqv: <http://www.w3.org/ns/dqv#>
+PREFIX vcard: <http://www.w3.org/2006/vcard/ns#>
+PREFIX : <http://www.example.org/me#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX dpv: <https://w3id.org/dpv#>
+
+:benchmarkScoreShape IRI {
+    a [ ftr:BenchmarkScore ] ;
+    prov:value xsd:any ;
+    ftr:log LITERAL ;
+    ftr:outputFromAlgorithm @:scoringAlgorithmShape ;
+    ftr:scoredTestResults @:testResultSetShape + ;
+    prov:wasGeneratedBy @:scoringAlgorithmActivityShape *
+}
+
+:scoringAlgorithmShape IRI {
+    a [ ftr:ScoringAlgorithm ] ;
+    a [ dcat:DataService ] ?
+}
+
+:testResultSetShape{
+   a [ftr:TestResultSet]
+}
+
+:scoringAlgorithmActivityShape IRI {
+   a [ ftr:ScoringAlgorithmActivity ] ;
+   prov:used @:testResultSetShape * ;
+   prov:wasAssociatedWith @:scoringAlgorithmShape * ;
+   prov:endedAtTime xsd:dateTime
+}

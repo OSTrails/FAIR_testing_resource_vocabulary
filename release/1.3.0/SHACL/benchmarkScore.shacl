@@ -1,0 +1,97 @@
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix ftr: <https://w3id.org/ftr#> .
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix sio: <http://semanticscience.org/resource/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix adms: <http://www.w3.org/ns/adms#> .
+@prefix vivo: <http://vivoweb.org/ontology/core#> .
+@prefix doap: <http://usefulinc.com/ns/doap#> .
+@prefix dqv: <http://www.w3.org/ns/dqv#> .
+@prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix : <http://www.example.org/me#> .
+@prefix dpv: <https://w3id.org/dpv#> .
+
+:BenchmarkScoreShape
+    a sh:NodeShape ;
+    sh:nodeKind sh:IRI ;
+    sh:targetClass ftr:BenchmarkScore ;
+
+    sh:property [
+        sh:path prov:value ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+    ] ;
+
+    sh:property [
+        sh:path ftr:log ;
+        sh:or (
+            [ sh:datatype xsd:string ]
+            [ sh:datatype rdf:langString ]
+        ) ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+    ] ;
+
+    sh:property [
+        sh:path ftr:outputFromAlgorithm ;
+        sh:node :ScoringAlgorithmShape ;
+        sh:minCount 1 ;
+    ] ;
+
+    sh:property [
+        sh:path ftr:scoredTestResults ;
+        sh:node :TestResultSetShape ;
+        sh:minCount 1 ;
+    ] ;
+
+    sh:property [
+        sh:path prov:wasGeneratedBy ;
+        sh:node :ScoringAlgorithmActivityShape ;
+    ] .
+
+:ScoringAlgorithmShape
+    a sh:NodeShape ;
+    sh:nodeKind sh:IRI ;
+    sh:targetClass ftr:ScoringAlgorithm ;
+
+    sh:property [
+        sh:path rdf:type ;
+        sh:hasValue ftr:ScoringAlgorithm ;
+        sh:minCount 1 ;
+    ] ;
+
+    sh:property [
+        sh:path rdf:type ;
+        sh:hasValue dcat:DataService ;
+    ] .
+
+:TestResultSetShape
+    a sh:NodeShape ;
+    sh:nodeKind sh:IRI ;
+    sh:targetClass ftr:TestResultSet .
+
+:ScoringAlgorithmActivityShape
+    a sh:NodeShape ;
+    sh:nodeKind sh:IRI ;
+    sh:targetClass ftr:ScoringAlgorithmActivity ;
+
+    sh:property [
+        sh:path prov:used ;
+        sh:node :TestResultSetShape ;
+    ] ;
+
+    sh:property [
+        sh:path prov:wasAssociatedWith ;
+        sh:node :ScoringAlgorithmShape ;
+    ] ;
+
+    sh:property [
+        sh:path prov:endedAtTime ;
+        sh:datatype xsd:dateTime ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+    ] .
