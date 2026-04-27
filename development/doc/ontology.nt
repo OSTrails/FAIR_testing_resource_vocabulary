@@ -364,6 +364,13 @@ _:genid7 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/20
 <https://w3id.org/ftr#completion> <http://www.w3.org/2000/01/rdf-schema#comment> "Percentage value of completion of a test result for a given resource. For example, if the test passes, completion is expected to be 1. Otherwise, completion is a value between 0..1."@en .
 <https://w3id.org/ftr#completion> <http://www.w3.org/2000/01/rdf-schema#label> "completion"@en .
 # 
+# https://w3id.org/ftr#hasIndeterminateExpectation
+<https://w3id.org/ftr#hasIndeterminateExpectation> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<https://w3id.org/ftr#hasIndeterminateExpectation> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/ftr#Metric> .
+<https://w3id.org/ftr#hasIndeterminateExpectation> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#anyURI> .
+<https://w3id.org/ftr#hasIndeterminateExpectation> <http://www.w3.org/2000/01/rdf-schema#comment> "Property that links to an example resource is expected to produce an indeterminate result (an indeterminate example)"@en .
+<https://w3id.org/ftr#hasIndeterminateExpectation> <http://www.w3.org/2000/01/rdf-schema#label> "has indeterminate expectation"@en .
+# 
 # https://w3id.org/ftr#hasIndeterminateValidation
 <https://w3id.org/ftr#hasIndeterminateValidation> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
 <https://w3id.org/ftr#hasIndeterminateValidation> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/ftr#Test> .
@@ -376,18 +383,13 @@ _:genid7 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/20
 <https://w3id.org/ftr#hasNegativeExpectation> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/ftr#Metric> .
 <https://w3id.org/ftr#hasNegativeExpectation> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#anyURI> .
 <https://w3id.org/ftr#hasNegativeExpectation> <http://www.w3.org/2000/01/rdf-schema#comment> "Property that links to a resource that is not expected to pass the metric (a negative example)"@en .
-<https://w3id.org/ftr#hasNegativeExpectation> <http://www.w3.org/2000/01/rdf-schema#comment> "Property that links to an example resource is expected to produce an indeterminate result (an indeterminate example)"@en .
-<https://w3id.org/ftr#hasNegativeExpectation> <http://www.w3.org/2000/01/rdf-schema#label> "has indeterminate expectation"@en .
 <https://w3id.org/ftr#hasNegativeExpectation> <http://www.w3.org/2000/01/rdf-schema#label> "has negative expectation"@en .
 # 
 # https://w3id.org/ftr#hasNegativeValidation
 <https://w3id.org/ftr#hasNegativeValidation> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
 <https://w3id.org/ftr#hasNegativeValidation> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/ftr#Metric> .
-<https://w3id.org/ftr#hasNegativeValidation> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/ftr#Test> .
 <https://w3id.org/ftr#hasNegativeValidation> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#anyURI> .
 <https://w3id.org/ftr#hasNegativeValidation> <http://www.w3.org/2000/01/rdf-schema#comment> "Property that links to a resource that does not pass the metric (a negative example)"@en .
-<https://w3id.org/ftr#hasNegativeValidation> <http://www.w3.org/2000/01/rdf-schema#comment> "Property that links to a resource that does not pass the test (a negative example)"@en .
-<https://w3id.org/ftr#hasNegativeValidation> <http://www.w3.org/2000/01/rdf-schema#label> "has negative example"@en .
 <https://w3id.org/ftr#hasNegativeValidation> <http://www.w3.org/2000/01/rdf-schema#label> "has negative validation"@en .
 # 
 # https://w3id.org/ftr#hasPositiveExpectation

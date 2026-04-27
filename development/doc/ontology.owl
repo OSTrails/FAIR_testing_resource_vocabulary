@@ -658,6 +658,18 @@
     
 
 
+    <!-- https://w3id.org/ftr#hasIndeterminateExpectation -->
+
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/ftr#hasIndeterminateExpectation">
+        <rdfs:domain rdf:resource="https://w3id.org/ftr#Metric"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#anyURI"/>
+        <rdfs:comment xml:lang="en">Property that links to an example resource is expected to produce an indeterminate result (an indeterminate example)</rdfs:comment>
+        <rdfs:label xml:lang="en">has indeterminate expectation</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
     <!-- https://w3id.org/ftr#hasIndeterminateValidation -->
 
 
@@ -677,8 +689,6 @@
         <rdfs:domain rdf:resource="https://w3id.org/ftr#Metric"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#anyURI"/>
         <rdfs:comment xml:lang="en">Property that links to a resource that is not expected to pass the metric (a negative example)</rdfs:comment>
-        <rdfs:comment xml:lang="en">Property that links to an example resource is expected to produce an indeterminate result (an indeterminate example)</rdfs:comment>
-        <rdfs:label xml:lang="en">has indeterminate expectation</rdfs:label>
         <rdfs:label xml:lang="en">has negative expectation</rdfs:label>
     </owl:DatatypeProperty>
     
@@ -689,11 +699,8 @@
 
     <owl:DatatypeProperty rdf:about="https://w3id.org/ftr#hasNegativeValidation">
         <rdfs:domain rdf:resource="https://w3id.org/ftr#Metric"/>
-        <rdfs:domain rdf:resource="https://w3id.org/ftr#Test"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#anyURI"/>
         <rdfs:comment xml:lang="en">Property that links to a resource that does not pass the metric (a negative example)</rdfs:comment>
-        <rdfs:comment xml:lang="en">Property that links to a resource that does not pass the test (a negative example)</rdfs:comment>
-        <rdfs:label xml:lang="en">has negative example</rdfs:label>
         <rdfs:label xml:lang="en">has negative validation</rdfs:label>
     </owl:DatatypeProperty>
     

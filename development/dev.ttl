@@ -387,7 +387,7 @@ prov:value rdf:type owl:DatatypeProperty ;
                        rdfs:domain :Metric ;
                        rdfs:range xsd:anyURI ;
                        rdfs:comment "Property that links to a resource that does not pass the metric (a negative example)"@en ;
-                       rdfs:label "has negative example"@en .
+                       rdfs:label "has negative validation"@en .
 
 
 ###  https://w3id.org/ftr#hasPositiveValidation
@@ -397,13 +397,6 @@ prov:value rdf:type owl:DatatypeProperty ;
                        rdfs:comment "Property that links to a resource that may be used to pass the metric (a positive example)"@en ;
                        rdfs:label "has positive validation"@en .
 
-###  https://w3id.org/ftr#hasNegativeValidation
-:hasNegativeValidation rdf:type owl:DatatypeProperty ;
-                       rdfs:domain :Test ;
-                       rdfs:range xsd:anyURI ;
-                       rdfs:comment "Property that links to a resource that does not pass the test (a negative example)"@en ;
-                       rdfs:label "has negative validation"@en .
-
 ###  https://w3id.org/ftr#hasIndeterminateValidation
 :hasIndeterminateValidation rdf:type owl:DatatypeProperty ;
                        rdfs:domain :Test ;
@@ -411,19 +404,19 @@ prov:value rdf:type owl:DatatypeProperty ;
                        rdfs:comment "Property that links to a resource that may be used to pass the test (an indeterminate example)"@en ;
                        rdfs:label "has indeterminate validation"@en .
 
+###  https://w3id.org/ftr#hasIndeterminateExpectation
+:hasIndeterminateExpectation rdf:type owl:DatatypeProperty ;
+                       rdfs:domain :Metric ;
+                       rdfs:range xsd:anyURI ;
+                       rdfs:comment "Property that links to an example resource is expected to produce an indeterminate result (an indeterminate example)"@en ;
+                       rdfs:label "has indeterminate expectation"@en .
+
 ###  https://w3id.org/ftr#hasNegativeExpectation
 :hasNegativeExpectation rdf:type owl:DatatypeProperty ;
                        rdfs:domain :Metric ;
                        rdfs:range xsd:anyURI ;
                        rdfs:comment "Property that links to a resource that is not expected to pass the metric (a negative example)"@en ;
                        rdfs:label "has negative expectation"@en .
-
-###  https://w3id.org/ftr#hasIndeterminateExpectation
-:hasNegativeExpectation rdf:type owl:DatatypeProperty ;
-                       rdfs:domain :Metric ;
-                       rdfs:range xsd:anyURI ;
-                       rdfs:comment "Property that links to an example resource is expected to produce an indeterminate result (an indeterminate example)"@en ;
-                       rdfs:label "has indeterminate expectation"@en .
 
 ###  https://w3id.org/ftr#hasPositiveExpectation
 :hasPositiveExpectation rdf:type owl:DatatypeProperty ;

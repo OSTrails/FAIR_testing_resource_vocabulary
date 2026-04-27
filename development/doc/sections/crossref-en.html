@@ -247,7 +247,7 @@ This section provides details for each class and property defined by FAIR Testin
     is in domain of
    </dt>
    <dd>
-    <a href="#applicationArea" title="https://w3id.org/ftr#applicationArea">application area</a> <sup class="type-dp" title="data property">dp</sup>, <a href="#hasBenchmark" title="https://w3id.org/ftr#hasBenchmark">has benchmark</a> <sup class="type-op" title="object property">op</sup>, <a href="#hasNegativeExpectation" title="https://w3id.org/ftr#hasNegativeExpectation">has indeterminate expectation</a> <sup class="type-dp" title="data property">dp</sup>, <a href="#hasNegativeValidation" title="https://w3id.org/ftr#hasNegativeValidation">has negative example</a> <sup class="type-dp" title="data property">dp</sup>, <a href="#hasPositiveExpectation" title="https://w3id.org/ftr#hasPositiveExpectation">has positive expectation</a> <sup class="type-dp" title="data property">dp</sup>, <a href="#hasPositiveValidation" title="https://w3id.org/ftr#hasPositiveValidation">has positive validation</a> <sup class="type-dp" title="data property">dp</sup>, <a href="#supportedBy" title="https://w3id.org/ftr#supportedBy">supported by</a> <sup class="type-op" title="object property">op</sup>
+    <a href="#applicationArea" title="https://w3id.org/ftr#applicationArea">application area</a> <sup class="type-dp" title="data property">dp</sup>, <a href="#hasBenchmark" title="https://w3id.org/ftr#hasBenchmark">has benchmark</a> <sup class="type-op" title="object property">op</sup>, <a href="#hasIndeterminateExpectation" title="https://w3id.org/ftr#hasIndeterminateExpectation">has indeterminate expectation</a> <sup class="type-dp" title="data property">dp</sup>, <a href="#hasNegativeExpectation" title="https://w3id.org/ftr#hasNegativeExpectation">has negative expectation</a> <sup class="type-dp" title="data property">dp</sup>, <a href="#hasNegativeValidation" title="https://w3id.org/ftr#hasNegativeValidation">has negative validation</a> <sup class="type-dp" title="data property">dp</sup>, <a href="#hasPositiveExpectation" title="https://w3id.org/ftr#hasPositiveExpectation">has positive expectation</a> <sup class="type-dp" title="data property">dp</sup>, <a href="#hasPositiveValidation" title="https://w3id.org/ftr#hasPositiveValidation">has positive validation</a> <sup class="type-dp" title="data property">dp</sup>, <a href="#supportedBy" title="https://w3id.org/ftr#supportedBy">supported by</a> <sup class="type-op" title="object property">op</sup>
    </dd>
    <dt>
     is in range of
@@ -335,7 +335,7 @@ This section provides details for each class and property defined by FAIR Testin
     is in domain of
    </dt>
    <dd>
-    <a href="#hasIndeterminateValidation" title="https://w3id.org/ftr#hasIndeterminateValidation">has indeterminate validation</a> <sup class="type-dp" title="data property">dp</sup>, <a href="#hasNegativeValidation" title="https://w3id.org/ftr#hasNegativeValidation">has negative example</a> <sup class="type-dp" title="data property">dp</sup>, <a href="#supportedBy" title="https://w3id.org/ftr#supportedBy">supported by</a> <sup class="type-op" title="object property">op</sup>
+    <a href="#hasIndeterminateValidation" title="https://w3id.org/ftr#hasIndeterminateValidation">has indeterminate validation</a> <sup class="type-dp" title="data property">dp</sup>, <a href="#supportedBy" title="https://w3id.org/ftr#supportedBy">supported by</a> <sup class="type-op" title="object property">op</sup>
    </dd>
    <dt>
     is in range of
@@ -989,9 +989,10 @@ This section provides details for each class and property defined by FAIR Testin
   <li><a href="#completion" title="https://w3id.org/ftr#completion">completion</a></li>
   <li><a href="#http://purl.org/dc/terms/description" title="http://purl.org/dc/terms/description">description</a></li>
   <li><a href="#http://www.w3.org/ns/prov#value" title="http://www.w3.org/ns/prov#value">ended at time</a></li>
-  <li><a href="#hasNegativeExpectation" title="https://w3id.org/ftr#hasNegativeExpectation">has indeterminate expectation</a></li>
+  <li><a href="#hasIndeterminateExpectation" title="https://w3id.org/ftr#hasIndeterminateExpectation">has indeterminate expectation</a></li>
   <li><a href="#hasIndeterminateValidation" title="https://w3id.org/ftr#hasIndeterminateValidation">has indeterminate validation</a></li>
-  <li><a href="#hasNegativeValidation" title="https://w3id.org/ftr#hasNegativeValidation">has negative example</a></li>
+  <li><a href="#hasNegativeExpectation" title="https://w3id.org/ftr#hasNegativeExpectation">has negative expectation</a></li>
+  <li><a href="#hasNegativeValidation" title="https://w3id.org/ftr#hasNegativeValidation">has negative validation</a></li>
   <li><a href="#hasPositiveExpectation" title="https://w3id.org/ftr#hasPositiveExpectation">has positive expectation</a></li>
   <li><a href="#hasPositiveValidation" title="https://w3id.org/ftr#hasPositiveValidation">has positive validation</a></li>
   <li><a href="#http://purl.org/dc/terms/identifier" title="http://purl.org/dc/terms/identifier">identifier</a></li>
@@ -1109,11 +1110,11 @@ This section provides details for each class and property defined by FAIR Testin
    </dd>
   </dl>
  </div>
- <div class="entity" id="hasNegativeExpectation">
+ <div class="entity" id="hasIndeterminateExpectation">
   <h3>has indeterminate expectation<sup class="type-dp" title="data property">dp</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a> </span></h3>
-  <p><strong>IRI:</strong> https://w3id.org/ftr#hasNegativeExpectation</p>
+  <p><strong>IRI:</strong> https://w3id.org/ftr#hasIndeterminateExpectation</p>
   <div class="comment">
-   <span class="markdown">Property that links to a resource that is not expected to pass the metric (a negative example)</span>
+   <span class="markdown">Property that links to an example resource is expected to produce an indeterminate result (an indeterminate example)</span>
   </div>
   <div class="description">
    <dl>
@@ -1155,8 +1156,31 @@ This section provides details for each class and property defined by FAIR Testin
    </dl>
   </div>
  </div>
+ <div class="entity" id="hasNegativeExpectation">
+  <h3>has negative expectation<sup class="type-dp" title="data property">dp</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/ftr#hasNegativeExpectation</p>
+  <div class="comment">
+   <span class="markdown">Property that links to a resource that is not expected to pass the metric (a negative example)</span>
+  </div>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#Metric" title="https://w3id.org/ftr#Metric">Metric</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="http://www.w3.org/2001/XMLSchema#anyURI" target="_blank" title="http://www.w3.org/2001/XMLSchema#anyURI">any U R I</a>
+    </dd>
+   </dl>
+  </div>
+ </div>
  <div class="entity" id="hasNegativeValidation">
-  <h3>has negative example<sup class="type-dp" title="data property">dp</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a> </span></h3>
+  <h3>has negative validation<sup class="type-dp" title="data property">dp</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a> </span></h3>
   <p><strong>IRI:</strong> https://w3id.org/ftr#hasNegativeValidation</p>
   <div class="comment">
    <span class="markdown">Property that links to a resource that does not pass the metric (a negative example)</span>
@@ -1168,9 +1192,6 @@ This section provides details for each class and property defined by FAIR Testin
     </dt>
     <dd>
      <a href="#Metric" title="https://w3id.org/ftr#Metric">Metric</a> <sup class="type-c" title="class">c</sup>
-    </dd>
-    <dd>
-     <a href="#Test" title="https://w3id.org/ftr#Test">Test</a> <sup class="type-c" title="class">c</sup>
     </dd>
     <dt>
      has range

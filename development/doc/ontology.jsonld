@@ -999,6 +999,23 @@
     "@id" : "https://w3id.org/ftr#Benchmark"
   } ]
 }, {
+  "@id" : "https://w3id.org/ftr#hasIndeterminateExpectation",
+  "@type" : [ "http://www.w3.org/2002/07/owl#DatatypeProperty" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@language" : "en",
+    "@value" : "Property that links to an example resource is expected to produce an indeterminate result (an indeterminate example)"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "https://w3id.org/ftr#Metric"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "en",
+    "@value" : "has indeterminate expectation"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+    "@id" : "http://www.w3.org/2001/XMLSchema#anyURI"
+  } ]
+}, {
   "@id" : "https://w3id.org/ftr#hasIndeterminateValidation",
   "@type" : [ "http://www.w3.org/2002/07/owl#DatatypeProperty" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
@@ -1021,17 +1038,11 @@
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@language" : "en",
     "@value" : "Property that links to a resource that is not expected to pass the metric (a negative example)"
-  }, {
-    "@language" : "en",
-    "@value" : "Property that links to an example resource is expected to produce an indeterminate result (an indeterminate example)"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
     "@id" : "https://w3id.org/ftr#Metric"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
-    "@language" : "en",
-    "@value" : "has indeterminate expectation"
-  }, {
     "@language" : "en",
     "@value" : "has negative expectation"
   } ],
@@ -1044,19 +1055,11 @@
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@language" : "en",
     "@value" : "Property that links to a resource that does not pass the metric (a negative example)"
-  }, {
-    "@language" : "en",
-    "@value" : "Property that links to a resource that does not pass the test (a negative example)"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
     "@id" : "https://w3id.org/ftr#Metric"
-  }, {
-    "@id" : "https://w3id.org/ftr#Test"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
-    "@language" : "en",
-    "@value" : "has negative example"
-  }, {
     "@language" : "en",
     "@value" : "has negative validation"
   } ],
