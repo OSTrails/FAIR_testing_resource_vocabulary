@@ -245,8 +245,8 @@ prov:wasStartedBy rdf:type owl:ObjectProperty ;
 :invokesTest rdf:type owl:ObjectProperty ;
              rdfs:domain :ScoringAlgorithm ;
              rdfs:range :Test ;
-             rdfs:comment "Property used to determine which concrete tests are expected to be invoked by a benchmark scoring algorithm"@en ,
-                          "invokes test"@en .
+             rdfs:comment "Property used to determine which concrete tests are expected to be invoked by a benchmark scoring algorithm"@en ;
+             rdfs:label "invokes test"@en .
 
 
 ###  https://w3id.org/ftr#outputFromAlgorithm
