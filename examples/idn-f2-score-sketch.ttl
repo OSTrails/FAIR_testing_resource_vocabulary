@@ -1,0 +1,187 @@
+# Exploratory IDN mapping to FTR 1.3.0, prepared 2026-11-24.
+# This is a FICTIONAL assessment, not calculator output or a published record.
+# All example.org IRIs, people, timestamps, services and snapshot locations are
+# illustrative. Replace them with governed IDN PID IRIs and captured evidence.
+# Only F2 is assessed: this is NOT an overall FAIR score.
+# Source: definitions/fair.yaml at scores-calculator commit
+# 6de1fcb4afdd78ceb3cbf2ec72f59d883d126f94 (definition version 0.5.0).
+# That source's three F2 requirements carry weights 2, 2 and 3.
+# Proposed ex: properties below are local extensions, not published IDN terms.
+# FTR Test assumes a service; these are proposed service wrappers around the
+# calculator's local query checks, not services that currently exist.
+# Syntax/query checked only; no claim of conformance to upstream SHACL.
+# In particular: upstream shapes require guidance and extra metadata, disagree
+# with the ontology about completion/affectedElements, and refer to an undefined
+# ftr:ScoringAlgorithmActivity. ftr:log has domain TestResult despite appearing
+# on benchmark scores in upstream examples: use dcterms:description there here.
+
+@prefix ex: <https://example.org/idn-score-sketch/> .
+@prefix ftr: <https://w3id.org/ftr#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix dqv: <http://www.w3.org/ns/dqv#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix schema: <https://schema.org/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix sio: <https://semanticscience.org/resource/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# The metadata record is scored; the dataset it describes is a separate object.
+ex:record a prov:Entity, schema:CreativeWork ;
+    schema:name "Example catalogue record"@en ;
+    schema:about ex:dataset ;
+    schema:conditionsOfAccess "Public"@en .
+ex:dataset a schema:Dataset ;
+    schema:name "Example dataset"@en .
+
+# The exact preserved RDF input needs its own IRI, retrievable bytes and checksum
+# in a real assessment. No fictitious checksum is supplied here.
+ex:input-snapshot a prov:Entity ;
+    prov:specializationOf ex:record ;
+    prov:generatedAtTime "2026-11-24T00:00:00Z"^^xsd:dateTime ;
+    dcterms:format "text/turtle" ;
+    schema:contentUrl <https://example.org/archive/input.ttl> ;
+    dcterms:description "Hypothetical closed input graph: the record has title, description and keywords but no qualifying point-of-contact details. The result assertions below are illustrative, not executed against archived bytes."@en .
+
+# Benchmark and metrics describe what is measured; tests describe how.
+ex:benchmark-f2 a ftr:Benchmark ;
+    dcterms:title "IDN FAIR 0.5.0 — F2 subset"@en ;
+    dcterms:source <https://github.com/idn-au/scores-calculator/blob/6de1fcb4afdd78ceb3cbf2ec72f59d883d126f94/definitions/fair.yaml> ;
+    schema:version "0.5.0" ;
+    ftr:hasAssociatedMetric ex:metric-title-description, ex:metric-keywords, ex:metric-contact .
+
+ex:dimension-f2 a dqv:Dimension ;
+    dcterms:title "F2: data are described with rich metadata"@en .
+
+ex:metric-title-description a ftr:Metric ;
+    dcterms:title "Resource title and description is included"@en ;
+    dqv:inDimension ex:dimension-f2 .
+ex:metric-keywords a ftr:Metric ;
+    dcterms:title "Additional descriptive properties are present"@en ;
+    dcterms:description "IDN's operational check requires schema:keywords; it does not validate the keyword values against a controlled vocabulary."@en ;
+    dqv:inDimension ex:dimension-f2 .
+ex:metric-contact a ftr:Metric ;
+    dcterms:title "All recommended descriptive properties are present"@en ;
+    dcterms:description "IDN's check requires title, description, keywords and a pointOfContact attribution with email or telephone."@en ;
+    dqv:inDimension ex:dimension-f2 .
+
+ex:test-title-description a ftr:Test ;
+    sio:SIO_000233 ex:metric-title-description ;
+    ex:maximumPoints 2 ;
+    dcterms:source ex:definitions .
+ex:test-keywords a ftr:Test ;
+    sio:SIO_000233 ex:metric-keywords ;
+    ex:maximumPoints 2 ;
+    dcterms:source ex:definitions .
+ex:test-contact a ftr:Test ;
+    sio:SIO_000233 ex:metric-contact ;
+    ex:maximumPoints 3 ;
+    dcterms:source ex:definitions .
+
+# The plan captures a versioned interpretation of the scoring rules. In a full
+# implementation preserve the SPARQL text, prefixes/bindings, dependency rules,
+# weights and runtime configuration, with stable requirement IDs in the YAML.
+ex:algorithm-f2 a ftr:ScoringAlgorithm, prov:Plan ;
+    dcterms:title "IDN F2 weighted sum"@en ;
+    sio:SIO_000233 ex:benchmark-f2 ;
+    ftr:scoringFunction ex:definitions ;
+    ftr:invokesTest ex:test-title-description, ex:test-keywords, ex:test-contact ;
+    dcterms:description "Award 2 for title/description, 2 for keywords and 3 for the complete descriptive/contact check; sum awarded points. Maximum 7. These F2 checks have no cross-score prerequisites."@en .
+
+ex:definitions a prov:Entity, sio:SIO_000090 ;
+    schema:version "0.5.0" ;
+    prov:hadPrimarySource <https://github.com/idn-au/scores-calculator/blob/6de1fcb4afdd78ceb3cbf2ec72f59d883d126f94/definitions/fair.yaml> .
+
+# Distinguish a software release (entity) from the executing software agent.
+ex:software-release a prov:Entity, schema:SoftwareSourceCode ;
+    schema:codeRepository <https://github.com/idn-au/scores-calculator> ;
+    schema:version "6de1fcb4afdd78ceb3cbf2ec72f59d883d126f94" ;
+    dcterms:source <https://github.com/idn-au/scores-calculator/blob/6de1fcb4afdd78ceb3cbf2ec72f59d883d126f94/js/src/score.ts> .
+ex:executor a prov:SoftwareAgent ;
+    schema:name "Hypothetical IDN scoring service"@en ;
+    dcterms:source ex:software-release .
+ex:requester a prov:Person ;
+    schema:name "Example assessment requester"@en .
+ex:initiator a prov:Role ; rdfs:label "Assessment requester"@en .
+ex:execution-role a prov:Role ; rdfs:label "Scoring software"@en .
+
+# Test execution and aggregation are separate provenance activities. This sketch
+# groups three tests into one execution; separate activities permit per-test
+# timings, agents and evidence when required. No unrecorded human is inferred.
+ex:test-run a ftr:TestExecutionActivity ;
+    prov:startedAtTime "2026-11-24T00:00:01Z"^^xsd:dateTime ;
+    prov:endedAtTime "2026-11-24T00:00:02Z"^^xsd:dateTime ;
+    prov:used ex:input-snapshot, ex:definitions, ex:software-release ;
+    prov:wasAssociatedWith ex:executor, ex:requester ;
+    prov:qualifiedAssociation [ a prov:Association ;
+        prov:agent ex:executor ; prov:hadRole ex:execution-role ;
+        prov:hadPlan ex:algorithm-f2
+    ], [ a prov:Association ;
+        prov:agent ex:requester ; prov:hadRole ex:initiator
+    ] .
+
+ex:results a ftr:TestResultSet ;
+    ftr:assessmentTarget ex:record ;
+    prov:wasDerivedFrom ex:input-snapshot ;
+    prov:wasGeneratedBy ex:test-run ;
+    prov:hadMember ex:result-title-description, ex:result-keywords, ex:result-contact .
+
+ex:result-title-description a ftr:TestResult ;
+    ftr:assessmentTarget ex:record ;
+    ftr:outputFromTest ex:test-title-description ;
+    prov:wasGeneratedBy ex:test-run ;
+    prov:wasDerivedFrom ex:input-snapshot ;
+    prov:value "pass" ;
+    ex:outcome ex:pass ; ex:pointsAwarded 2 ;
+    ftr:log "Hypothetical ASK result: true; title and description present." .
+ex:result-keywords a ftr:TestResult ;
+    ftr:assessmentTarget ex:record ;
+    ftr:outputFromTest ex:test-keywords ;
+    prov:wasGeneratedBy ex:test-run ;
+    prov:wasDerivedFrom ex:input-snapshot ;
+    prov:value "pass" ;
+    ex:outcome ex:pass ; ex:pointsAwarded 2 ;
+    ftr:log "Hypothetical ASK result: true; a keyword value is present." .
+ex:result-contact a ftr:TestResult ;
+    ftr:assessmentTarget ex:record ;
+    ftr:outputFromTest ex:test-contact ;
+    prov:wasGeneratedBy ex:test-run ;
+    prov:wasDerivedFrom ex:input-snapshot ;
+    prov:value "fail" ;
+    ex:outcome ex:fail ; ex:pointsAwarded 0 ;
+    ftr:log "Hypothetical ASK result: false; no qualifying contact details in the input graph. This does not assert that no contact exists in the world." .
+
+ex:aggregation a prov:Activity ;
+    prov:used ex:results, ex:algorithm-f2, ex:definitions, ex:software-release ;
+    prov:wasAssociatedWith ex:executor ;
+    prov:qualifiedAssociation [ a prov:Association ;
+        prov:agent ex:executor ; prov:hadRole ex:execution-role ;
+        prov:hadPlan ex:algorithm-f2
+    ] ;
+    prov:startedAtTime "2026-11-24T00:00:02Z"^^xsd:dateTime ;
+    prov:endedAtTime "2026-11-24T00:00:03Z"^^xsd:dateTime .
+
+ex:score-f2 a ftr:BenchmarkScore, prov:Entity ;
+    dcterms:title "Illustrative F2 score: 4 of 7 points"@en ;
+    prov:value 4 ;
+    ex:maximumPoints 7 ;
+    ftr:outputFromAlgorithm ex:algorithm-f2 ;
+    ftr:scoredTestResults ex:results ;
+    dqv:computedOn ex:record ;
+    prov:wasGeneratedBy ex:aggregation ;
+    prov:wasAttributedTo ex:executor ;
+    prov:generatedAtTime "2026-11-24T00:00:03Z"^^xsd:dateTime ;
+    schema:conditionsOfAccess "Public"@en ;
+    dcterms:description "2 + 2 + 0 = 4 of 7 possible points. Assesses the IDN F2 operational checks on this metadata input, not overall FAIRness."@en .
+
+# Proposed controlled outcomes: keep prov:value for FTR compatibility and add an
+# IRI-valued property. ftr:status means active/deprecated, NOT test outcome.
+# Error, indeterminate and prerequisite-blocked need distinct future concepts,
+# with explicit rules for whether they count in the score's denominator.
+ex:outcomes a skos:ConceptScheme ; skos:prefLabel "Example test outcomes"@en .
+ex:pass a skos:Concept ; skos:inScheme ex:outcomes ; skos:prefLabel "Pass"@en .
+ex:fail a skos:Concept ; skos:inScheme ex:outcomes ; skos:prefLabel "Fail"@en .
+ex:outcome a rdf:Property ; rdfs:label "Controlled test outcome"@en ; rdfs:range skos:Concept .
+ex:pointsAwarded a rdf:Property ; rdfs:label "Points awarded"@en ; rdfs:range xsd:integer .
+ex:maximumPoints a rdf:Property ; rdfs:label "Maximum possible points"@en ; rdfs:range xsd:integer .

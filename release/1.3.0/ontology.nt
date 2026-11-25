@@ -630,8 +630,8 @@ _:genid7 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/20
 # https://orcid.org/0000-0002-7702-4495
 <https://orcid.org/0000-0002-7702-4495> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
 <https://orcid.org/0000-0002-7702-4495> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://xmlns.com/foaf/0.1/Person> .
-<https://orcid.org/0000-0002-7702-4495> <http://www.w3.org/ns/org#memberOf> <https://eng.ox.ac.uk/#this> .
-<https://orcid.org/0000-0002-7702-4495> <http://xmlns.com/foaf/0.1/name> "Allyson Lyster"@en .
+<https://orcid.org/0000-0002-7702-4495> <http://www.w3.org/ns/org#memberOf> <https://oerc.ox.ac.uk#this> .
+<https://orcid.org/0000-0002-7702-4495> <http://xmlns.com/foaf/0.1/name> "Allyson Lister"@en .
 # 
 # https://orcid.org/0000-0002-8876-7606
 <https://orcid.org/0000-0002-8876-7606> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
@@ -681,7 +681,12 @@ _:genid7 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/20
 <https://www.upm.es#this> <http://xmlns.com/foaf/0.1/homepage> "https://www.upm.es" .
 <https://www.upm.es#this> <http://xmlns.com/foaf/0.1/name> "Universidad Politécnica de Madrid" .
 # 
-# 
+# https://oerc.ox.ac.uk#this
+<https://oerc.ox.ac.uk#this> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
+<https://oerc.ox.ac.uk#this> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://xmlns.com/foaf/0.1/Organization> .
+<https://oerc.ox.ac.uk#this> <http://xmlns.com/foaf/0.1/homepage> "https://oerc.ox.ac.uk" .
+<https://oerc.ox.ac.uk#this> <http://xmlns.com/foaf/0.1/name> "Oxford e-Research Centre" .
+
 # 
 # #################################################################
 # #
