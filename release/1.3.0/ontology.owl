@@ -1044,10 +1044,10 @@ Algorithms may specify the exact set of tests which are to be run by the assessm
     <!-- https://eng.ox.ac.uk#this -->
 
 
-    <owl:NamedIndividual rdf:about="https://eng.ox.ac.uk#this">
+    <owl:NamedIndividual rdf:about="https://oerc.ox.ac.uk#this">
         <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Organization"/>
-        <foaf:homepage>https://eng.ox.ac.uk</foaf:homepage>
-        <foaf:name>University of Oxford</foaf:name>
+        <foaf:homepage>https://oerc.ox.ac.uk</foaf:homepage>
+        <foaf:name>Oxford e-Research Centre</foaf:name>
     </owl:NamedIndividual>
     
 
@@ -1145,8 +1145,8 @@ Algorithms may specify the exact set of tests which are to be run by the assessm
 
     <owl:NamedIndividual rdf:about="https://orcid.org/0000-0002-7702-4495">
         <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
-        <org:memberOf rdf:resource="https://eng.ox.ac.uk/#this"/>
-        <foaf:name xml:lang="en">Allyson Lyster</foaf:name>
+        <org:memberOf rdf:resource="https://oerc.ox.ac.uk#this"/>
+        <foaf:name xml:lang="en">Allyson Lister</foaf:name>
     </owl:NamedIndividual>
     
 

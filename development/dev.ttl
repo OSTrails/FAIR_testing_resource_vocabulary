@@ -582,10 +582,10 @@ Algorithms may specify the exact set of tests which are to be run by the assessm
                               <http://xmlns.com/foaf/0.1/homepage> "https://informatics.tuwien.ac.at/" ;
                               <http://xmlns.com/foaf/0.1/name> " TU Wien Informatics" .
 
-<https://eng.ox.ac.uk#this> rdf:type owl:NamedIndividual ,
+<https://oerc.ox.ac.uk#this> rdf:type owl:NamedIndividual ,
                                      <http://xmlns.com/foaf/0.1/Organization> ;
-                            <http://xmlns.com/foaf/0.1/homepage> "https://eng.ox.ac.uk" ;
-                            <http://xmlns.com/foaf/0.1/name> "University of Oxford" .
+                            <http://xmlns.com/foaf/0.1/homepage> "https://oerc.ox.ac.uk" ;
+                            <http://xmlns.com/foaf/0.1/name> "Oxford e-Research Centre" .
 
 <https://www.athenarc.gr/#this> rdf:type owl:NamedIndividual ,
                                      <http://xmlns.com/foaf/0.1/Organization> ;
@@ -644,8 +644,8 @@ Algorithms may specify the exact set of tests which are to be run by the assessm
                                         <http://xmlns.com/foaf/0.1/name> "Lukas Arnhold"@en .
 
 <https://orcid.org/0000-0002-7702-4495> rdf:type owl:NamedIndividual , foaf:Person;
-                                        <http://www.w3.org/ns/org#memberOf> <https://eng.ox.ac.uk/#this> ;
-                                        <http://xmlns.com/foaf/0.1/name> "Allyson Lyster"@en .
+                                        <http://www.w3.org/ns/org#memberOf> <https://oerc.ox.ac.uk#this> ;
+                                        <http://xmlns.com/foaf/0.1/name> "Allyson Lister"@en .
 
 <https://orcid.org/0000-0002-0893-8509> rdf:type owl:NamedIndividual , foaf:Person;
                                         <http://www.w3.org/ns/org#memberOf> <https://www.athenarc.gr/#this> ;
